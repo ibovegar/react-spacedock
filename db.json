@@ -1,0 +1,44 @@
+{
+  "spaceships": [
+    {
+      "id": "j5id63sd",
+      "name": "Dragon MKII",
+      "manufacturer": "",
+      "manufactured": 2191,
+      "type": "fighter",
+      "height": 12,
+      "length": 80,
+      "price": 3055565,
+      "upgrades": [],
+      "baseStats": {
+        "mass": 89,
+        "speed": 210,
+        "hull": 70,
+        "shield": 30,
+        "range": 3495,
+        "damage": 800,
+        "manuvrability": 1.2
+      }
+    },
+    {
+      "id": "29heh478",
+      "name": "Cygnia-3SA",
+      "manufacturer": "",
+      "manufactured": 2157,
+      "type": "supply",
+      "height": 219,
+      "length": 456,
+      "price": 4123334,
+      "upgrades": [],
+      "baseStats": {
+        "mass": 329,
+        "speed": 20,
+        "hull": 30,
+        "shield": 10,
+        "range": 400000,
+        "damage": 300,
+        "manuvrability": 0.4
+      }
+    }
+  ]
+}

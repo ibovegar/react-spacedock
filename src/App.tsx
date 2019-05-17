@@ -1,26 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import classes from './App.module.scss';
+import * as API from 'api/spaceship.api';
+import { ISpaceship } from 'models';
 
-const App: React.FC = () => {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// import { SpaceshipStats } from 'components/spaceship';
+import SpaceshipStats from 'components/spaceship/spaceship-stats/spaceship-stats.component';
+
+class App extends Component {
+  state = {
+    spaceships: [],
+  };
+
+  componentDidMount() {
+    API.getAll().then((spaceships: ISpaceship[]) => {
+      this.setState({ spaceships });
+    });
+  }
+
+  render() {
+    const { spaceships } = this.state;
+
+    return (
+      <div className={classes.App}>
+        {spaceships.map((spaceship: ISpaceship) => (
+          <SpaceshipStats
+            key={spaceship.id}
+            baseStats={spaceship.baseStats}
+            upgrades={spaceship.upgrades}
+          />
+        ))}
+      </div>
+    );
+  }
 }
 
 export default App;
