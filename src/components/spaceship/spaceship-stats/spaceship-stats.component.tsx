@@ -6,9 +6,8 @@ interface ISpaceshipStatsProps {
   buffs: IBuffs;
 }
 
-const SpaceshipStats: React.FC<ISpaceshipStatsProps> = props => {
+const SpaceshipStats: React.FC<ISpaceshipStatsProps> = ({ stats, buffs }) => {
   // Only rerender if buffs changes
-  const { buffs, stats } = props;
 
   return (
     <>

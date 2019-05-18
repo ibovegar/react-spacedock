@@ -5,13 +5,13 @@ interface ISpaceshipBuilderProps {
   buffs: IBuffs;
 }
 
-const SpaceshipBuilder: React.FC<ISpaceshipBuilderProps> = props => {
-  const buffKeys = Object.keys(props.buffs);
+const SpaceshipBuilder: React.FC<ISpaceshipBuilderProps> = ({ buffs }) => {
+  const buffKeys = Object.keys(buffs);
 
   return (
     <ul>
       {buffKeys.map(key => (
-        <li key={props.buffs[key].id}>{props.buffs[key].name}</li>
+        <li key={buffs[key].id}>{buffs[key].name}</li>
       ))}
     </ul>
   );
