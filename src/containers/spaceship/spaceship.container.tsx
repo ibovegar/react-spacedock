@@ -1,23 +1,19 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { ISpaceship, IUpgrade } from 'models';
-import * as API from 'api/spaceship.api';
 import * as upgradesAPI from 'api/upgrades.api';
 import { SpaceshipStats } from 'components';
+import { loadSpaceships } from 'store/actions';
 
-export interface ISpaceshipState {
+export interface ISpaceshipProps {
+  isLoading: boolean;
+  loadSpaceships: any;
   spaceships: ISpaceship[];
 }
 
-export default class Spaceship extends React.Component<{}, ISpaceshipState> {
-  state = {
-    spaceships: [],
-  };
-
+class Spaceship extends React.Component<ISpaceshipProps, {}> {
   componentDidMount() {
-    API.getAll().then((spaceships: ISpaceship[]) => {
-      console.log(spaceships);
-      this.setState({ spaceships });
-    });
+    this.props.loadSpaceships();
 
     upgradesAPI.get('drax22').then((upgrades: IUpgrade[]) => {
       console.log(upgrades);
@@ -25,10 +21,11 @@ export default class Spaceship extends React.Component<{}, ISpaceshipState> {
   }
 
   render() {
-    const { spaceships } = this.state;
+    const { spaceships, isLoading } = this.props;
 
     return (
       <>
+        {isLoading}
         {spaceships.map((spaceship: ISpaceship) => (
           <SpaceshipStats
             key={spaceship.id}
@@ -40,3 +37,15 @@ export default class Spaceship extends React.Component<{}, ISpaceshipState> {
     );
   }
 }
+
+const mapStateToProps = (state: any) => ({
+  isLoading: state.spaceships.isLoading,
+  spaceships: state.spaceships.spaceships
+});
+
+const mapDispatchToProps = { loadSpaceships };
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Spaceship);
