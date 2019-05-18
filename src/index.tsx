@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
-import rootReducer from 'store/reducers';
+import rootReducer from 'store';
 import thunk from 'redux-thunk';
 
 import App from './App';
@@ -18,7 +18,7 @@ const composeEnhancers =
 
 const store = createStore(
   rootReducer,
-  composeEnhancers(applyMiddleware(...middleware)),
+  composeEnhancers(applyMiddleware(...middleware))
 );
 
 const app = (

@@ -1,9 +1,11 @@
 import axios, { AxiosResponse } from 'axios';
 import { IUpgrade } from 'models';
 
-export const get = async (id: string): Promise<IUpgrade[]> => {
+const url = process.env.REACT_APP_API_URL;
+
+export const get = async (spaceshipRegistry: string): Promise<IUpgrade[]> => {
   const response: AxiosResponse = await axios.get(
-    `http://localhost:1337/upgrades/${id}`,
+    `${url}/upgrades/${spaceshipRegistry}`
   );
   return response.data.upgrades;
 };
