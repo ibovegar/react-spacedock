@@ -6,6 +6,7 @@ import { ISpaceship, IUpgrade } from 'models';
 
 // import { SpaceshipStats } from 'components/spaceship';
 import SpaceshipStats from 'components/spaceship/spaceship-stats/spaceship-stats.component';
+import Layout from './components/layout/layout.component';
 
 class App extends Component {
   state = {
@@ -27,15 +28,17 @@ class App extends Component {
     const { spaceships } = this.state;
 
     return (
-      <div className={classes.App}>
-        {spaceships.map((spaceship: ISpaceship) => (
-          <SpaceshipStats
-            key={spaceship.id}
-            stats={spaceship.stats}
-            buffs={spaceship.buffs}
-          />
-        ))}
-      </div>
+      <Layout authenticated>
+        <div className={classes.App}>
+          {spaceships.map((spaceship: ISpaceship) => (
+            <SpaceshipStats
+              key={spaceship.id}
+              stats={spaceship.stats}
+              buffs={spaceship.buffs}
+            />
+          ))}
+        </div>
+      </Layout>
     );
   }
 }
