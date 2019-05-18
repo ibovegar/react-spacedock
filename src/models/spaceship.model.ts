@@ -1,4 +1,4 @@
-import { IBaseStats } from './base-stats.model';
+import { IBaseStats, IBuffs } from 'models';
 
 export interface ISpaceship {
   id: string;
@@ -9,6 +9,6 @@ export interface ISpaceship {
   height: number;
   length: number;
   price: number;
-  upgrades: [];
-  baseStats: IBaseStats;
+  stats: IBaseStats;
+  buffs: IBuffs;
 }

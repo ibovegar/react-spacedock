@@ -14,7 +14,7 @@
     "object-literal-sort-keys": false,
     "jsx-boolean-value": [true, "never"],
     "jsx-no-lambda": false,
-    "typedef": [true, "parameter", "property-declaration"],
+    "typedef": [true, "property-declaration"],
     "member-access": false
   }
 }

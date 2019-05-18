@@ -1,6 +1,7 @@
-import { IBaseStats } from './base-stats.model';
-
-export interface IUpgrade extends IBaseStats {
+export interface IUpgrade {
+  id: string;
+  type: string;
   name: string;
   manufacturer: string;
+  gain: number;
 }

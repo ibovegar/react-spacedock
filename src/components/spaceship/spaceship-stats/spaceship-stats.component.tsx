@@ -1,24 +1,37 @@
 import * as React from 'react';
-import { IBaseStats, IUpgrade } from 'models';
+import { IBaseStats, IBuffs } from 'models';
 
 interface ISpaceshipStatsProps {
-  baseStats: IBaseStats;
-  upgrades: IUpgrade[];
+  stats: IBaseStats;
+  buffs: IBuffs;
 }
 
-const SpaceshipStats: React.FunctionComponent<ISpaceshipStatsProps> = props => {
-  const { baseStats } = props;
+const SpaceshipStats: React.FC<ISpaceshipStatsProps> = props => {
+  // Only rerender if buffs changes
+  const { buffs, stats } = props;
 
   return (
-    <ul>
-      <li>Damage: {baseStats.damage}</li>
-      <li>Hull: {baseStats.hull}</li>
-      <li>Manuvrability: {baseStats.manuvrability}</li>
-      <li>Displacement: {baseStats.mass}</li>
-      <li>Range: {baseStats.range}</li>
-      <li>Shield: {baseStats.shield}</li>
-      <li>Speed: {baseStats.speed}</li>
-    </ul>
+    <>
+      <h1>Stats</h1>
+      <ul>
+        <li>
+          Speed: {stats.speed} {buffs.speed && ' + ' + buffs.speed.gain}
+        </li>
+        <li>
+          Shield: {stats.shield} {buffs.shield && ' + ' + buffs.shield.gain}
+        </li>
+        <li>
+          Damage: {stats.damage} {buffs.damage && ' + ' + buffs.damage.gain}
+        </li>
+        <li>
+          Hull: {stats.hull} {buffs.hull && ' + ' + buffs.hull.gain}
+        </li>
+        <li>
+          Manuvrability: {stats.manuvrability}
+          {buffs.manuvrability && ' + ' + buffs.manuvrability.gain}
+        </li>
+      </ul>
+    </>
   );
 };
 

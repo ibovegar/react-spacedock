@@ -18,7 +18,8 @@
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "plugins": [{ "name": "typescript-tslint-plugin" }],
-    "baseUrl": "src"
+    "baseUrl": "src",
+    "suppressImplicitAnyIndexErrors": true
   },
   "include": ["src"]
 }
