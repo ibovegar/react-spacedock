@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react';
+import { Link } from 'react-router-dom';
 
 interface ILayoutProps {
   authenticated: boolean;
@@ -8,7 +9,13 @@ interface ILayoutProps {
 const Layout: React.FC<ILayoutProps> = ({ authenticated, children }) => {
   return (
     <>
-      <header>Header {authenticated}</header>
+      <header>
+        Header {authenticated}
+        <Link to="/">Home</Link>
+        <Link to="/engineering">Engineering</Link>
+        <Link to="/inventory">Inventory</Link>
+        <Link to="/marketplace">Marketplace</Link>
+      </header>
       <aside>Sidenav</aside>
       <main>{children}</main>
     </>
