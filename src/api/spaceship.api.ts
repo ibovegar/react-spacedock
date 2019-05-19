@@ -10,7 +10,7 @@ export const getAll = async (): Promise<ISpaceship[]> => {
 
 export const get = async (spaceshipId: string): Promise<ISpaceship> => {
   const response: AxiosResponse = await axios.get(
-    `${url}/upgrades/${spaceshipId}`
+    `${url}/spaceships/${spaceshipId}`
   );
   return response.data.upgrades;
 };

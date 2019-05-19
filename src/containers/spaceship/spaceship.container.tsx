@@ -1,54 +1,54 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { ISpaceship } from 'models';
-import { SpaceshipStats } from 'components';
-import { loadAllSpaceships } from 'store/spaceships';
+// import { ISpaceship } from 'models';
+// import { SpaceshipStats } from 'components';
+import { loadSpaceship } from 'store/spaceships';
 import { loadUpgrades } from 'store/upgrades';
 import { AppState } from 'store';
+import { RouteComponentProps } from 'react-router-dom';
 
-interface IStateProps {
+interface Props extends RouteComponentProps<MatchParams> {
   isLoading: boolean;
-  spaceships: ISpaceship[];
-}
-
-interface IDispatchProps {
-  loadAllSpaceships: any;
+  // spaceship: ISpaceship;
+  loadSpaceship: any;
   loadUpgrades: any;
 }
 
-type Props = IStateProps & IDispatchProps;
+interface MatchParams {
+  spaceshipId: string;
+}
 
 class Spaceship extends React.Component<Props, {}> {
   componentDidMount() {
-    this.props.loadAllSpaceships();
-    this.props.loadUpgrades('drax22');
+    console.log(this.props.match.params.spaceshipId);
+    this.props.loadSpaceship(this.props.match.params.spaceshipId);
+    // this.props.loadUpgrades('drax22');
   }
 
   render() {
-    const { spaceships, isLoading } = this.props;
+    // const { spaceship, isLoading } = this.props;
+    const { isLoading } = this.props;
 
     return (
       <>
         {isLoading}
-        {spaceships.map((spaceship: ISpaceship) => (
-          <SpaceshipStats
-            key={spaceship.id}
-            stats={spaceship.stats}
-            buffs={spaceship.buffs}
-          />
-        ))}
+        {/* <SpaceshipStats
+          key={spaceship.id}
+          stats={spaceship.stats}
+          buffs={spaceship.buffs}
+        /> */}
       </>
     );
   }
 }
 
 const mapStateToProps = (state: AppState) => ({
-  isLoading: state.spaceships.isLoading,
-  spaceships: state.spaceships.entities
+  isLoading: state.spaceships.isLoading
+  // getSpacesipById selector
 });
 
 const mapDispatchToProps = {
-  loadAllSpaceships,
+  loadSpaceship,
   loadUpgrades
 };
 

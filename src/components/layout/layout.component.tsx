@@ -10,13 +10,16 @@ const Layout: React.FC<ILayoutProps> = ({ authenticated, children }) => {
   return (
     <>
       <header>
-        Header {authenticated}
-        <Link to="/">Home</Link>
-        <Link to="/engineering">Engineering</Link>
-        <Link to="/inventory">Inventory</Link>
-        <Link to="/marketplace">Marketplace</Link>
+        {authenticated && (
+          <>
+            <Link to="/">Home</Link> -{' '}
+            <Link to="/engineering">Engineering</Link> -{' '}
+            <Link to="/inventory">Inventory</Link> -{' '}
+            <Link to="/marketplace">Marketplace</Link>
+          </>
+        )}
       </header>
-      <aside>Sidenav</aside>
+      {/* <aside>Sidenav</aside> */}
       <main>{children}</main>
     </>
   );
