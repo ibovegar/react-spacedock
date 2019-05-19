@@ -1,6 +1,7 @@
-import { ISpaceship } from 'models';
+// import { ISpaceship } from 'models';
 
 export default interface State {
   readonly isLoading: boolean;
-  readonly entities: ISpaceship[];
+  readonly ids: string[];
+  readonly entities: any;
 }

@@ -1,9 +1,11 @@
 import { ActionTypes } from './spaceships.actions';
 import State from './spaceships.interfaces';
 import { ISpaceship } from 'models';
+import { toEntities } from 'utils/helpers';
 
 const initialState: State = {
-  entities: [],
+  entities: {},
+  ids: [],
   isLoading: false
 };
 
@@ -22,7 +24,8 @@ export function reducer(
       return {
         ...state,
         isLoading: false,
-        entities: action.spaceships
+        entities: toEntities(action.spaceships, 'id'),
+        ids: action.spaceships.map((spaceship: ISpaceship) => spaceship.id)
       };
 
     case 'LOAD_ALL_SPACESHIPS_FAILURE':
