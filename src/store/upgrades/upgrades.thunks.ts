@@ -1,9 +1,10 @@
+import { Dispatch } from 'redux';
 import * as actions from './upgrades.actions';
 import * as API from 'api/upgrades.api';
 import { IUpgrade } from 'models';
 
 export const loadUpgrades = (shipRegistry: string) => {
-  return (dispatch: any) => {
+  return (dispatch: Dispatch) => {
     dispatch(actions.loadUpgradesRequest());
 
     API.get(shipRegistry)

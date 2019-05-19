@@ -1,9 +1,10 @@
+import { ISpaceship } from 'models';
+import { Dispatch } from 'redux';
 import * as actions from './spaceships.actions';
 import * as API from 'api/spaceship.api';
-import { ISpaceship } from 'models';
 
 export const loadSpaceships = () => {
-  return (dispatch: any) => {
+  return (dispatch: Dispatch) => {
     dispatch(actions.loadSpaceshipsRequest());
 
     API.getAll()
