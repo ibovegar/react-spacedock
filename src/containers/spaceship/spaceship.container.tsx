@@ -4,15 +4,21 @@ import { ISpaceship } from 'models';
 import { SpaceshipStats } from 'components';
 import { loadSpaceships } from 'store/spaceships';
 import { loadUpgrades } from 'store/upgrades';
+import { AppState } from 'store';
 
-export interface ISpaceshipProps {
+interface IStateProps {
   isLoading: boolean;
-  loadSpaceships: any;
-  loadUpgrades: any;
   spaceships: ISpaceship[];
 }
 
-class Spaceship extends React.Component<ISpaceshipProps, {}> {
+interface IDispatchProps {
+  loadSpaceships: any;
+  loadUpgrades: any;
+}
+
+type Props = IStateProps & IDispatchProps;
+
+class Spaceship extends React.Component<Props, {}> {
   componentDidMount() {
     this.props.loadSpaceships();
     this.props.loadUpgrades('drax22');
@@ -36,7 +42,7 @@ class Spaceship extends React.Component<ISpaceshipProps, {}> {
   }
 }
 
-const mapStateToProps = (state: any) => ({
+const mapStateToProps = (state: AppState) => ({
   isLoading: state.spaceships.isLoading,
   spaceships: state.spaceships.entities
 });
