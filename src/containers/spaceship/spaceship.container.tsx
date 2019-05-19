@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { ISpaceship } from 'models';
 import { SpaceshipStats } from 'components';
-import { loadSpaceships } from 'store/spaceships';
+import { loadAllSpaceships } from 'store/spaceships';
 import { loadUpgrades } from 'store/upgrades';
 import { AppState } from 'store';
 
@@ -12,7 +12,7 @@ interface IStateProps {
 }
 
 interface IDispatchProps {
-  loadSpaceships: any;
+  loadAllSpaceships: any;
   loadUpgrades: any;
 }
 
@@ -20,7 +20,7 @@ type Props = IStateProps & IDispatchProps;
 
 class Spaceship extends React.Component<Props, {}> {
   componentDidMount() {
-    this.props.loadSpaceships();
+    this.props.loadAllSpaceships();
     this.props.loadUpgrades('drax22');
   }
 
@@ -48,7 +48,7 @@ const mapStateToProps = (state: AppState) => ({
 });
 
 const mapDispatchToProps = {
-  loadSpaceships,
+  loadAllSpaceships,
   loadUpgrades
 };
 

@@ -1,5 +1,6 @@
 import { ActionTypes } from './spaceships.actions';
 import State from './spaceships.interfaces';
+import { ISpaceship } from 'models';
 
 const initialState: State = {
   entities: [],
@@ -11,20 +12,41 @@ export function reducer(
   action: ActionTypes
 ): State {
   switch (action.type) {
-    case 'LOAD_SPACESHIPS_REQUEST':
+    case 'LOAD_ALL_SPACESHIPS_REQUEST':
       return {
         ...state,
         isLoading: true
       };
 
-    case 'LOAD_SPACESHIPS_SUCCESS':
+    case 'LOAD_ALL_SPACESHIPS_SUCCESS':
       return {
         ...state,
         isLoading: false,
         entities: action.spaceships
       };
 
-    case 'LOAD_SPACESHIPS_FAILURE':
+    case 'LOAD_ALL_SPACESHIPS_FAILURE':
+      return {
+        ...state,
+        isLoading: false
+      };
+
+    case 'LOAD_SPACESHIP_REQUEST':
+      return {
+        ...state,
+        isLoading: true
+      };
+
+    case 'LOAD_SPACESHIP_SUCCESS':
+      const newSpaceships: ISpaceship[] = [...state.entities, action.spaceship];
+
+      return {
+        ...state,
+        isLoading: false,
+        entities: newSpaceships
+      };
+
+    case 'LOAD_SPACESHIP_FAILURE':
       return {
         ...state,
         isLoading: false
