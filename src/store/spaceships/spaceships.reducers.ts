@@ -1,30 +1,30 @@
 import { ActionTypes } from './spaceships.actions';
-import * as fromInterface from './spaceships.interfaces';
+import State from './spaceships.interfaces';
 
-const initialState: fromInterface.State = {
+const initialState: State = {
   entities: [],
   isLoading: false
 };
 
 export function reducer(
-  state: fromInterface.State = initialState,
-  action: any
-): fromInterface.State {
+  state: State = initialState,
+  action: ActionTypes
+): State {
   switch (action.type) {
-    case ActionTypes.LOAD_SPACESHIPS_REQUEST:
+    case 'LOAD_SPACESHIPS_REQUEST':
       return {
         ...state,
         isLoading: true
       };
 
-    case ActionTypes.LOAD_SPACESHIPS_SUCCESS:
+    case 'LOAD_SPACESHIPS_SUCCESS':
       return {
         ...state,
         isLoading: false,
         entities: action.spaceships
       };
 
-    case ActionTypes.LOAD_SPACESHIPS_FAILURE:
+    case 'LOAD_SPACESHIPS_FAILURE':
       return {
         ...state,
         isLoading: false

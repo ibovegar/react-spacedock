@@ -1,21 +1,22 @@
 import { ISpaceship } from 'models';
 
-export enum ActionTypes {
-  LOAD_SPACESHIPS_REQUEST = 'LOAD_SPACESHIPS_REQUEST',
-  LOAD_SPACESHIPS_SUCCESS = 'LOAD_SPACESHIPS_SUCCESS',
-  LOAD_SPACESHIPS_FAILURE = 'LOAD_SPACESHIPS_FAILURE'
-}
+export type ActionTypes =
+  | { type: 'LOAD_SPACESHIPS_REQUEST' }
+  | { type: 'LOAD_SPACESHIPS_SUCCESS'; spaceships: ISpaceship[] }
+  | { type: 'LOAD_SPACESHIPS_FAILURE'; error: any };
 
-export const loadSpaceshipsRequest = () => ({
-  type: ActionTypes.LOAD_SPACESHIPS_REQUEST
+export const loadSpaceshipsRequest = (): ActionTypes => ({
+  type: 'LOAD_SPACESHIPS_REQUEST'
 });
 
-export const loadSpaceshipsSuccess = (spaceships: ISpaceship[]) => ({
-  type: ActionTypes.LOAD_SPACESHIPS_SUCCESS,
+export const loadSpaceshipsSuccess = (
+  spaceships: ISpaceship[]
+): ActionTypes => ({
+  type: 'LOAD_SPACESHIPS_SUCCESS',
   spaceships
 });
 
-export const loadSpaceshipsFailure = (error: any) => ({
-  type: ActionTypes.LOAD_SPACESHIPS_FAILURE,
+export const loadSpaceshipsFailure = (error: any): ActionTypes => ({
+  type: 'LOAD_SPACESHIPS_FAILURE',
   error
 });

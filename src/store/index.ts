@@ -1,13 +1,11 @@
 import { combineReducers } from 'redux';
-import * as fromSpaceships from './spaceships';
-import * as fromUpgrades from './upgrades';
+import * as spaceships from './spaceships';
+import * as upgrades from './upgrades';
 
-export default combineReducers({
-  spaceships: fromSpaceships.reducer,
-  upgrades: fromUpgrades.reducer
+export const rootReducer = combineReducers({
+  spaceships: spaceships.reducer,
+  upgrades: upgrades.reducer
 });
 
-export interface AppState {
-  spaceships: fromSpaceships.State;
-  upgrades: fromUpgrades.State;
-}
+export type AppState = ReturnType<typeof rootReducer>;
+export default rootReducer;

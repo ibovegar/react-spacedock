@@ -1,30 +1,30 @@
 import { ActionTypes } from './upgrades.actions';
-import * as fromInterface from './upgrades.interfaces';
+import State from './upgrades.interfaces';
 
-const initialState: fromInterface.State = {
+const initialState: State = {
   entities: [],
   isLoading: false
 };
 
 export function reducer(
-  state: fromInterface.State = initialState,
-  action: any
-): fromInterface.State {
+  state: State = initialState,
+  action: ActionTypes
+): State {
   switch (action.type) {
-    case ActionTypes.LOAD_UPGRADES_REQUEST:
+    case 'LOAD_UPGRADES_REQUEST':
       return {
         ...state,
         isLoading: true
       };
 
-    case ActionTypes.LOAD_UPGRADES_SUCCESS:
+    case 'LOAD_UPGRADES_SUCCESS':
       return {
         ...state,
         isLoading: false,
         entities: action.upgrades
       };
 
-    case ActionTypes.LOAD_UPGRADES_FAILURE:
+    case 'LOAD_UPGRADES_FAILURE':
       return {
         ...state,
         isLoading: false

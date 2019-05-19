@@ -1,21 +1,20 @@
 import { IUpgrade } from 'models';
 
-export enum ActionTypes {
-  LOAD_UPGRADES_REQUEST = 'LOAD_UPGRADES_REQUEST',
-  LOAD_UPGRADES_SUCCESS = 'LOAD_UPGRADES_SUCCESS',
-  LOAD_UPGRADES_FAILURE = 'LOAD_UPGRADES_FAILURE'
-}
+export type ActionTypes =
+  | { type: 'LOAD_UPGRADES_REQUEST' }
+  | { type: 'LOAD_UPGRADES_SUCCESS'; upgrades: IUpgrade[] }
+  | { type: 'LOAD_UPGRADES_FAILURE'; error: any };
 
 export const loadUpgradesRequest = () => ({
-  type: ActionTypes.LOAD_UPGRADES_REQUEST
+  type: 'LOAD_UPGRADES_REQUEST'
 });
 
-export const loadUpgradesSuccess = (upgrades: IUpgrade[]) => ({
-  type: ActionTypes.LOAD_UPGRADES_SUCCESS,
+export const loadUpgradesSuccess = (upgrades: IUpgrade[]): ActionTypes => ({
+  type: 'LOAD_UPGRADES_SUCCESS',
   upgrades
 });
 
-export const loadUpgradesFailure = (error: any) => ({
-  type: ActionTypes.LOAD_UPGRADES_FAILURE,
+export const loadUpgradesFailure = (error: any): ActionTypes => ({
+  type: 'LOAD_UPGRADES_FAILURE',
   error
 });
