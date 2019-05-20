@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { ISpaceship } from 'models';
 import { loadAllSpaceships, getAllSpaceships } from 'store/spaceships';
 import { AppState } from 'store';
-import { Link } from 'react-router-dom';
+import { SpaceshipList } from 'components';
 
 interface IStateProps {
   isLoading: boolean;
@@ -26,16 +26,7 @@ class Home extends React.Component<Props, {}> {
 
     return (
       <>
-        {spaceships.map((spaceship: ISpaceship) => (
-          <div key={spaceship.id}>
-            <br />
-            <br />
-            <Link to={`/engineering/${spaceship.id}`}>{spaceship.name}</Link>
-            <div>{spaceship.manufacturer}</div>
-            <div>{spaceship.type}</div>
-            <div>{spaceship.price}</div>
-          </div>
-        ))}
+        <SpaceshipList spaceships={spaceships} />
       </>
     );
   }
