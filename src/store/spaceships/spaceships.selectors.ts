@@ -1,15 +1,24 @@
 import { createSelector, Selector } from 'reselect';
 import { AppState } from 'store';
 import { ISpaceship } from 'models';
-// import ISpaceshipState from './spaceships.interfaces';
 
-const spaceshipsEnities = (state: AppState) => state.spaceships.entities;
-// const spaceshipsEnities = (state: AppState): ISpaceshipState => state.spaceships;
+const getSpaceshipsEnities = (state: AppState) => state.spaceships.entities;
+const getSelectedSpaceshipId = (state: AppState) => state.spaceships.selectedId;
 
 export const getAllSpaceships: Selector<
   AppState,
   ISpaceship[]
 > = createSelector(
-  spaceshipsEnities,
+  getSpaceshipsEnities,
   entities => Object.values(entities)
+);
+
+export const getSelectedSpaceship: Selector<
+  AppState,
+  ISpaceship
+> = createSelector(
+  [getSpaceshipsEnities, getSelectedSpaceshipId],
+  (entities, id) => {
+    return entities[id];
+  }
 );

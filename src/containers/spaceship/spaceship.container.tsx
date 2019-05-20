@@ -1,15 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
-// import { ISpaceship } from 'models';
-// import { SpaceshipStats } from 'components';
-import { loadSpaceship } from 'store/spaceships';
+import { ISpaceship } from 'models';
+import { SpaceshipStats } from 'components';
+import { loadSpaceship, getSelectedSpaceship } from 'store/spaceships';
 import { loadUpgrades } from 'store/upgrades';
 import { AppState } from 'store';
 import { RouteComponentProps } from 'react-router-dom';
 
 interface Props extends RouteComponentProps<MatchParams> {
   isLoading: boolean;
-  // spaceship: ISpaceship;
+  spaceship: ISpaceship;
   loadSpaceship: any;
   loadUpgrades: any;
 }
@@ -20,31 +20,31 @@ interface MatchParams {
 
 class Spaceship extends React.Component<Props, {}> {
   componentDidMount() {
-    console.log(this.props.match.params.spaceshipId);
     this.props.loadSpaceship(this.props.match.params.spaceshipId);
-    // this.props.loadUpgrades('drax22');
   }
 
   render() {
-    // const { spaceship, isLoading } = this.props;
-    const { isLoading } = this.props;
+    const { isLoading, spaceship } = this.props;
 
     return (
       <>
-        {isLoading}
-        {/* <SpaceshipStats
-          key={spaceship.id}
-          stats={spaceship.stats}
-          buffs={spaceship.buffs}
-        /> */}
+        <div>Is loading: {isLoading.toString()}</div>
+
+        {spaceship && (
+          <SpaceshipStats
+            key={spaceship.id}
+            stats={spaceship.stats}
+            buffs={spaceship.buffs}
+          />
+        )}
       </>
     );
   }
 }
 
 const mapStateToProps = (state: AppState) => ({
-  isLoading: state.spaceships.isLoading
-  // getSpacesipById selector
+  isLoading: state.spaceships.isLoading,
+  spaceship: getSelectedSpaceship(state)
 });
 
 const mapDispatchToProps = {

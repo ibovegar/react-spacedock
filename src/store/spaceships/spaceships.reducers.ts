@@ -4,6 +4,7 @@ import { ISpaceship } from 'models';
 import { toEntities } from 'utils/helpers';
 
 const initialState: State = {
+  selectedId: '',
   entities: {},
   ids: [],
   isLoading: false
@@ -41,12 +42,15 @@ export function reducer(
       };
 
     case 'LOAD_SPACESHIP_SUCCESS':
-      const newSpaceships: ISpaceship[] = [...state.entities, action.spaceship];
+      const newSpaceships = { ...state.entities };
+      newSpaceships[action.spaceship.id] = action.spaceship;
 
       return {
         ...state,
         isLoading: false,
-        entities: newSpaceships
+        entities: newSpaceships,
+        ids: [...state.ids, action.spaceship.id],
+        selectedId: action.spaceship.id
       };
 
     case 'LOAD_SPACESHIP_FAILURE':
