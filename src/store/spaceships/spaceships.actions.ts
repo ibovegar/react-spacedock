@@ -4,9 +4,7 @@ export type ActionTypes =
   | { type: 'LOAD_ALL_SPACESHIPS_REQUEST' }
   | { type: 'LOAD_ALL_SPACESHIPS_SUCCESS'; spaceships: ISpaceship[] }
   | { type: 'LOAD_ALL_SPACESHIPS_FAILURE'; error: any }
-  | { type: 'LOAD_SPACESHIP_REQUEST' }
-  | { type: 'LOAD_SPACESHIP_SUCCESS'; spaceship: ISpaceship }
-  | { type: 'LOAD_SPACESHIP_FAILURE'; error: any };
+  | { type: 'SET_SELECTED_SPACECRAFT'; spacecraftId: string };
 
 export const loadAllSpaceshipsRequest = (): ActionTypes => ({
   type: 'LOAD_ALL_SPACESHIPS_REQUEST'
@@ -24,16 +22,7 @@ export const loadAllSpaceshipsFailure = (error: any): ActionTypes => ({
   error
 });
 
-export const loadSpaceshipRequest = (): ActionTypes => ({
-  type: 'LOAD_SPACESHIP_REQUEST'
-});
-
-export const loadSpaceshipSuccess = (spaceship: ISpaceship): ActionTypes => ({
-  type: 'LOAD_SPACESHIP_SUCCESS',
-  spaceship
-});
-
-export const loadSpaceshipFailure = (error: any): ActionTypes => ({
-  type: 'LOAD_SPACESHIP_FAILURE',
-  error
+export const setSelectedSpacecraft = (spacecraftId: string): ActionTypes => ({
+  type: 'SET_SELECTED_SPACECRAFT',
+  spacecraftId
 });

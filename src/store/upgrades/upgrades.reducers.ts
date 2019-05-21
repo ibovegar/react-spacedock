@@ -1,8 +1,11 @@
 import { ActionTypes } from './upgrades.actions';
 import State from './upgrades.interfaces';
+import { toEntities } from 'utils/helpers';
+import { IUpgrade } from 'models';
 
 const initialState: State = {
-  entities: [],
+  ids: [],
+  entities: {},
   isLoading: false
 };
 
@@ -11,20 +14,21 @@ export function reducer(
   action: ActionTypes
 ): State {
   switch (action.type) {
-    case 'LOAD_UPGRADES_REQUEST':
+    case 'LOAD_INVENTORY_REQUEST':
       return {
         ...state,
         isLoading: true
       };
 
-    case 'LOAD_UPGRADES_SUCCESS':
+    case 'LOAD_INVENTORY_SUCCESS':
       return {
         ...state,
         isLoading: false,
-        entities: action.upgrades
+        entities: toEntities(action.upgrades, 'id'),
+        ids: action.upgrades.map((upgrade: IUpgrade) => upgrade.id)
       };
 
-    case 'LOAD_UPGRADES_FAILURE':
+    case 'LOAD_INVENTORY_FAILURE':
       return {
         ...state,
         isLoading: false

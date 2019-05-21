@@ -1,11 +1,5 @@
-export {
-  default as SpaceshipBuilder
-} from './spaceship-builder/spaceship-builder.component';
-
-export {
-  default as SpaceshipStats
-} from './spaceship-stats/spaceship-stats.component';
-
-export {
-  default as SpaceshipList
-} from './spaceship-list/spaceship-list.component';
+export { default as SpaceshipControls } from './spaceship-controls';
+export { default as SpaceshipStats } from './spaceship-stats';
+export { default as SpaceshipList } from './spaceship-list';
+export { default as SpaceshipViewer } from './spaceship-viewer';
+export { default as SpaceshipCard } from './spaceship-card';

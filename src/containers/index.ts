@@ -1,1 +1,1 @@
-export { default as Spaceship } from './spaceship/spaceship.container';
+export { default as SpaceshipBuilder } from './spaceship-builder';

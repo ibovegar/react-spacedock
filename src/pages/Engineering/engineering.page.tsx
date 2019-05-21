@@ -1,20 +1,46 @@
+import React from 'react';
 import { Route, RouteComponentProps } from 'react-router-dom';
-import * as React from 'react';
-import { Spaceship } from 'containers';
+import { connect } from 'react-redux';
+import { SpaceshipBuilder } from 'containers';
+import { SpaceshipList } from 'components';
+import { loadAllSpaceships, getAllSpaceships } from 'store/spaceships';
+import { AppState } from 'store';
+import { ISpaceship } from 'models';
 
-// interface IEngineeringProps {
-//   math: boolean;
-//   children: ReactNode;
-// }
+interface IProps extends RouteComponentProps {
+  isLoading: boolean;
+  spaceships: ISpaceship[];
+  loadAllSpaceships: () => void;
+}
 
-const Engineering = ({ match }: RouteComponentProps<any>) => {
-  // Display list of ships. Select a ship to show engineering section (below ship list). Ship list is animated as slide to height 100px. Easily accesible if you eant to change ship
+class Engineering extends React.Component<IProps, {}> {
+  componentDidMount() {
+    this.props.loadAllSpaceships();
+  }
 
-  return (
-    <>
-      <Route path={`${match.path}/:spaceshipId`} component={Spaceship} />
-    </>
-  );
-};
+  render() {
+    const { match, spaceships } = this.props;
 
-export default Engineering;
+    return (
+      <>
+        <SpaceshipList spaceships={spaceships} />
+        <Route
+          path={`${match.path}/:spaceshipId`}
+          render={props => (
+            <SpaceshipBuilder key={props.match.params.spaceshipId} {...props} />
+          )}
+        />
+      </>
+    );
+  }
+}
+
+const mapStateToProps = (state: AppState) => ({
+  isLoading: state.spaceships.isLoading,
+  spaceships: getAllSpaceships(state)
+});
+
+export default connect(
+  mapStateToProps,
+  { loadAllSpaceships }
+)(Engineering);

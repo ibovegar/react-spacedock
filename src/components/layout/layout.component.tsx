@@ -9,7 +9,7 @@ interface ILayoutProps {
 const Layout: React.FC<ILayoutProps> = ({ authenticated, children }) => {
   return (
     <>
-      <header>
+      <header style={{ height: '80px' }}>
         {authenticated && (
           <>
             <Link to="/">Home</Link> -{' '}

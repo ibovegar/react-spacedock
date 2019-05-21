@@ -3,16 +3,12 @@ import * as actions from './upgrades.actions';
 import * as API from 'api/upgrades.api';
 import { IUpgrade } from 'models';
 
-export const loadUpgrades = (shipRegistry: string) => {
-  return (dispatch: Dispatch) => {
-    dispatch(actions.loadUpgradesRequest());
-
-    API.get(shipRegistry)
-      .then((upgrades: IUpgrade[]) => {
-        dispatch(actions.loadUpgradesSuccess(upgrades));
-      })
-      .catch(error => {
-        dispatch(actions.loadUpgradesFailure(error));
-      });
-  };
+export const loadInventory = () => async (dispatch: Dispatch) => {
+  dispatch(actions.loadInventoryRequest());
+  try {
+    const response: IUpgrade[] = await API.getInventory();
+    dispatch(actions.loadInventorySuccess(response));
+  } catch (error) {
+    dispatch(actions.loadInventoryFailure(error));
+  }
 };

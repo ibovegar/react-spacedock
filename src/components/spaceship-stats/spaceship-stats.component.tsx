@@ -1,18 +1,24 @@
 import * as React from 'react';
-import { IBaseStats, IBuffs } from 'models';
+import { IBaseStats } from 'models';
 
-interface ISpaceshipStatsProps {
+interface IProps {
   stats: IBaseStats;
-  buffs: IBuffs;
 }
 
-const SpaceshipStats: React.FC<ISpaceshipStatsProps> = ({ stats, buffs }) => {
+const SpaceshipStats: React.FC<IProps> = ({ stats }) => {
   // Only rerender if buffs changes
 
   return (
     <>
-      <h1>Stats</h1>
+      <h2>Stats</h2>
       <ul>
+        <li>Speed: {stats.speed}</li>
+        <li>Shield: {stats.shield}</li>
+        <li>Damage: {stats.damage}</li>
+        <li>Hull: {stats.hull}</li>
+        <li>Manuvrability: {stats.manuvrability}</li>
+      </ul>
+      {/* <ul>
         <li>
           Speed: {stats.speed} {buffs.speed && ' + ' + buffs.speed.gain}
         </li>
@@ -29,7 +35,7 @@ const SpaceshipStats: React.FC<ISpaceshipStatsProps> = ({ stats, buffs }) => {
           Manuvrability: {stats.manuvrability}
           {buffs.manuvrability && ' + ' + buffs.manuvrability.gain}
         </li>
-      </ul>
+      </ul> */}
     </>
   );
 };

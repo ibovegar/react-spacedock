@@ -13,7 +13,7 @@ export const getAllSpaceships: Selector<
   entities => Object.values(entities)
 );
 
-export const getSelectedSpaceship: Selector<
+export const getSelectedSpacecraftEntity: Selector<
   AppState,
   ISpaceship
 > = createSelector(

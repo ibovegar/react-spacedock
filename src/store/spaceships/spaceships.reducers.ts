@@ -35,29 +35,23 @@ export function reducer(
         isLoading: false
       };
 
-    case 'LOAD_SPACESHIP_REQUEST':
+    case 'SET_SELECTED_SPACECRAFT':
       return {
         ...state,
-        isLoading: true
+        selectedId: action.spacecraftId
       };
 
-    case 'LOAD_SPACESHIP_SUCCESS':
-      const newSpaceships = { ...state.entities };
-      newSpaceships[action.spaceship.id] = action.spaceship;
+    // case 'LOAD_SPACESHIP_SUCCESS':
+    //   const newSpaceships = { ...state.entities };
+    //   newSpaceships[action.spaceship.id] = action.spaceship;
 
-      return {
-        ...state,
-        isLoading: false,
-        entities: newSpaceships,
-        ids: [...state.ids, action.spaceship.id],
-        selectedId: action.spaceship.id
-      };
-
-    case 'LOAD_SPACESHIP_FAILURE':
-      return {
-        ...state,
-        isLoading: false
-      };
+    //   return {
+    //     ...state,
+    //     isLoading: false,
+    //     entities: newSpaceships,
+    //     ids: [...state.ids, action.spaceship.id],
+    //     selectedId: action.spaceship.id
+    //   };
 
     default:
       return state;

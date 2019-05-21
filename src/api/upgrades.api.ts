@@ -9,3 +9,8 @@ export const get = async (spaceshipRegistry: string): Promise<IUpgrade[]> => {
   );
   return response.data.upgrades;
 };
+
+export const getInventory = async (): Promise<IUpgrade[]> => {
+  const response: AxiosResponse = await axios.get(`${url}/availableUpgrades`);
+  return response.data;
+};

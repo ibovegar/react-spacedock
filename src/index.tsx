@@ -8,6 +8,7 @@ import rootReducer from 'store';
 import thunk from 'redux-thunk';
 
 import App from './App';
+import 'normalize.css';
 import * as serviceWorker from './serviceWorker';
 
 const middleware = [thunk];

@@ -13,15 +13,3 @@ export const loadAllSpaceships = () => async (dispatch: Dispatch) => {
     dispatch(actions.loadAllSpaceshipsFailure(error));
   }
 };
-
-export const loadSpaceship = (spaceshipId: string) => (dispatch: Dispatch) => {
-  dispatch(actions.loadSpaceshipRequest());
-
-  API.get(spaceshipId)
-    .then((spaceship: ISpaceship) => {
-      dispatch(actions.loadSpaceshipSuccess(spaceship));
-    })
-    .catch(error => {
-      dispatch(actions.loadSpaceshipFailure(error));
-    });
-};
