@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { ISpaceship } from 'models';
-import { loadAllSpaceships, getAllSpaceships } from 'store/spaceships';
+import { loadSpacecrafts, getAllSpaceships } from 'store/spaceships';
 import { AppState } from 'store';
 import { SpaceshipList } from 'components';
 
@@ -11,14 +11,14 @@ interface IStateProps {
 }
 
 interface IDispatchProps {
-  loadAllSpaceships: () => void;
+  loadSpacecrafts: () => void;
 }
 
 type Props = IStateProps & IDispatchProps;
 
 class Home extends React.Component<Props, {}> {
   componentDidMount() {
-    this.props.loadAllSpaceships();
+    this.props.loadSpacecrafts();
   }
 
   render() {
@@ -38,7 +38,7 @@ const mapStateToProps = (state: AppState) => ({
 });
 
 const mapDispatchToProps = {
-  loadAllSpaceships
+  loadSpacecrafts
 };
 
 export default connect(

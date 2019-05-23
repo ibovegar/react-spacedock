@@ -6,7 +6,7 @@ import { IUpgrade } from 'models';
 const initialState: State = {
   ids: [],
   entities: {},
-  isLoading: false
+  isLoading: true
 };
 
 export function reducer(

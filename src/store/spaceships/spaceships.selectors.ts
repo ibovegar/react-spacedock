@@ -1,24 +1,27 @@
 import { createSelector, Selector } from 'reselect';
 import { AppState } from 'store';
 import { ISpaceship } from 'models';
+import { toArray } from 'utils/helpers';
 
 const getSpaceshipsEnities = (state: AppState) => state.spaceships.entities;
-const getSelectedSpaceshipId = (state: AppState) => state.spaceships.selectedId;
+const getSelected = (state: AppState) => state.spaceships.selected;
 
 export const getAllSpaceships: Selector<
   AppState,
   ISpaceship[]
 > = createSelector(
   getSpaceshipsEnities,
-  entities => Object.values(entities)
+  entities => {
+    return toArray(entities);
+  }
 );
 
-export const getSelectedSpacecraftEntity: Selector<
+export const getSelectedSpacecraft: Selector<
   AppState,
   ISpaceship
 > = createSelector(
-  [getSpaceshipsEnities, getSelectedSpaceshipId],
-  (entities, id) => {
-    return entities[id];
+  [getSpaceshipsEnities, getSelected],
+  (entities, spacecraft: ISpaceship) => {
+    return entities[spacecraft.id];
   }
 );

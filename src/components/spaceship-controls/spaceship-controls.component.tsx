@@ -1,16 +1,23 @@
 import * as React from 'react';
-import { IAttachedUpgrades } from 'models';
+import { ISpaceship } from 'models';
 
 interface IProps {
-  attachedUpgrades: IAttachedUpgrades;
+  spacecraft: ISpaceship;
   availableUpgrades: any;
 }
 
 const SpaceshipControls: React.FC<IProps> = ({
-  attachedUpgrades,
+  spacecraft,
   availableUpgrades
 }) => {
-  const { deflector, engine, plating, stabilizer, weapons } = attachedUpgrades;
+  const {
+    deflector,
+    engine,
+    plating,
+    stabilizer,
+    weapons
+  } = spacecraft.attachedUpgrades;
+
   const placeholder = 'None';
 
   return (

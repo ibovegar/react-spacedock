@@ -1,22 +1,23 @@
 import * as React from 'react';
-import { IBaseStats } from 'models';
+import { ISpaceship } from 'models';
 
 interface IProps {
-  stats: IBaseStats;
+  spacecraft: ISpaceship;
 }
 
-const SpaceshipStats: React.FC<IProps> = ({ stats }) => {
+const SpaceshipStats: React.FC<IProps> = ({ spacecraft }) => {
   // Only rerender if buffs changes
+  const { baseStats } = spacecraft;
 
   return (
     <>
       <h2>Stats</h2>
       <ul>
-        <li>Speed: {stats.speed}</li>
-        <li>Shield: {stats.shield}</li>
-        <li>Damage: {stats.damage}</li>
-        <li>Hull: {stats.hull}</li>
-        <li>Manuvrability: {stats.manuvrability}</li>
+        <li>Speed: {baseStats.speed}</li>
+        <li>Shield: {baseStats.shield}</li>
+        <li>Damage: {baseStats.damage}</li>
+        <li>Hull: {baseStats.hull}</li>
+        <li>Manuvrability: {baseStats.manuvrability}</li>
       </ul>
       {/* <ul>
         <li>
