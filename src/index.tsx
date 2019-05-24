@@ -7,6 +7,9 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import rootReducer from 'store';
 import thunk from 'redux-thunk';
 
+import { ThemeProvider } from '@material-ui/styles';
+import Theme from './ui/theme/index';
+
 import App from './App';
 import 'normalize.css';
 import * as serviceWorker from './serviceWorker';
@@ -25,7 +28,9 @@ const store = createStore(
 const app = (
   <Provider store={store}>
     <BrowserRouter>
-      <App />
+      <ThemeProvider theme={Theme}>
+        <App />
+      </ThemeProvider>
     </BrowserRouter>
   </Provider>
 );
