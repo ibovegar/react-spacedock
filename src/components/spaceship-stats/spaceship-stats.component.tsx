@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { ISpaceship } from 'models';
+import { LinearProgress, Box, Typography } from '@material-ui/core';
 
 interface IProps {
   spacecraft: ISpaceship;
@@ -11,13 +12,46 @@ const SpaceshipStats: React.FC<IProps> = ({ spacecraft }) => {
 
   return (
     <>
-      <ul>
-        <li>Speed: {baseStats.speed}</li>
-        <li>Shield: {baseStats.shield}</li>
-        <li>Damage: {baseStats.damage}</li>
-        <li>Hull: {baseStats.hull}</li>
-        <li>Manuvrability: {baseStats.manuvrability}</li>
-      </ul>
+      <Box m={2}>
+        <Typography variant="h6">Speed</Typography>
+        <LinearProgress
+          color="secondary"
+          variant="determinate"
+          value={baseStats.speed}
+        />
+      </Box>
+      <Box m={2}>
+        <Typography variant="h6">Shield</Typography>
+        <LinearProgress
+          color="secondary"
+          variant="determinate"
+          value={baseStats.shield}
+        />
+      </Box>
+      <Box m={2}>
+        <Typography variant="h6">Damage</Typography>
+        <LinearProgress
+          color="secondary"
+          variant="determinate"
+          value={baseStats.damage}
+        />
+      </Box>
+      <Box m={2}>
+        <Typography variant="h6">Hull</Typography>
+        <LinearProgress
+          color="secondary"
+          variant="determinate"
+          value={baseStats.hull}
+        />
+      </Box>
+      <Box m={2}>
+        <Typography variant="h6">Manuvrability</Typography>
+        <LinearProgress
+          color="secondary"
+          variant="determinate"
+          value={baseStats.manuvrability}
+        />
+      </Box>
       {/* <ul>
         <li>
           Speed: {stats.speed} {buffs.speed && ' + ' + buffs.speed.gain}
