@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { SpaceshipBuilder } from 'containers';
 import { SpaceshipList } from 'components';
@@ -37,19 +37,21 @@ class Engineering extends React.Component<interfaces.IProps, {}> {
           />
         </Box>
         <Box flex={1}>
-          <Route
-            path={`${match.path}/:spaceshipId`}
-            render={props => (
-              <SpaceshipBuilder
-                key={props.match.params.spaceshipId}
-                {...props}
-              />
-            )}
-          />
-          <Route
-            path={`${match.path}/`}
-            render={() => <div>Select spaceship</div>}
-          />
+          <Switch>
+            <Route
+              path={`${match.path}/:spaceshipId`}
+              render={props => (
+                <SpaceshipBuilder
+                  key={props.match.params.spaceshipId}
+                  {...props}
+                />
+              )}
+            />
+            <Route
+              path={`${match.path}/`}
+              render={() => <div>Select spaceship</div>}
+            />
+          </Switch>
         </Box>
       </Box>
     );
