@@ -24,6 +24,13 @@ export const toArray = (obj: any): any[] => {
   return Object.values(obj);
 };
 
+/**
+ * Check if an object is empty or not. Return true if empty.
+ */
+export const isEmpty = (obj: any): boolean => {
+  return Object.entries(obj).length === 0 && obj.constructor === Object;
+};
+
 export default {
   toEntities,
   toArray

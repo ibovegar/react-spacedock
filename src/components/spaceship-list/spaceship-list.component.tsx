@@ -1,17 +1,27 @@
-import * as React from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import { ISpaceship } from 'models';
-// import { Link } from 'react-router-dom';
 import SpaceshipCard from 'components/spaceship-card';
 
 interface IStateProps {
   spaceships: ISpaceship[];
+  onSpacecraftClick?: (event: React.MouseEvent) => void;
 }
 
-const SpaceshipList: React.FC<IStateProps> = ({ spaceships }) => {
+const SpaceshipList: React.FC<IStateProps> = props => {
+  const { spaceships, onSpacecraftClick } = props;
+
   return (
     <>
       {spaceships.map((spaceship: ISpaceship) => (
-        <SpaceshipCard key={spaceship.id} spaceship={spaceship} />
+        <Link
+          key={spaceship.id}
+          to={`/engineering/${spaceship.id}`}
+          onClick={onSpacecraftClick}
+          id={spaceship.id}
+        >
+          <SpaceshipCard spaceship={spaceship} />
+        </Link>
       ))}
     </>
   );

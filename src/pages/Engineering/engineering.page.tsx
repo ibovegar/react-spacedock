@@ -1,32 +1,20 @@
 import React from 'react';
-import { RouteComponentProps, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { SpaceshipBuilder } from 'containers';
 import { SpaceshipList } from 'components';
-import { loadSpacecrafts, getAllSpaceships } from 'store/spaceships';
-import { loadInventory } from 'store/upgrades';
-import { AppState } from 'store';
-import { ISpaceship } from 'models';
 import Box from '@material-ui/core/Box';
+import * as interfaces from './engineering.interface';
 
-interface IStateProps extends RouteComponentProps {
-  isLoadingSpaceships: boolean;
-  isLoadingUpgrades: boolean;
-  spacecrafts: ISpaceship[];
-}
-
-interface IDispatchProps {
-  loadSpacecrafts: () => void;
-  loadInventory: () => void;
-}
-
-type IProps = IStateProps & IDispatchProps;
-
-class Engineering extends React.Component<IProps, {}> {
+class Engineering extends React.Component<interfaces.IProps, {}> {
   componentDidMount() {
     this.props.loadSpacecrafts();
     this.props.loadInventory();
   }
+
+  handleSelectSpacecraft = (event: React.MouseEvent) => {
+    this.props.setSelectedSpacecraft(event.currentTarget.id);
+  };
 
   render() {
     const {
@@ -43,7 +31,10 @@ class Engineering extends React.Component<IProps, {}> {
     return (
       <Box display="flex">
         <Box width={400}>
-          <SpaceshipList spaceships={spacecrafts} />
+          <SpaceshipList
+            spaceships={spacecrafts}
+            onSpacecraftClick={this.handleSelectSpacecraft}
+          />
         </Box>
         <Box flex={1}>
           <Route
@@ -55,24 +46,17 @@ class Engineering extends React.Component<IProps, {}> {
               />
             )}
           />
+          <Route
+            path={`${match.path}/`}
+            render={() => <div>Select spaceship</div>}
+          />
         </Box>
       </Box>
     );
   }
 }
 
-const mapStateToProps = (state: AppState) => ({
-  isLoadingSpacerafts: state.spaceships.isLoading,
-  isLoadingUpgrades: state.upgrades.isLoading,
-  spacecrafts: getAllSpaceships(state)
-});
-
-const mapDispatchToProps = {
-  loadInventory,
-  loadSpacecrafts
-};
-
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+  interfaces.mapStateToProps,
+  interfaces.mapDispatchToProps
 )(Engineering);
