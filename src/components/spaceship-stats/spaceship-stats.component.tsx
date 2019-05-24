@@ -11,7 +11,6 @@ const SpaceshipStats: React.FC<IProps> = ({ spacecraft }) => {
 
   return (
     <>
-      <h2>Stats</h2>
       <ul>
         <li>Speed: {baseStats.speed}</li>
         <li>Shield: {baseStats.shield}</li>

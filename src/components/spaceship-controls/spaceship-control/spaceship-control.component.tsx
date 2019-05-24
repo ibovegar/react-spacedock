@@ -28,7 +28,8 @@ const SpaceshipControl: React.FC<IProps> = ({
 
   return (
     <>
-      <Box bgcolor="grey.100" p={2} onClick={handleClick}>
+      <Typography variant="h6">{type}</Typography>
+      <Box bgcolor="grey.100" p={2} m={2} onClick={handleClick}>
         {selectedUpgrade ? (
           <>
             <Typography variant="h5">{selectedUpgrade.name}</Typography>

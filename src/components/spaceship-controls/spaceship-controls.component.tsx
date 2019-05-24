@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { ISpaceship, IAvailableUpgrades } from 'models';
-import { Typography } from '@material-ui/core';
 import SpaceshipControl from './spaceship-control/spaceship-control.component';
 
 interface IProps {
@@ -22,31 +21,28 @@ const SpaceshipControls: React.FC<IProps> = ({ spacecraft, upgrades }) => {
 
   return (
     <>
-      <Typography variant="h4" gutterBottom>
-        Controls
-      </Typography>
       <SpaceshipControl
-        type="deflector"
+        type="Deflector"
         selectedUpgrade={deflector}
         selectableUpgrades={upgrades.deflector}
       />
       <SpaceshipControl
-        type="engine"
+        type="Engine"
         selectedUpgrade={engine}
         selectableUpgrades={upgrades.engine}
       />
       <SpaceshipControl
-        type="plating"
+        type="Plating"
         selectedUpgrade={plating}
         selectableUpgrades={upgrades.plating}
       />
       <SpaceshipControl
-        type="stabilizer"
+        type="Stabilizer"
         selectedUpgrade={stabilizer}
         selectableUpgrades={upgrades.stabilizer}
       />
       <SpaceshipControl
-        type="weapons"
+        type="Weapons"
         selectedUpgrade={weapons}
         selectableUpgrades={upgrades.weapons}
       />

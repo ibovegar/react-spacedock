@@ -1,6 +1,6 @@
 import React from 'react';
-import classes from './spaceship-viewer.module.scss';
 import { ISpaceship } from 'models';
+import { Box } from '@material-ui/core';
 
 interface IProps {
   spacecraft: ISpaceship;
@@ -11,8 +11,13 @@ const SpaceshipViewer: React.FC<IProps> = props => {
 
   return (
     <>
-      <h2>Viewer</h2>
-      <div className={classes.SpaceshipViewer}>{spacecraft.name}</div>
+      <Box bgcolor="grey.100" p={2}>
+        <img
+          width="100%"
+          alt="spaceship"
+          src={`${process.env.PUBLIC_URL}/images/${spacecraft.registry}.jpg`}
+        />
+      </Box>
     </>
   );
 };

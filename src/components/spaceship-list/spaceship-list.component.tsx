@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ISpaceship } from 'models';
-import SpaceshipCard from 'components/spaceship-card';
+import SpaceshipCard from './spaceship-card/spaceship-card.component';
 
 interface IStateProps {
   spaceships: ISpaceship[];
