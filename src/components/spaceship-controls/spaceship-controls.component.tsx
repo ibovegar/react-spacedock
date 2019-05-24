@@ -1,5 +1,7 @@
 import * as React from 'react';
-import { ISpaceship, IAvailableUpgrades, IUpgrade } from 'models';
+import { ISpaceship, IAvailableUpgrades } from 'models';
+import { Typography } from '@material-ui/core';
+import SpaceshipControl from './spaceship-control/spaceship-control.component';
 
 interface IProps {
   spacecraft: ISpaceship;
@@ -15,23 +17,39 @@ const SpaceshipControls: React.FC<IProps> = ({ spacecraft, upgrades }) => {
     weapons
   } = spacecraft.attachedUpgrades;
 
-  const placeholder = 'None';
   // TODO: figure out why I render twice
-  console.log('render controls', upgrades);
+  // console.log('render controls', upgrades);
 
   return (
     <>
-      <h2>Controls</h2>
-      <div>{upgrades.toString()}</div>
-      <div>
-        Deflector: {deflector ? deflector.name : placeholder}
-        Available upgrades:{' '}
-        {upgrades.deflector.map((upgrade: IUpgrade) => upgrade.name)}
-      </div>
-      <div>Engine: {engine ? engine.name : placeholder}</div>
-      <div>Plating: {plating ? plating.name : placeholder}</div>
-      <div>Stabilizer: {stabilizer ? stabilizer.name : placeholder}</div>
-      <div>Weapons: {weapons ? weapons.name : placeholder}</div>
+      <Typography variant="h4" gutterBottom>
+        Controls
+      </Typography>
+      <SpaceshipControl
+        type="deflector"
+        selectedUpgrade={deflector}
+        selectableUpgrades={upgrades.deflector}
+      />
+      <SpaceshipControl
+        type="engine"
+        selectedUpgrade={engine}
+        selectableUpgrades={upgrades.engine}
+      />
+      <SpaceshipControl
+        type="plating"
+        selectedUpgrade={plating}
+        selectableUpgrades={upgrades.plating}
+      />
+      <SpaceshipControl
+        type="stabilizer"
+        selectedUpgrade={stabilizer}
+        selectableUpgrades={upgrades.stabilizer}
+      />
+      <SpaceshipControl
+        type="weapons"
+        selectedUpgrade={weapons}
+        selectableUpgrades={upgrades.weapons}
+      />
     </>
   );
 };
