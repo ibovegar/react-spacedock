@@ -1,28 +1,35 @@
 import React, { ReactNode } from 'react';
-import { Link } from 'react-router-dom';
+import { withRouter, RouteComponentProps } from 'react-router-dom';
+import { Tabs, Tab, AppBar } from '@material-ui/core';
 
-interface ILayoutProps {
+interface IProps extends RouteComponentProps {
   authenticated: boolean;
   children: ReactNode;
 }
 
-const Layout: React.FC<ILayoutProps> = ({ authenticated, children }) => {
+const Layout: React.FC<IProps> = props => {
+  const { children, history } = props;
+  const [value, setValue] = React.useState('/');
+
+  const handleChange = (_: any, newValue: string) => {
+    setValue(newValue);
+    history.push(newValue);
+  };
+
   return (
     <>
-      <header style={{ height: '80px' }}>
-        {authenticated && (
-          <>
-            <Link to="/">Home</Link> -{' '}
-            <Link to="/engineering">Engineering</Link> -{' '}
-            <Link to="/inventory">Inventory</Link> -{' '}
-            <Link to="/marketplace">Marketplace</Link>
-          </>
-        )}
-      </header>
+      <AppBar position="static">
+        <Tabs value={value} onChange={handleChange}>
+          <Tab label="Tactical" value="/" />
+          <Tab label="Engineering" value="/engineering" />
+          <Tab label="Inventory" value="/inventory" />
+          <Tab label="Marketplace" value="/marketplace" />
+        </Tabs>
+      </AppBar>
       {/* <aside>Sidenav</aside> */}
       <main>{children}</main>
     </>
   );
 };
 
-export default Layout;
+export default withRouter(Layout);
