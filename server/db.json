@@ -88,7 +88,39 @@
       "type": "engine",
       "name": "Cryson Particle Booster IA-1",
       "manufacturer": "Cryson & Billard Engineering",
-      "gain": 50
+      "gain": 21
+    },
+    {
+      "id": "iru579eo",
+      "spacecraftRegistry": "drax22",
+      "type": "deflector",
+      "name": "Gentec Puls Dampener",
+      "manufacturer": "Gentec inc.",
+      "gain": 16
+    },
+    {
+      "id": "jfj48iow9",
+      "spacecraftRegistry": "drax22",
+      "type": "deflector",
+      "name": "Gentec FF Fieler",
+      "manufacturer": "Gentec inc.",
+      "gain": 24
+    },
+    {
+      "id": "lgj47463",
+      "spacecraftRegistry": "drax22",
+      "type": "plating",
+      "name": "Crystalin Elocplat Hull",
+      "manufacturer": "Gentec inc.",
+      "gain": 27
+    },
+    {
+      "id": "19j46dkt",
+      "spacecraftRegistry": "cyg35a",
+      "type": "stabilizer",
+      "name": "Cryson Particle Booster IA-2",
+      "manufacturer": "Cryson & Billard Engineering",
+      "gain": 52
     }
   ]
 }
