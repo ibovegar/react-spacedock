@@ -1,0 +1,15 @@
+ul.ItemList {
+  padding: 0;
+  margin: 0;
+  text-indent: 0;
+  list-style: none;
+
+  li {
+    padding: 20px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #efefef;
+    }
+  }
+}

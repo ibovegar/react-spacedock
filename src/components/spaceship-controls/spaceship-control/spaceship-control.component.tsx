@@ -1,26 +1,30 @@
 import React from 'react';
 import { IUpgrade } from 'models';
 import { Box, Typography, Popover } from '@material-ui/core';
+import classes from './spaceship-control.module.scss';
 
 interface IProps {
   selectedUpgrade: IUpgrade;
   selectableUpgrades: IUpgrade[];
   type: string;
+  onSelectUpgrade: (upgrade: IUpgrade) => void;
 }
 
-const SpaceshipControl: React.FC<IProps> = ({
-  selectedUpgrade,
-  selectableUpgrades,
-  type
-}) => {
+const SpaceshipControl: React.FC<IProps> = props => {
+  const { selectedUpgrade, selectableUpgrades, type, onSelectUpgrade } = props;
   const [anchorEl, setAnchorEl]: [any, any] = React.useState(null);
 
-  const handleClick = (event: React.MouseEvent) => {
+  const handleOpen = (event: React.MouseEvent) => {
     setAnchorEl(event.currentTarget);
   };
 
   const handleClose = () => {
     setAnchorEl(null);
+  };
+
+  const handleClickUpgrade = (upgrade: IUpgrade) => {
+    handleClose();
+    onSelectUpgrade(upgrade);
   };
 
   const open = Boolean(anchorEl);
@@ -29,7 +33,7 @@ const SpaceshipControl: React.FC<IProps> = ({
   return (
     <>
       <Typography variant="h6">{type}</Typography>
-      <Box bgcolor="grey.100" p={2} m={2} onClick={handleClick}>
+      <Box bgcolor="grey.100" p={2} m={2} onClick={handleOpen}>
         {selectedUpgrade ? (
           <>
             <Typography variant="h5">{selectedUpgrade.name}</Typography>
@@ -38,7 +42,10 @@ const SpaceshipControl: React.FC<IProps> = ({
             </Typography>
           </>
         ) : (
-          <Typography variant="h5">Empty</Typography>
+          <Typography variant="h5">
+            {selectableUpgrades.length} available upgrade
+            {selectableUpgrades.length > 1 ? 's' : ''}
+          </Typography>
         )}
       </Box>
       <Popover
@@ -55,20 +62,20 @@ const SpaceshipControl: React.FC<IProps> = ({
           horizontal: 'left'
         }}
       >
-        <Box p={3}>
+        <ul className={classes.ItemList}>
           {!selectableUpgrades.length ? (
             <Typography variant="h6">No available upgrades</Typography>
           ) : (
             selectableUpgrades.map((upgrade: IUpgrade) => (
-              <div key={upgrade.id}>
+              <li key={upgrade.id} onClick={() => handleClickUpgrade(upgrade)}>
                 <Typography variant="h5">{upgrade.name}</Typography>
                 <Typography variant="body1" gutterBottom>
                   {upgrade.manufacturer}
                 </Typography>
-              </div>
+              </li>
             ))
           )}
-        </Box>
+        </ul>
       </Popover>
     </>
   );
