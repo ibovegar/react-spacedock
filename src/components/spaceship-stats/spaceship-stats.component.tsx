@@ -14,27 +14,25 @@ const SpaceshipStats: React.FC<IProps> = ({ spacecraft }) => {
     <>
       <Box m={2}>
         <Typography variant="body1">
-          <div>
-            <strong>Name:</strong> {spacecraft.name}
-          </div>
-          <div>
-            <strong>Type:</strong> {spacecraft.type}
-          </div>
-          <div>
-            <strong>Manufacturer:</strong> {spacecraft.manufacturer}
-          </div>
-          <div>
-            <strong>Manufactured:</strong> {spacecraft.manufactured}
-          </div>
-          <div>
-            <strong>Height:</strong> {spacecraft.height}
-          </div>
-          <div>
-            <strong>Length:</strong> {spacecraft.length}
-          </div>
-          <div>
-            <strong>Registry:</strong> {spacecraft.registry}
-          </div>
+          <strong>Name:</strong> {spacecraft.name}
+        </Typography>
+        <Typography variant="body1">
+          <strong>Type:</strong> {spacecraft.type}
+        </Typography>
+        <Typography variant="body1">
+          <strong>Manufacturer:</strong> {spacecraft.manufacturer}
+        </Typography>
+        <Typography variant="body1">
+          <strong>Manufactured:</strong> {spacecraft.manufactured}
+        </Typography>
+        <Typography variant="body1">
+          <strong>Height:</strong> {spacecraft.height}
+        </Typography>
+        <Typography variant="body1">
+          <strong>Length:</strong> {spacecraft.length}
+        </Typography>
+        <Typography variant="body1">
+          <strong>Registry:</strong> {spacecraft.registry}
         </Typography>
       </Box>
       <Box m={2}>

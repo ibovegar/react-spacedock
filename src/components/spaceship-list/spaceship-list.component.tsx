@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ISpaceship } from 'models';
 import SpaceshipCard from './spaceship-card/spaceship-card.component';
+import { Box } from '@material-ui/core';
 
 interface IStateProps {
   spaceships: ISpaceship[];
@@ -14,14 +15,15 @@ const SpaceshipList: React.FC<IStateProps> = props => {
   return (
     <>
       {spaceships.map((spaceship: ISpaceship) => (
-        <Link
-          key={spaceship.id}
-          to={`/engineering/${spaceship.id}`}
-          onClick={onSpacecraftClick}
-          id={spaceship.id}
-        >
-          <SpaceshipCard spaceship={spaceship} />
-        </Link>
+        <Box key={spaceship.id} bgcolor="grey.100">
+          <Link
+            to={`/engineering/${spaceship.id}`}
+            onClick={onSpacecraftClick}
+            id={spaceship.id}
+          >
+            <SpaceshipCard spaceship={spaceship} />
+          </Link>
+        </Box>
       ))}
     </>
   );

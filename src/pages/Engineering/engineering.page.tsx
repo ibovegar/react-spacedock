@@ -29,8 +29,8 @@ class Engineering extends React.Component<interfaces.IProps, {}> {
     }
 
     return (
-      <Box display="flex">
-        <Box width={400}>
+      <Box display="flex" height="100%">
+        <Box width={340} bgcolor="grey.300" height="100%">
           <SpaceshipList
             spaceships={spacecrafts}
             onSpacecraftClick={this.handleSelectSpacecraft}

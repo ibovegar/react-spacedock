@@ -2,7 +2,7 @@ import React from 'react';
 import { ISpaceship } from 'models';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-// import image from 'assets/images/space1.jpg';
+import { Box } from '@material-ui/core';
 
 interface IProps {
   spaceship: ISpaceship;
@@ -12,31 +12,27 @@ const SpaceshipCard: React.FC<IProps> = ({ spaceship }) => {
   return (
     <Grid container>
       <Grid item>
-        <img
-          width="140"
-          alt="spaceship"
-          src={`${process.env.PUBLIC_URL}/images/${spaceship.registry}.jpg`}
-        />
+        <Box p={2}>
+          <img
+            width="80"
+            alt="spaceship"
+            src={`${process.env.PUBLIC_URL}/images/${spaceship.registry}.jpg`}
+          />
+        </Box>
       </Grid>
       <Grid item sm container>
         <Grid item xs container direction="column">
           <Grid item xs>
-            <Typography gutterBottom variant="subtitle1">
+            <Typography gutterBottom variant="h6">
               {spaceship.name}
             </Typography>
-            <Typography variant="body2" gutterBottom>
+            <Typography variant="body1" gutterBottom>
               {spaceship.manufacturer}
             </Typography>
-            <Typography variant="body2" color="textSecondary">
-              {spaceship.type}
-            </Typography>
-          </Grid>
-          <Grid item>
-            <Typography variant="body2">{spaceship.price}</Typography>
           </Grid>
         </Grid>
         <Grid item>
-          <Typography variant="subtitle1">$19.00</Typography>
+          <Typography variant="subtitle1">{spaceship.type}</Typography>
         </Grid>
       </Grid>
     </Grid>
