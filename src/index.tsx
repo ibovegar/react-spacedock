@@ -11,8 +11,10 @@ import { ThemeProvider } from '@material-ui/styles';
 import Theme from './ui/theme/index';
 
 import App from './App';
-import 'normalize.css';
 import * as serviceWorker from './serviceWorker';
+
+import 'normalize.css';
+import './assets/css/styles.scss';
 
 const middleware = [thunk];
 const composeEnhancers =
