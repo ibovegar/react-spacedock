@@ -13,6 +13,31 @@ const SpaceshipStats: React.FC<IProps> = ({ spacecraft }) => {
   return (
     <>
       <Box m={2}>
+        <Typography variant="body1">
+          <div>
+            <strong>Name:</strong> {spacecraft.name}
+          </div>
+          <div>
+            <strong>Type:</strong> {spacecraft.type}
+          </div>
+          <div>
+            <strong>Manufacturer:</strong> {spacecraft.manufacturer}
+          </div>
+          <div>
+            <strong>Manufactured:</strong> {spacecraft.manufactured}
+          </div>
+          <div>
+            <strong>Height:</strong> {spacecraft.height}
+          </div>
+          <div>
+            <strong>Length:</strong> {spacecraft.length}
+          </div>
+          <div>
+            <strong>Registry:</strong> {spacecraft.registry}
+          </div>
+        </Typography>
+      </Box>
+      <Box m={2}>
         <Typography variant="h6">Speed</Typography>
         <LinearProgress
           color="secondary"
