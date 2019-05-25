@@ -5,6 +5,8 @@ import { SpaceshipBuilder } from 'containers';
 import { SpaceshipList } from 'components';
 import Box from '@material-ui/core/Box';
 import * as interfaces from './engineering.interface';
+import { Typography } from '@material-ui/core';
+import classes from './engineering.module.scss';
 
 class Engineering extends React.Component<interfaces.IProps, {}> {
   componentDidMount() {
@@ -49,7 +51,11 @@ class Engineering extends React.Component<interfaces.IProps, {}> {
             />
             <Route
               path={`${match.path}/`}
-              render={() => <div>Select spaceship</div>}
+              render={() => (
+                <Typography className={classes.EmptyPlaceholder} variant="h5">
+                  NO SPACECRAFT SELECTED
+                </Typography>
+              )}
             />
           </Switch>
         </Box>

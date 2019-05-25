@@ -11,28 +11,20 @@ interface IProps {
 const SpaceshipCard: React.FC<IProps> = ({ spaceship }) => {
   return (
     <Box p={1}>
-      <Grid container>
+      <Grid container justify="center" alignItems="center">
         <Grid item>
           <img
-            height="90"
+            style={{ display: 'block' }}
+            height="80"
             alt="spaceship"
             src={`${process.env.PUBLIC_URL}/images/${spaceship.registry}.jpg`}
           />
         </Grid>
-        <Grid item sm container>
-          <Grid item xs container direction="column">
-            <Grid item xs>
-              <Typography gutterBottom variant="h6">
-                {spaceship.name}
-              </Typography>
-              <Typography variant="body1" gutterBottom>
-                {spaceship.manufacturer}
-              </Typography>
-            </Grid>
-          </Grid>
-          <Grid item>
-            <Typography variant="subtitle1">{spaceship.type}</Typography>
-          </Grid>
+        <Grid item style={{ paddingLeft: '20px' }}>
+          <Typography variant="h6">{spaceship.name}</Typography>
+          <Typography variant="body1" gutterBottom>
+            {spaceship.manufacturer}
+          </Typography>
         </Grid>
       </Grid>
     </Box>

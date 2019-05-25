@@ -15,16 +15,16 @@ const SpaceshipList: React.FC<IStateProps> = props => {
   return (
     <>
       {spaceships.map((spaceship: ISpaceship) => (
-        <div className={classes.NavigationItem} key={spaceship.id}>
-          <NavLink
-            to={`/engineering/${spaceship.id}`}
-            onClick={onSpacecraftClick}
-            id={spaceship.id}
-            activeClassName={classes.active}
-          >
-            <SpaceshipCard spaceship={spaceship} />
-          </NavLink>
-        </div>
+        <NavLink
+          key={spaceship.id}
+          className={classes.NavigationItem}
+          to={`/engineering/${spaceship.id}`}
+          onClick={onSpacecraftClick}
+          id={spaceship.id}
+          activeClassName={classes.active}
+        >
+          <SpaceshipCard spaceship={spaceship} />
+        </NavLink>
       ))}
     </>
   );

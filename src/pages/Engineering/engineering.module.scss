@@ -1,0 +1,11 @@
+.EmptyPlaceholder {
+  display: inline-block;
+  position: relative;
+  padding: 20px;
+  border-radius: 5px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #efefef;
+  color: #aaa;
+}
