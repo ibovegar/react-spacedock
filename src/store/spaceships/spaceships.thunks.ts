@@ -1,13 +1,13 @@
 import { ISpaceship } from 'models';
 import { Dispatch } from 'redux';
+import API from 'api';
 import * as actions from './spaceships.actions';
-import * as API from 'api/spaceship.api';
 
 export const loadSpacecrafts = () => async (dispatch: Dispatch) => {
   dispatch(actions.loadAllSpaceshipsRequest());
 
   try {
-    const response: ISpaceship[] = await API.getAll();
+    const response: ISpaceship[] = await API.spacecraft.getAll();
     dispatch(actions.loadAllSpaceshipsSuccess(response));
   } catch (error) {
     dispatch(actions.loadAllSpaceshipsFailure(error));
