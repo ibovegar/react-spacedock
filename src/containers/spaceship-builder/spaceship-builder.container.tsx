@@ -7,10 +7,6 @@ import * as interfaces from './spaceship-builder.interface';
 import { Typography } from '@material-ui/core';
 
 class SpaceshipBuilder extends React.Component<interfaces.IProps, {}> {
-  componentDidMount() {
-    this.props.setSelectedSpacecraft(this.props.match.params.spaceshipId);
-  }
-
   render() {
     const { spacecraft, upgrades } = this.props;
 
@@ -43,7 +39,4 @@ class SpaceshipBuilder extends React.Component<interfaces.IProps, {}> {
   }
 }
 
-export default connect(
-  interfaces.mapStateToProps,
-  interfaces.mapDispatchToProps
-)(SpaceshipBuilder);
+export default connect(interfaces.mapStateToProps)(SpaceshipBuilder);

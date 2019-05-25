@@ -1,4 +1,3 @@
-import { setSelectedSpacecraft } from 'store/spaceships';
 import { getAvailableUpgrades } from 'store/upgrades';
 import { AppState } from 'store';
 import { ISpaceship, IAvailableUpgrades } from 'models';
@@ -9,23 +8,13 @@ export interface IStateProps {
   upgrades: IAvailableUpgrades;
 }
 
-export interface IDispatchProps {
-  setSelectedSpacecraft: (id: string) => void;
-}
-
 export interface MatchParams {
   spaceshipId: string;
 }
 
-export type IProps = IStateProps &
-  IDispatchProps &
-  RouteComponentProps<MatchParams>;
+export type IProps = IStateProps & RouteComponentProps<MatchParams>;
 
 export const mapStateToProps = (state: AppState) => ({
   spacecraft: state.spaceships.selected,
   upgrades: getAvailableUpgrades(state)
 });
-
-export const mapDispatchToProps = {
-  setSelectedSpacecraft
-};
