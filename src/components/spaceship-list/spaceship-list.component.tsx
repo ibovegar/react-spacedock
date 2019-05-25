@@ -1,8 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { ISpaceship } from 'models';
 import SpaceshipCard from './spaceship-card/spaceship-card.component';
-import { Box } from '@material-ui/core';
+import classes from './spaceship-list.module.scss';
 
 interface IStateProps {
   spaceships: ISpaceship[];
@@ -15,15 +15,16 @@ const SpaceshipList: React.FC<IStateProps> = props => {
   return (
     <>
       {spaceships.map((spaceship: ISpaceship) => (
-        <Box key={spaceship.id} bgcolor="grey.100">
-          <Link
+        <div className={classes.NavigationItem} key={spaceship.id}>
+          <NavLink
             to={`/engineering/${spaceship.id}`}
             onClick={onSpacecraftClick}
             id={spaceship.id}
+            activeClassName={classes.active}
           >
             <SpaceshipCard spaceship={spaceship} />
-          </Link>
-        </Box>
+          </NavLink>
+        </div>
       ))}
     </>
   );
