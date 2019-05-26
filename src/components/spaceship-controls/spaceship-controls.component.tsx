@@ -11,7 +11,7 @@ interface IProps {
   spacecraft: ISpaceship;
   availableUpgrades: IAvailableUpgrades;
   attachedUpgrades: IAttachedUpgrades;
-  onSelectUpgrade: (upgrade: IUpgrade) => void;
+  onSelectUpgrade: (oldUpgrade: IUpgrade, newUpgrade: IUpgrade) => void;
 }
 
 const SpaceshipControls: React.FC<IProps> = props => {
@@ -23,34 +23,44 @@ const SpaceshipControls: React.FC<IProps> = props => {
   return (
     <>
       <SpaceshipControl
-        onSelectUpgrade={upgrade => onSelectUpgrade(upgrade)}
+        onSelect={(option: IUpgrade) =>
+          onSelectUpgrade(attachedUpgrades.deflector, option)
+        }
         type="Deflector"
-        selectedUpgrade={attachedUpgrades.deflector}
-        selectableUpgrades={availableUpgrades.deflector}
+        value={attachedUpgrades.deflector}
+        options={availableUpgrades.deflector}
       />
       <SpaceshipControl
-        onSelectUpgrade={upgrade => onSelectUpgrade(upgrade)}
+        onSelect={(option: IUpgrade) =>
+          onSelectUpgrade(attachedUpgrades.engine, option)
+        }
         type="Engine"
-        selectedUpgrade={attachedUpgrades.engine}
-        selectableUpgrades={availableUpgrades.engine}
+        value={attachedUpgrades.engine}
+        options={availableUpgrades.engine}
       />
       <SpaceshipControl
-        onSelectUpgrade={upgrade => onSelectUpgrade(upgrade)}
+        onSelect={(option: IUpgrade) =>
+          onSelectUpgrade(attachedUpgrades.plating, option)
+        }
         type="Plating"
-        selectedUpgrade={attachedUpgrades.plating}
-        selectableUpgrades={availableUpgrades.plating}
+        value={attachedUpgrades.plating}
+        options={availableUpgrades.plating}
       />
       <SpaceshipControl
-        onSelectUpgrade={upgrade => onSelectUpgrade(upgrade)}
+        onSelect={(option: IUpgrade) =>
+          onSelectUpgrade(attachedUpgrades.stabilizer, option)
+        }
         type="Stabilizer"
-        selectedUpgrade={attachedUpgrades.stabilizer}
-        selectableUpgrades={availableUpgrades.stabilizer}
+        value={attachedUpgrades.stabilizer}
+        options={availableUpgrades.stabilizer}
       />
       <SpaceshipControl
-        onSelectUpgrade={upgrade => onSelectUpgrade(upgrade)}
+        onSelect={(option: IUpgrade) =>
+          onSelectUpgrade(attachedUpgrades.weapons, option)
+        }
         type="Weapons"
-        selectedUpgrade={attachedUpgrades.weapons}
-        selectableUpgrades={availableUpgrades.weapons}
+        value={attachedUpgrades.weapons}
+        options={availableUpgrades.weapons}
       />
     </>
   );

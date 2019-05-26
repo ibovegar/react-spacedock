@@ -20,17 +20,18 @@ export const getAttachedUpgrades: Selector<
   AppState,
   IAttachedUpgrades
 > = createSelector(
-  [getUpgradeEnities, getSelectedSpacecraft],
-  (upgrades: any, selectedSpacecraft: ISpaceship) => {
+  [getUpgradeList, getSelectedSpacecraft],
+  (upgrades: IUpgrade[], selectedSpacecraft: ISpaceship) => {
     const attachedUpgrades = {} as IAttachedUpgrades;
-    if (isEmpty(selectedSpacecraft)) return attachedUpgrades;
-
-    for (const upgradeId of selectedSpacecraft.attachedUpgrades) {
-      const upgrade: IUpgrade = upgrades[upgradeId];
-      if (!upgrade) continue;
-      attachedUpgrades[upgrade.type] = upgrade;
+    if (isEmpty(selectedSpacecraft) || !upgrades.length) {
+      return attachedUpgrades;
     }
 
+    for (const upgrade of upgrades) {
+      if (upgrade.spaceshipId === selectedSpacecraft.id) {
+        attachedUpgrades[upgrade.type] = upgrade;
+      }
+    }
     return attachedUpgrades;
   }
 );
@@ -50,11 +51,6 @@ export const getAvailableUpgrades: Selector<
     availableUpgrades.weapons = [];
 
     for (const upgrade of upgrades) {
-      console.log(
-        upgrade,
-        upgrade.spacecraftRegistry === selectedSpacecraft.registry,
-        !upgrade.isAttached
-      );
       if (
         !upgrade.isAttached &&
         upgrade.spacecraftRegistry === selectedSpacecraft.registry
@@ -62,8 +58,6 @@ export const getAvailableUpgrades: Selector<
         availableUpgrades[upgrade.type].push(upgrade);
       }
     }
-
-    // console.log(availableUpgrades);
 
     return availableUpgrades;
   }

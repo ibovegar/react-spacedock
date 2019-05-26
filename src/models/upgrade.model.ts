@@ -1,12 +1,12 @@
 export interface IUpgrade {
-  id: string;
-  spacecraftId: string;
-  spacecraftRegistry: string;
+  readonly id: string;
+  readonly spacecraftRegistry: string;
+  readonly type: string;
+  readonly name: string;
+  readonly manufacturer: string;
+  readonly gain: number;
   isAttached: boolean;
-  type: string;
-  name: string;
-  manufacturer: string;
-  gain: number;
+  spaceshipId: string;
 }
 
 export interface IAttachedUpgrades {

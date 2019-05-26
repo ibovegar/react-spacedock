@@ -4,14 +4,14 @@ import { Box, Typography, Popover } from '@material-ui/core';
 import classes from './spaceship-control.module.scss';
 
 interface IProps {
-  selectedUpgrade: IUpgrade;
-  selectableUpgrades: IUpgrade[];
+  value: IUpgrade;
+  options: IUpgrade[];
   type: string;
-  onSelectUpgrade: (upgrade: IUpgrade) => void;
+  onSelect: (option: IUpgrade) => void;
 }
 
 const SpaceshipControl: React.FC<IProps> = props => {
-  const { selectedUpgrade, selectableUpgrades, type, onSelectUpgrade } = props;
+  const { value, options, type, onSelect } = props;
   const [anchorEl, setAnchorEl]: [any, any] = React.useState(null);
 
   const handleOpen = (event: React.MouseEvent) => {
@@ -22,9 +22,9 @@ const SpaceshipControl: React.FC<IProps> = props => {
     setAnchorEl(null);
   };
 
-  const handleClickUpgrade = (upgrade: IUpgrade) => {
+  const handleClickUpgrade = (option: IUpgrade) => {
     handleClose();
-    onSelectUpgrade(upgrade);
+    onSelect(option);
   };
 
   const open = Boolean(anchorEl);
@@ -34,17 +34,17 @@ const SpaceshipControl: React.FC<IProps> = props => {
     <>
       <Typography variant="h6">{type}</Typography>
       <Box bgcolor="grey.100" p={2} m={2} onClick={handleOpen}>
-        {selectedUpgrade ? (
+        {value ? (
           <>
-            <Typography variant="h5">{selectedUpgrade.name}</Typography>
+            <Typography variant="h5">{value.name}</Typography>
             <Typography variant="body1" gutterBottom>
-              {selectedUpgrade.manufacturer}
+              {value.manufacturer}
             </Typography>
           </>
         ) : (
           <Typography variant="h5">
-            {selectableUpgrades.length} available upgrade
-            {selectableUpgrades.length > 1 ? 's' : ''}
+            {options.length} available upgrade
+            {options.length > 1 ? 's' : ''}
           </Typography>
         )}
       </Box>
@@ -63,14 +63,14 @@ const SpaceshipControl: React.FC<IProps> = props => {
         }}
       >
         <ul className={classes.ItemList}>
-          {!selectableUpgrades.length ? (
+          {!options.length ? (
             <Typography variant="h6">No available upgrades</Typography>
           ) : (
-            selectableUpgrades.map((upgrade: IUpgrade) => (
-              <li key={upgrade.id} onClick={() => handleClickUpgrade(upgrade)}>
-                <Typography variant="h5">{upgrade.name}</Typography>
+            options.map((option: IUpgrade) => (
+              <li key={option.id} onClick={() => handleClickUpgrade(option)}>
+                <Typography variant="h5">{option.name}</Typography>
                 <Typography variant="body1" gutterBottom>
-                  {upgrade.manufacturer}
+                  {option.manufacturer}
                 </Typography>
               </li>
             ))

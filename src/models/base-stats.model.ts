@@ -1,7 +1,7 @@
 export interface IBaseStats {
-  speed: number;
-  hull: number;
-  shield: number;
-  damage: number;
-  manuvrability: number;
+  readonly speed: number;
+  readonly hull: number;
+  readonly shield: number;
+  readonly damage: number;
+  readonly manuvrability: number;
 }

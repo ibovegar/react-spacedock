@@ -12,8 +12,12 @@ class SpaceshipBuilder extends React.Component<interfaces.IProps, {}> {
     this.props.setSelectedSpacecraft(this.props.match.params.spaceshipId);
   }
 
-  handleSelectUpgrade = (upgrade: IUpgrade) => {
-    this.props.setActiveUpgrade(this.props.spacecraft, upgrade);
+  handleSelectUpgrade = (oldUpgrade: IUpgrade, newUpgrade: IUpgrade) => {
+    this.props.setAttachedUpgrade(
+      this.props.spacecraft,
+      oldUpgrade,
+      newUpgrade
+    );
   };
 
   render() {
@@ -39,7 +43,9 @@ class SpaceshipBuilder extends React.Component<interfaces.IProps, {}> {
             spacecraft={spacecraft}
             attachedUpgrades={attachedUpgrades}
             availableUpgrades={availableUpgrades}
-            onSelectUpgrade={upgrade => this.handleSelectUpgrade(upgrade)}
+            onSelectUpgrade={(oldUpgrade, newUpgrade) =>
+              this.handleSelectUpgrade(oldUpgrade, newUpgrade)
+            }
           />
         </Box>
         <Box width={500} m={2}>

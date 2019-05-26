@@ -1,15 +1,15 @@
 import { IBaseStats } from 'models';
 
 export interface ISpaceship {
-  id: string;
-  name: string;
-  registry: string;
-  manufacturer: string;
-  manufactured: number;
-  type: string;
-  height: number;
-  length: number;
-  price: number;
+  readonly id: string;
+  readonly name: string;
+  readonly registry: string;
+  readonly manufacturer: string;
+  readonly manufactured: number;
+  readonly type: string;
+  readonly height: number;
+  readonly length: number;
+  readonly price: number;
+  readonly baseStats: IBaseStats;
   attachedUpgrades: string[];
-  baseStats: IBaseStats;
 }

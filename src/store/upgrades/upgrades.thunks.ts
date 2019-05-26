@@ -1,7 +1,7 @@
 import { Dispatch } from 'redux';
 import * as actions from './upgrades.actions';
 import * as API from 'api/upgrades.api';
-import { IUpgrade } from 'models';
+import { IUpgrade, ISpaceship } from 'models';
 
 export const loadUpgrades = (spaceshipId: string) => async (
   dispatch: Dispatch
@@ -23,4 +23,14 @@ export const loadAllUpgrades = () => async (dispatch: Dispatch) => {
   } catch (error) {
     dispatch(actions.loadUpgradesFailure(error));
   }
+};
+
+export const setAttachedUpgrade = (
+  spacecraft: ISpaceship,
+  oldUpgrade: IUpgrade,
+  newUpgrade: IUpgrade
+) => async (dispatch: Dispatch) => {
+  dispatch(
+    actions.setAttachedUpgradeSuccess(spacecraft, oldUpgrade, newUpgrade)
+  );
 };

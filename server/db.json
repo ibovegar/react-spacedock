@@ -10,7 +10,6 @@
       "height": 12,
       "length": 80,
       "price": 3055565,
-      "attachedUpgrades": ["04lfkk45", "kd78sg34"],
       "baseStats": {
         "speed": 10,
         "hull": 30,
@@ -29,7 +28,6 @@
       "height": 219,
       "length": 456,
       "price": 4123334,
-      "attachedUpgrades": ["94j456hf"],
       "baseStats": {
         "speed": 60,
         "hull": 50,
@@ -42,7 +40,7 @@
   "upgrades": [
     {
       "id": "kd78sg34",
-      "attachedTo": "j5id63sd",
+      "spaceshipId": "j5id63sd",
       "spacecraftRegistry": "drax22",
       "isAttached": true,
       "type": "deflector",

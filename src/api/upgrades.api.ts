@@ -19,8 +19,6 @@ export const setAttachedUpgrade = async (
   spaceshipId: string,
   upgrade: IUpgrade
 ): Promise<void> => {
-  console.log(upgrade);
-
   await axios.post(
     `${url}/attachedUpgrades/${spaceshipId}/attachedUpgrades/${upgrade.type}`,
     upgrade

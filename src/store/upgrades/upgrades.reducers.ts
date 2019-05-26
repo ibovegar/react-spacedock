@@ -37,6 +37,37 @@ export function reducer(
         isLoading: false
       };
 
+    case 'SET_ATTACHED_UPGRADE_REQUEST':
+      return {
+        ...state,
+        isLoading: true
+      };
+
+    case 'SET_ATTACHED_UPGRADE_SUCCESS':
+      const entities: any = { ...state.entities };
+      const newUpgrade: IUpgrade = entities[action.newUpgrade.id];
+
+      newUpgrade.isAttached = true;
+      newUpgrade.spaceshipId = action.spacecraft.id;
+
+      if (action.oldUpgrade) {
+        const oldUpgrade: IUpgrade = entities[action.oldUpgrade.id];
+        oldUpgrade.isAttached = false;
+        oldUpgrade.spaceshipId = '';
+      }
+
+      return {
+        ...state,
+        isLoading: false,
+        entities
+      };
+
+    case 'SET_ATTACHED_UPGRADE_FAILURE':
+      return {
+        ...state,
+        isLoading: false
+      };
+
     default:
       return state;
   }

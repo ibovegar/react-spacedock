@@ -6,8 +6,12 @@ import {
   IAttachedUpgrades
 } from 'models';
 import { RouteComponentProps } from 'react-router-dom';
-import { setActiveUpgrade, setSelectedSpacecraft } from 'store/spaceships';
-import { getAvailableUpgrades, getAttachedUpgrades } from 'store/upgrades';
+import { setSelectedSpacecraft } from 'store/spaceships';
+import {
+  setAttachedUpgrade,
+  getAvailableUpgrades,
+  getAttachedUpgrades
+} from 'store/upgrades';
 
 export interface IStateProps {
   spacecraft: ISpaceship;
@@ -22,12 +26,16 @@ export const mapStateToProps = (state: AppState) => ({
 });
 
 export interface IDispatchProps {
-  setActiveUpgrade: (spacecraft: ISpaceship, upgrade: IUpgrade) => void;
+  setAttachedUpgrade: (
+    spacecraft: ISpaceship,
+    oldUpgrade: IUpgrade,
+    newUpgrade: IUpgrade
+  ) => void;
   setSelectedSpacecraft: (id: string) => void;
 }
 
 export const mapDispatchToProps = {
-  setActiveUpgrade,
+  setAttachedUpgrade,
   setSelectedSpacecraft
 };
 
