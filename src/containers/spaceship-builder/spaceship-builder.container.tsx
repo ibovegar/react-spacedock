@@ -1,23 +1,27 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { SpaceshipViewer, SpaceshipStats, SpaceshipControls } from 'components';
-import { isEmpty } from 'utils/helpers';
 import Box from '@material-ui/core/Box';
 import * as interfaces from './spaceship-builder.interface';
 import { Typography } from '@material-ui/core';
 import { IUpgrade } from 'models';
+import { isEmpty } from 'utils/helpers';
 
 class SpaceshipBuilder extends React.Component<interfaces.IProps, {}> {
+  componentDidMount() {
+    this.props.setSelectedSpacecraft(this.props.match.params.spaceshipId);
+  }
+
+  handleSelectUpgrade = (upgrade: IUpgrade) => {
+    this.props.setActiveUpgrade(this.props.spacecraft, upgrade);
+  };
+
   render() {
-    const { spacecraft, upgrades, setActiveUpgrade } = this.props;
+    const { spacecraft, attachedUpgrades, availableUpgrades } = this.props;
 
     if (isEmpty(spacecraft)) {
-      return <div>Loading spacecraft</div>;
+      return <div>Loading...</div>;
     }
-
-    const handleSelectUpgrade = (upgrade: IUpgrade) => {
-      setActiveUpgrade(spacecraft, upgrade);
-    };
 
     return (
       <Box display="flex">
@@ -33,8 +37,9 @@ class SpaceshipBuilder extends React.Component<interfaces.IProps, {}> {
           </Typography>
           <SpaceshipControls
             spacecraft={spacecraft}
-            upgrades={upgrades}
-            onSelectUpgrade={upgrade => handleSelectUpgrade(upgrade)}
+            attachedUpgrades={attachedUpgrades}
+            availableUpgrades={availableUpgrades}
+            onSelectUpgrade={upgrade => this.handleSelectUpgrade(upgrade)}
           />
         </Box>
         <Box width={500} m={2}>

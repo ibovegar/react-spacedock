@@ -10,33 +10,13 @@
       "height": 12,
       "length": 80,
       "price": 3055565,
+      "attachedUpgrades": ["04lfkk45", "kd78sg34"],
       "baseStats": {
         "speed": 10,
         "hull": 30,
         "shield": 80,
         "damage": 60,
         "manuvrability": 80
-      },
-      "attachedUpgrades": {
-        "engine": {
-          "id": "04lfkk45",
-          "spacecraftRegistry": "drax22",
-          "type": "speed",
-          "name": "Alpha-stream Propultion Enhancer MKI",
-          "manufacturer": "Epsilon Laboratories",
-          "gain": 20
-        },
-        "plating": null,
-        "deflector": {
-          "id": "kd78sg34",
-          "spacecraftRegistry": "drax22",
-          "type": "shield",
-          "name": "Shield Aggregator ZS-1",
-          "manufacturer": "Epsilon Laboratories",
-          "gain": 10
-        },
-        "weapons": null,
-        "stabilizer": null
       }
     },
     {
@@ -49,74 +29,82 @@
       "height": 219,
       "length": 456,
       "price": 4123334,
+      "attachedUpgrades": ["94j456hf"],
       "baseStats": {
         "speed": 60,
         "hull": 50,
         "shield": 10,
         "damage": 0,
         "manuvrability": 10
-      },
-      "attachedUpgrades": {
-        "engine": null,
-        "plating": null,
-        "deflector": null,
-        "weapons": null,
-        "stabilizer": null
       }
     }
   ],
-  "availableUpgrades": [
+  "upgrades": [
     {
       "id": "kd78sg34",
+      "attachedTo": "j5id63sd",
       "spacecraftRegistry": "drax22",
+      "isAttached": true,
       "type": "deflector",
-      "name": "Shield Aggregator ZS-1",
-      "manufacturer": "Epsilon Laboratories",
+      "name": "Shield Aggregator AUT1",
+      "manufacturer": "Epsilon-X Laboratories",
       "gain": 10
     },
     {
-      "id": "04lfkk45",
+      "id": "iru579eo",
+      "spaceshipId": "",
       "spacecraftRegistry": "drax22",
+      "isAttached": false,
+      "type": "deflector",
+      "name": "Gentec Puls Dampener",
+      "manufacturer": "Gentech MIL Corp.",
+      "gain": 16
+    },
+    {
+      "id": "jfj48iow9",
+      "spaceshipId": "",
+      "spacecraftRegistry": "drax22",
+      "isAttached": false,
+      "type": "deflector",
+      "name": "Gentec FF Fieler",
+      "manufacturer": "Gentech MIL Corp.",
+      "gain": 24
+    },
+    {
+      "id": "04lfkk45",
+      "spaceshipId": "j5id63sd",
+      "spacecraftRegistry": "drax22",
+      "isAttached": true,
       "type": "engine",
       "name": "Alpha-stream Propultion Enhancer MKI",
-      "manufacturer": "Epsilon Laboratories",
+      "manufacturer": "ANTEC Laboratories",
       "gain": 20
     },
     {
+      "id": "lgj47463",
+      "spaceshipId": "",
+      "spacecraftRegistry": "drax22",
+      "isAttached": false,
+      "type": "plating",
+      "name": "Crystalin Elocplat Hull",
+      "manufacturer": "Gentech MIL Corp.",
+      "gain": 27
+    },
+    {
       "id": "94j456hf",
+      "spaceshipId": "29heh478",
       "spacecraftRegistry": "cyg35a",
+      "isAttached": true,
       "type": "engine",
       "name": "Cryson Particle Booster IA-1",
       "manufacturer": "Cryson & Billard Engineering",
       "gain": 21
     },
     {
-      "id": "iru579eo",
-      "spacecraftRegistry": "drax22",
-      "type": "deflector",
-      "name": "Gentec Puls Dampener",
-      "manufacturer": "Gentec inc.",
-      "gain": 16
-    },
-    {
-      "id": "jfj48iow9",
-      "spacecraftRegistry": "drax22",
-      "type": "deflector",
-      "name": "Gentec FF Fieler",
-      "manufacturer": "Gentec inc.",
-      "gain": 24
-    },
-    {
-      "id": "lgj47463",
-      "spacecraftRegistry": "drax22",
-      "type": "plating",
-      "name": "Crystalin Elocplat Hull",
-      "manufacturer": "Gentec inc.",
-      "gain": 27
-    },
-    {
       "id": "19j46dkt",
+      "spaceshipId": "",
       "spacecraftRegistry": "cyg35a",
+      "isAttached": false,
       "type": "stabilizer",
       "name": "Cryson Particle Booster IA-2",
       "manufacturer": "Cryson & Billard Engineering",

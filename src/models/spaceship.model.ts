@@ -1,4 +1,4 @@
-import { IBaseStats, IAttachedUpgrades } from 'models';
+import { IBaseStats } from 'models';
 
 export interface ISpaceship {
   id: string;
@@ -10,6 +10,6 @@ export interface ISpaceship {
   height: number;
   length: number;
   price: number;
+  attachedUpgrades: string[];
   baseStats: IBaseStats;
-  attachedUpgrades: IAttachedUpgrades;
 }

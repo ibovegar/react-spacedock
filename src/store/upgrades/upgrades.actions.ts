@@ -1,20 +1,20 @@
 import { IUpgrade } from 'models';
 
 export type ActionTypes =
-  | { type: 'LOAD_INVENTORY_REQUEST' }
-  | { type: 'LOAD_INVENTORY_SUCCESS'; upgrades: IUpgrade[] }
-  | { type: 'LOAD_INVENTORY_FAILURE'; error: any };
+  | { type: 'LOAD_UPGRADES_REQUEST' }
+  | { type: 'LOAD_UPGRADES_SUCCESS'; upgrades: IUpgrade[] }
+  | { type: 'LOAD_UPGRADES_FAILURE'; error: any };
 
-export const loadInventoryRequest = () => ({
-  type: 'LOAD_INVENTORY_REQUEST'
+export const loadUpgradesRequest = () => ({
+  type: 'LOAD_UPGRADES_REQUEST'
 });
 
-export const loadInventorySuccess = (upgrades: IUpgrade[]): ActionTypes => ({
-  type: 'LOAD_INVENTORY_SUCCESS',
+export const loadUpgradesSuccess = (upgrades: IUpgrade[]): ActionTypes => ({
+  type: 'LOAD_UPGRADES_SUCCESS',
   upgrades
 });
 
-export const loadInventoryFailure = (error: any): ActionTypes => ({
-  type: 'LOAD_INVENTORY_FAILURE',
+export const loadUpgradesFailure = (error: any): ActionTypes => ({
+  type: 'LOAD_UPGRADES_FAILURE',
   error
 });

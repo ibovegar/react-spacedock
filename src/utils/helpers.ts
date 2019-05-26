@@ -31,7 +31,22 @@ export const isEmpty = (obj: any): boolean => {
   return Object.entries(obj).length === 0 && obj.constructor === Object;
 };
 
+/**
+ * Add new and update existing entities.
+ */
+export const upsertEntities = (
+  currentEntities: any,
+  incomingEntities: any
+): any => {
+  const newEntities: any = { ...currentEntities };
+  return {
+    ...newEntities,
+    ...incomingEntities
+  };
+};
+
 export default {
   toEntities,
-  toArray
+  toArray,
+  upsertEntities
 };

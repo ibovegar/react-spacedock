@@ -5,8 +5,8 @@ import {
   getAllSpaceships,
   setSelectedSpacecraft
 } from 'store/spaceships';
-import { loadInventory } from 'store/upgrades';
 import { AppState } from 'store';
+import { loadAllUpgrades } from 'store/upgrades';
 
 export interface IStateProps extends RouteComponentProps {
   isLoadingSpaceships: boolean;
@@ -14,22 +14,22 @@ export interface IStateProps extends RouteComponentProps {
   spacecrafts: ISpaceship[];
 }
 
-export interface IDispatchProps {
-  setSelectedSpacecraft: (id: string) => void;
-  loadSpacecrafts: () => void;
-  loadInventory: () => void;
-}
-
-export type IProps = IStateProps & IDispatchProps;
-
 export const mapStateToProps = (state: AppState) => ({
-  isLoadingSpacerafts: state.spaceships.isLoading,
   isLoadingUpgrades: state.upgrades.isLoading,
+  isLoadingSpacerafts: state.spaceships.isLoading,
   spacecrafts: getAllSpaceships(state)
 });
 
+export interface IDispatchProps {
+  setSelectedSpacecraft: (id: string) => void;
+  loadSpacecrafts: () => void;
+  loadAllUpgrades: () => void;
+}
+
 export const mapDispatchToProps = {
-  loadInventory,
   loadSpacecrafts,
+  loadAllUpgrades,
   setSelectedSpacecraft
 };
+
+export type IProps = IStateProps & IDispatchProps;

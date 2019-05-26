@@ -1,3 +1,14 @@
+export interface IUpgrade {
+  id: string;
+  spacecraftId: string;
+  spacecraftRegistry: string;
+  isAttached: boolean;
+  type: string;
+  name: string;
+  manufacturer: string;
+  gain: number;
+}
+
 export interface IAttachedUpgrades {
   engine: IUpgrade;
   plating: IUpgrade;
@@ -14,11 +25,10 @@ export interface IAvailableUpgrades {
   stabilizer: IUpgrade[];
 }
 
-export interface IUpgrade {
-  id: string;
-  spacecraftRegistry: string;
-  type: string;
-  name: string;
-  manufacturer: string;
-  gain: number;
+export enum UpgradeType {
+  Deflector = 'deflector',
+  Engine = 'engine',
+  Plating = 'plating',
+  Stabilizer = 'stabilizer',
+  Weapons = 'weapons'
 }

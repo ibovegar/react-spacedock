@@ -11,7 +11,7 @@ import classes from './engineering.module.scss';
 class Engineering extends React.Component<interfaces.IProps, {}> {
   componentDidMount() {
     this.props.loadSpacecrafts();
-    this.props.loadInventory();
+    this.props.loadAllUpgrades();
   }
 
   handleSelectSpacecraft = (event: React.MouseEvent) => {

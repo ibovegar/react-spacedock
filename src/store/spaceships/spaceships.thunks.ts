@@ -20,12 +20,12 @@ export const setActiveUpgrade = (
 ) => async (dispatch: Dispatch) => {
   console.log('thunk', spacecraft, upgrade, dispatch);
 
-  try {
-    await API.spacecraft.setUpgrade(spacecraft.id, upgrade);
-    // dispatch(actions.loadAllSpaceshipsSuccess(response));
-  } catch (error) {
-    // dispatch(actions.loadAllSpaceshipsFailure(error));
-  }
+  // try {
+  //   await API.spacecraft.setUpgrade(spacecraft.id, upgrade);
+  //   // dispatch(actions.loadAllSpaceshipsSuccess(response));
+  // } catch (error) {
+  //   // dispatch(actions.loadAllSpaceshipsFailure(error));
+  // }
 };
 
 // export const loadSpacecraft = (spacecraftId: string) => async (
