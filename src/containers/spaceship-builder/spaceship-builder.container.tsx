@@ -9,15 +9,14 @@ import { IUpgrade } from 'models';
 
 class SpaceshipBuilder extends React.Component<interfaces.IProps, {}> {
   render() {
-    const { spacecraft, upgrades } = this.props;
+    const { spacecraft, upgrades, setActiveUpgrade } = this.props;
 
     if (isEmpty(spacecraft)) {
       return <div>Loading spacecraft</div>;
     }
 
     const handleSelectUpgrade = (upgrade: IUpgrade) => {
-      // spacecraftstore.setActiveUpgrade(spacecraft, upgrade)
-      console.log(upgrade);
+      setActiveUpgrade(spacecraft, upgrade);
     };
 
     return (
@@ -49,4 +48,7 @@ class SpaceshipBuilder extends React.Component<interfaces.IProps, {}> {
   }
 }
 
-export default connect(interfaces.mapStateToProps)(SpaceshipBuilder);
+export default connect(
+  interfaces.mapStateToProps,
+  interfaces.mapDispatchToProps
+)(SpaceshipBuilder);
