@@ -1,14 +1,16 @@
 import * as React from 'react';
-import { ISpaceship } from 'models';
+import { ISpaceship, IAttachedUpgrades } from 'models';
 import { LinearProgress, Box, Typography } from '@material-ui/core';
 
 interface IProps {
   spacecraft: ISpaceship;
+  attachedUpgrades: IAttachedUpgrades;
 }
 
-const SpaceshipStats: React.FC<IProps> = ({ spacecraft }) => {
+const SpaceshipStats: React.FC<IProps> = ({ spacecraft, attachedUpgrades }) => {
   // Only rerender if buffs changes
   const { baseStats } = spacecraft;
+  const { engine, deflector, weapons, stabilizer, plating } = attachedUpgrades;
 
   return (
     <>
@@ -38,9 +40,9 @@ const SpaceshipStats: React.FC<IProps> = ({ spacecraft }) => {
       <Box m={2}>
         <Typography variant="h6">Speed</Typography>
         <LinearProgress
-          color="secondary"
           variant="determinate"
-          value={baseStats.speed}
+          color="secondary"
+          value={baseStats.speed + ((engine && engine.gain) || 0)}
         />
       </Box>
       <Box m={2}>
@@ -48,7 +50,7 @@ const SpaceshipStats: React.FC<IProps> = ({ spacecraft }) => {
         <LinearProgress
           color="secondary"
           variant="determinate"
-          value={baseStats.shield}
+          value={baseStats.shield + ((deflector && deflector.gain) || 0)}
         />
       </Box>
       <Box m={2}>
@@ -56,7 +58,7 @@ const SpaceshipStats: React.FC<IProps> = ({ spacecraft }) => {
         <LinearProgress
           color="secondary"
           variant="determinate"
-          value={baseStats.damage}
+          value={baseStats.damage + ((weapons && weapons.gain) || 0)}
         />
       </Box>
       <Box m={2}>
@@ -64,7 +66,7 @@ const SpaceshipStats: React.FC<IProps> = ({ spacecraft }) => {
         <LinearProgress
           color="secondary"
           variant="determinate"
-          value={baseStats.hull}
+          value={baseStats.hull + ((plating && plating.gain) || 0)}
         />
       </Box>
       <Box m={2}>
@@ -72,7 +74,9 @@ const SpaceshipStats: React.FC<IProps> = ({ spacecraft }) => {
         <LinearProgress
           color="secondary"
           variant="determinate"
-          value={baseStats.manuvrability}
+          value={
+            baseStats.manuvrability + ((stabilizer && stabilizer.gain) || 0)
+          }
         />
       </Box>
       {/* <ul>

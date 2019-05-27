@@ -52,7 +52,10 @@ class SpaceshipBuilder extends React.Component<interfaces.IProps, {}> {
           <Typography variant="h4" gutterBottom>
             Statistics
           </Typography>
-          <SpaceshipStats spacecraft={spacecraft} />
+          <SpaceshipStats
+            spacecraft={spacecraft}
+            attachedUpgrades={attachedUpgrades}
+          />
         </Box>
       </Box>
     );
