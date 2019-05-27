@@ -1,20 +1,59 @@
 import React from 'react';
+import {
+  FormControl,
+  InputLabel,
+  Select,
+  MenuItem,
+  Box
+} from '@material-ui/core';
+import { withStyles, createStyles, Theme } from '@material-ui/core/styles';
 
-export interface IInventoryProps {}
+const styless = ({ spacing }: Theme) =>
+  createStyles({
+    formControl: {
+      margin: spacing(1),
+      minWidth: 200
+    }
+  });
 
-export interface IInventoryState {}
+export interface IProps {
+  classes: any;
+}
 
-export default class Inventory extends React.Component<
-  IInventoryProps,
-  IInventoryState
-> {
-  constructor(props: IInventoryProps) {
-    super(props);
+class Inventory extends React.Component<IProps, {}> {
+  state = {
+    age: '',
+    name: 'hai'
+  };
 
-    this.state = {};
-  }
+  handleChange = (event: any) => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
 
   public render() {
-    return <div>Inventory</div>;
+    return (
+      <Box bgcolor="grey.100">
+        <FormControl className={this.props.classes.formControl}>
+          <InputLabel htmlFor="age-simple">Age</InputLabel>
+          <Select
+            value={this.state.age}
+            onChange={this.handleChange}
+            inputProps={{
+              name: 'age',
+              id: 'age-simple'
+            }}
+          >
+            <MenuItem value="">
+              <em>None</em>
+            </MenuItem>
+            <MenuItem value={10}>Ten</MenuItem>
+            <MenuItem value={20}>Twenty</MenuItem>
+            <MenuItem value={30}>Thirty</MenuItem>
+          </Select>
+        </FormControl>
+      </Box>
+    );
   }
 }
+
+export default withStyles(styless)(Inventory);
