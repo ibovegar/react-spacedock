@@ -1,6 +1,7 @@
 import { createMuiTheme } from '@material-ui/core';
 
 export default createMuiTheme({
+  spacing: 4, // spacing: factor => [0, 4, 8, 16, 32, 64][factor], => theme.spacing(2); // = 8
   palette: {
     type: 'light',
     primary: {
@@ -38,6 +39,12 @@ export default createMuiTheme({
     common: {
       black: '#000',
       white: '#fff'
+    },
+    text: {
+      primary: 'rgba(0, 0, 0, 0.87)', // Select items color
+      secondary: 'rgba(0, 0, 0, 0.54)', // select placeholder color
+      disabled: 'rgba(0, 0, 0, 0.38)',
+      hint: 'rgba(0, 0, 0, 0.38)'
     }
   }
 });

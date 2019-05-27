@@ -1,6 +1,7 @@
 import { createMuiTheme } from '@material-ui/core';
 
 export default createMuiTheme({
+  spacing: 4,
   palette: {
     type: 'dark',
     primary: {
