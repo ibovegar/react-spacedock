@@ -8,13 +8,15 @@ import rootReducer from 'store';
 import thunk from 'redux-thunk';
 
 import { ThemeProvider } from '@material-ui/styles';
-import Theme from './ui/theme/index';
+// import ThemeDark from './ui/theme/dark.theme';
+import ThemeLight from './ui/theme/light.theme';
 
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 import 'normalize.css';
 import './assets/css/styles.scss';
+import { CssBaseline } from '@material-ui/core';
 
 const middleware = [thunk];
 const composeEnhancers =
@@ -30,7 +32,8 @@ const store = createStore(
 const app = (
   <Provider store={store}>
     <BrowserRouter>
-      <ThemeProvider theme={Theme}>
+      <ThemeProvider theme={ThemeLight}>
+        <CssBaseline />
         <App />
       </ThemeProvider>
     </BrowserRouter>

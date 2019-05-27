@@ -33,7 +33,7 @@ const SpaceshipControl: React.FC<IProps> = props => {
   return (
     <>
       <Typography variant="h6">{type}</Typography>
-      <Box bgcolor="grey.100" p={2} m={2} onClick={handleOpen}>
+      <Box bgcolor="grey.300" p={2} m={2} onClick={handleOpen}>
         {value ? (
           <>
             <Typography variant="h5">{value.name}</Typography>
