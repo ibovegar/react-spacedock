@@ -25,6 +25,11 @@ export default class SpaceshipViewer extends React.Component {
     }
   }
 
+  componentWillUnmount() {
+    cancelAnimationFrame(this.frameId);
+    this.canvas.removeChild(this.renderer.domElement);
+  }
+
   addControls = () => {
     this.controls = new OrbitControls(this.camera, this.renderer.domElement);
     this.controls.rotateSpeed = 1.0;
