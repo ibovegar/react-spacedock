@@ -8,8 +8,8 @@ import rootReducer from 'store';
 import thunk from 'redux-thunk';
 
 import { ThemeProvider } from '@material-ui/styles';
-// import ThemeDark from './ui/theme/dark.theme';
-import ThemeLight from './ui/theme/light.theme';
+import ThemeDark from './ui/theme/dark.theme';
+// import ThemeLight from './ui/theme/light.theme';
 
 import App from './App';
 import * as serviceWorker from './serviceWorker';
@@ -32,7 +32,7 @@ const store = createStore(
 const app = (
   <Provider store={store}>
     <BrowserRouter>
-      <ThemeProvider theme={ThemeLight}>
+      <ThemeProvider theme={ThemeDark}>
         <CssBaseline />
         <App />
       </ThemeProvider>
