@@ -34,7 +34,7 @@ class SpaceshipBuilder extends React.Component<interfaces.IProps, {}> {
           <Typography variant="h4" gutterBottom>
             Spacedock
           </Typography>
-          <SpaceshipViewer />
+          <SpaceshipViewer spacecraft={spacecraft} />
         </Box>
         <Box flex={1} m={2}>
           <Typography variant="h4" gutterBottom>
