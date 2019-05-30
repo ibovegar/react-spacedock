@@ -3,8 +3,13 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three-orbitcontrols-ts';
 import GLTFLoader from 'three-gltf-loader';
 import { Box } from '@material-ui/core';
+import { ISpaceship } from 'models';
 
-export default class SpaceshipViewer extends React.Component {
+interface IProps {
+  spacecraft: ISpaceship;
+}
+
+export default class SpaceshipViewer extends React.Component<IProps, {}> {
   camera: THREE.PerspectiveCamera;
   scene: THREE.Scene;
   renderer: THREE.WebGLRenderer;
@@ -12,8 +17,11 @@ export default class SpaceshipViewer extends React.Component {
   mesh: any = null;
   canvas: any = null;
   frameId: any = null;
+  enableHelpers: boolean = false;
 
-  model: string = `${process.env.PUBLIC_URL}/images/cow.glb`;
+  model: string = `${process.env.PUBLIC_URL}/images/${
+    this.props.spacecraft.registry
+  }.glb`;
   reflection: string = `${process.env.PUBLIC_URL}/images/reflective.jpg`;
 
   componentDidMount() {
@@ -44,28 +52,72 @@ export default class SpaceshipViewer extends React.Component {
 
   init = () => {
     const aspectRatio = this.getAspectRatio();
-    this.camera = new THREE.PerspectiveCamera(55, aspectRatio, 0.1, 1000);
-    this.camera.position.z = 4;
     this.scene = new THREE.Scene();
-    this.scene.add(new THREE.AxesHelper(200));
+    this.camera = new THREE.PerspectiveCamera(55, aspectRatio, 0.1, 1000);
+    this.camera.position.z = 16;
     this.camera.lookAt(this.scene.position);
-    const light = new THREE.HemisphereLight(0xffffff, 0x080820, 1);
-    this.scene.add(light);
-    const envMap = new THREE.TextureLoader().load(this.reflection);
-    envMap.mapping = THREE.EquirectangularReflectionMapping;
-    const loader = new GLTFLoader();
 
+    // Add hemisphere light
+    // const hemisphereLight = new THREE.HemisphereLight(0xffffff, 0xffffff, 1);
+    // this.scene.add(hemisphereLight);
+
+    // Add spotlight
+    const spotLight = new THREE.SpotLight(0xffffff);
+    spotLight.position.setY(10);
+    spotLight.position.setZ(10);
+    spotLight.angle = Math.PI / 8;
+    spotLight.penumbra = 0.05;
+    spotLight.decay = 1;
+    spotLight.distance = 200;
+    // this.scene.add(spotLight);
+
+    // Add ambient light
+    // const ambLight = new THREE.AmbientLight(0xffffff);
+    // this.scene.add(ambLight);
+
+    // Add directional light
+    const dirLight = new THREE.DirectionalLight(0xffffff, 1);
+    dirLight.position.setY(40);
+    dirLight.position.setZ(-10);
+    this.scene.add(dirLight);
+
+    // Add point light
+    const pointLight = new THREE.PointLight(0xffffff, 1, 100);
+    pointLight.position.setY(6);
+    pointLight.position.setZ(2);
+    this.scene.add(pointLight);
+
+    if (this.enableHelpers) {
+      const spotHelper = new THREE.SpotLightHelper(spotLight);
+      const dirHelper = new THREE.DirectionalLightHelper(dirLight, 5);
+      const sphereSize = 1;
+      const pointHelper = new THREE.PointLightHelper(pointLight, sphereSize);
+      this.scene.add(spotHelper);
+      this.scene.add(dirHelper);
+      this.scene.add(pointHelper);
+      this.scene.add(new THREE.AxesHelper(200));
+    }
+
+    // const envMap = new THREE.TextureLoader().load(this.reflection);
+    // envMap.mapping = THREE.EquirectangularReflectionMapping;
+
+    const loader = new GLTFLoader();
     loader.load(
       this.model,
       gltf => {
-        gltf.scene.traverse((node: any) => {
-          if (node.isMesh) {
-            node.material.envMap = envMap;
-            this.mesh = node;
-            // this.mesh.position.z = 1;
-            this.scene.add(this.mesh);
-          }
-        });
+        this.scene.add(gltf.scene);
+
+        // gltf.scene.traverse((node: any) => {
+        //   // console.log(node);
+        //   if (node && node.isMesh) {
+        //     // node.material.envMap = envMap;
+        //     this.mesh = node;
+        //     // this.mesh.position.z = 1;
+        //     node.material.emissive = node.material.color;
+        //     node.material.emissiveMap = node.material.map;
+        //     this.scene.add(this.mesh);
+        //   }
+        // });
       },
       error => console.error(error)
     );
@@ -79,6 +131,7 @@ export default class SpaceshipViewer extends React.Component {
     this.renderer.setSize(this.canvas.clientWidth, this.canvas.clientHeight);
     this.renderer.gammaOutput = true;
     this.renderer.gammaInput = true;
+    this.renderer.gammaFactor = 5;
     this.canvas.appendChild(this.renderer.domElement);
   };
 
