@@ -40,7 +40,8 @@ const useStyles = makeStyles((theme: Theme) => ({
     backgroundColor: red[500]
   }
 }));
-function Widget() {
+
+const Widget: React.FC = () => {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
@@ -127,6 +128,6 @@ function Widget() {
       </Collapse>
     </Card>
   );
-}
+};
 
 export default Widget;

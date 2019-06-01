@@ -76,6 +76,11 @@ const overrides: Overrides = {
         100% 100%, 100% 100%, /* bottom-right */
         10px 100%, 0% calc(100% - 10px)) /* bottom-left */`
     }
+  },
+  MuiLinearProgress: {
+    root: {
+      height: 2
+    }
   }
 
   // MuiMenuItem: {

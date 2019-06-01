@@ -1,13 +1,12 @@
 .NavigationItem {
   margin: 10px;
   display: flex;
-  background-color: lightgrey;
+  // background-color: lightgrey;
   text-decoration: none;
-  color: black;
+  color: white;
   outline: none;
 
   &:hover {
-    background-color: grey;
     color: white;
   }
 

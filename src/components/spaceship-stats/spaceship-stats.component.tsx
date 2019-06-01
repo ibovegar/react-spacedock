@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { ISpaceship, IAttachedUpgrades } from 'models';
 import { LinearProgress, Box, Typography } from '@material-ui/core';
+import classes from './spaceship-stats.module.scss';
 
 interface IProps {
   spacecraft: ISpaceship;
@@ -13,8 +14,8 @@ const SpaceshipStats: React.FC<IProps> = ({ spacecraft, attachedUpgrades }) => {
   const { engine, deflector, weapons, stabilizer, plating } = attachedUpgrades;
 
   return (
-    <>
-      <Box m={2}>
+    <div className={classes.root}>
+      {/* <Box m={2}>
         <Typography variant="body1">
           <strong>Name:</strong> {spacecraft.name}
         </Typography>
@@ -36,9 +37,9 @@ const SpaceshipStats: React.FC<IProps> = ({ spacecraft, attachedUpgrades }) => {
         <Typography variant="body1">
           <strong>Registry:</strong> {spacecraft.registry}
         </Typography>
-      </Box>
+      </Box> */}
       <Box m={2}>
-        <Typography variant="h6">Speed</Typography>
+        <Typography variant="overline">Speed</Typography>
         <LinearProgress
           variant="determinate"
           color="secondary"
@@ -46,7 +47,7 @@ const SpaceshipStats: React.FC<IProps> = ({ spacecraft, attachedUpgrades }) => {
         />
       </Box>
       <Box m={2}>
-        <Typography variant="h6">Shield</Typography>
+        <Typography variant="overline">Shield</Typography>
         <LinearProgress
           color="secondary"
           variant="determinate"
@@ -54,7 +55,7 @@ const SpaceshipStats: React.FC<IProps> = ({ spacecraft, attachedUpgrades }) => {
         />
       </Box>
       <Box m={2}>
-        <Typography variant="h6">Damage</Typography>
+        <Typography variant="overline">Damage</Typography>
         <LinearProgress
           color="secondary"
           variant="determinate"
@@ -62,7 +63,7 @@ const SpaceshipStats: React.FC<IProps> = ({ spacecraft, attachedUpgrades }) => {
         />
       </Box>
       <Box m={2}>
-        <Typography variant="h6">Hull</Typography>
+        <Typography variant="overline">Hull</Typography>
         <LinearProgress
           color="secondary"
           variant="determinate"
@@ -70,7 +71,7 @@ const SpaceshipStats: React.FC<IProps> = ({ spacecraft, attachedUpgrades }) => {
         />
       </Box>
       <Box m={2}>
-        <Typography variant="h6">Manuvrability</Typography>
+        <Typography variant="overline">Manuvrability</Typography>
         <LinearProgress
           color="secondary"
           variant="determinate"
@@ -97,7 +98,7 @@ const SpaceshipStats: React.FC<IProps> = ({ spacecraft, attachedUpgrades }) => {
           {buffs.manuvrability && ' + ' + buffs.manuvrability.gain}
         </li>
       </ul> */}
-    </>
+    </div>
   );
 };
 

@@ -5,6 +5,7 @@ import GLTFLoader from 'three-gltf-loader';
 import { Box, LinearProgress } from '@material-ui/core';
 import { ISpaceship, IAttachedUpgrades, UpgradeType } from 'models';
 import upgradeMap from './upgrade-map';
+import { SpaceshipStats } from 'components';
 
 interface IProps {
   spacecraft: ISpaceship;
@@ -85,9 +86,9 @@ export default class SpaceshipViewer extends React.Component<IProps, {}> {
     const aspectRatio = this.getAspectRatio();
     this.scene = new THREE.Scene();
     this.camera = new THREE.PerspectiveCamera(55, aspectRatio, 0.1, 1000);
-    this.camera.position.z = 10;
-    this.camera.position.y = 12;
-    this.camera.position.x = 10;
+    this.camera.position.z = 8;
+    this.camera.position.y = 10;
+    this.camera.position.x = 8;
     this.camera.lookAt(this.scene.position);
 
     // Add hemisphere light
@@ -180,9 +181,17 @@ export default class SpaceshipViewer extends React.Component<IProps, {}> {
 
   render() {
     return (
-      <Box bgcolor="grey.100" p={2} style={{ width: '500px', height: '500px' }}>
-        {this.state.isLoading && (
+      <Box
+        bgcolor="grey.100"
+        style={{ width: '100%', height: '100%', position: 'relative' }}
+      >
+        {this.state.isLoading ? (
           <LinearProgress variant="determinate" value={this.state.progress} />
+        ) : (
+          <SpaceshipStats
+            spacecraft={this.props.spacecraft}
+            attachedUpgrades={this.props.attachedUpgrades}
+          />
         )}
         <div
           style={{ width: '100%', height: '100%' }}

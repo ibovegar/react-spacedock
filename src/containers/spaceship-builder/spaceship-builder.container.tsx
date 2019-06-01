@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { SpaceshipStats, SpaceshipControls } from 'components';
+import { SpaceshipControls } from 'components';
 import { SpaceshipViewer } from 'containers';
 import Box from '@material-ui/core/Box';
 import * as interfaces from './spaceship-builder.interface';
@@ -30,7 +30,7 @@ class SpaceshipBuilder extends React.Component<interfaces.IProps, {}> {
 
     return (
       <Box display="flex">
-        <Box width={500} m={2}>
+        <Box width={900} m={8}>
           <Typography variant="h4" gutterBottom>
             Spacedock
           </Typography>
@@ -52,7 +52,7 @@ class SpaceshipBuilder extends React.Component<interfaces.IProps, {}> {
             }
           />
         </Box>
-        <Box width={500} m={2}>
+        {/* <Box width={500} m={2}>
           <Typography variant="h4" gutterBottom>
             Statistics
           </Typography>
@@ -60,7 +60,7 @@ class SpaceshipBuilder extends React.Component<interfaces.IProps, {}> {
             spacecraft={spacecraft}
             attachedUpgrades={attachedUpgrades}
           />
-        </Box>
+        </Box> */}
       </Box>
     );
   }
