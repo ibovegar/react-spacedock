@@ -1,12 +1,7 @@
 import React from 'react';
-import {
-  FormControl,
-  InputLabel,
-  Select,
-  MenuItem,
-  Box
-} from '@material-ui/core';
+import { FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
 import { withStyles, createStyles, Theme } from '@material-ui/core/styles';
+import { Widget } from 'components';
 
 const styless = ({ spacing }: Theme) =>
   createStyles({
@@ -32,7 +27,8 @@ class Inventory extends React.Component<IProps, {}> {
 
   public render() {
     return (
-      <Box bgcolor="grey.100">
+      <>
+        <Widget />
         <FormControl className={this.props.classes.formControl}>
           <InputLabel htmlFor="age-simple">Age</InputLabel>
           <Select
@@ -51,7 +47,7 @@ class Inventory extends React.Component<IProps, {}> {
             <MenuItem value={30}>Thirty</MenuItem>
           </Select>
         </FormControl>
-      </Box>
+      </>
     );
   }
 }

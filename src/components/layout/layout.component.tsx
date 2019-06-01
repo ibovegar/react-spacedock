@@ -1,7 +1,29 @@
 import React, { ReactNode } from 'react';
-import { withRouter, RouteComponentProps } from 'react-router-dom';
-import { Tabs, Tab, AppBar, Box } from '@material-ui/core';
-// import classes from './layout.module.scss';
+import { withRouter, RouteComponentProps, Link } from 'react-router-dom';
+import {
+  Box,
+  Button,
+  makeStyles,
+  Theme,
+  Typography,
+  Grid
+} from '@material-ui/core';
+import AddBoxIcon from '@material-ui/icons/AddBox';
+
+const useStyles = makeStyles((theme: Theme) => ({
+  nav: {
+    borderStyle: 'solid',
+    borderWidth: '1px 0 1px 0',
+    borderColor: theme.palette.grey[800]
+  },
+  button: {
+    paddingLeft: theme.spacing(4),
+    paddingRight: theme.spacing(5)
+  },
+  icon: {
+    marginRight: theme.spacing(4)
+  }
+}));
 
 interface IProps extends RouteComponentProps {
   authenticated: boolean;
@@ -9,28 +31,74 @@ interface IProps extends RouteComponentProps {
 }
 
 const Layout: React.FC<IProps> = props => {
-  const { children, history } = props;
-  const [value, setValue] = React.useState('/');
-
-  const handleChange = (_: any, newValue: string) => {
-    setValue(newValue);
-    history.push(newValue);
-  };
+  const classes = useStyles();
+  const { children } = props; // history
 
   return (
-    <Box display="flex" height="100%" flexDirection="column">
-      <Box height={50}>
-        <AppBar position="static">
-          <Tabs value={value} onChange={handleChange}>
-            <Tab label="Tactical" value="/" />
-            <Tab label="Engineering" value="/engineering" />
-            <Tab label="Inventory" value="/inventory" />
-            <Tab label="Marketplace" value="/marketplace" />
-          </Tabs>
-        </AppBar>
+    <Box display="flex" height="100%" flexDirection="column" p={6}>
+      <Box p={2}>
+        <Grid container alignItems="center" spacing={4} className={classes.nav}>
+          <Grid item>
+            <Typography variant="overline">MENU</Typography>
+          </Grid>
+          <Grid item>
+            <Button
+              className={classes.button}
+              color="primary"
+              variant="contained"
+              size="small"
+              component={Link}
+              to="/"
+            >
+              <AddBoxIcon fontSize="small" className={classes.icon} />
+              TACTICAL
+            </Button>
+          </Grid>
+          <Grid item>
+            <Button
+              className={classes.button}
+              color="primary"
+              variant="contained"
+              size="small"
+              component={Link}
+              to="/engineering"
+            >
+              <AddBoxIcon fontSize="small" className={classes.icon} />
+              ENGINEERING
+            </Button>
+          </Grid>
+          <Grid item>
+            <Button
+              className={classes.button}
+              color="primary"
+              variant="contained"
+              size="small"
+              component={Link}
+              to="/inventory"
+            >
+              <AddBoxIcon fontSize="small" className={classes.icon} />
+              INVENTORY
+            </Button>
+          </Grid>
+          <Grid item>
+            <Button
+              className={classes.button}
+              color="primary"
+              variant="contained"
+              size="small"
+              component={Link}
+              to="/marketplace"
+            >
+              <AddBoxIcon fontSize="small" className={classes.icon} />
+              MARKETPLACE
+            </Button>
+          </Grid>
+        </Grid>
       </Box>
       {/* <aside>Sidenav</aside> */}
-      <Box flex={1}>{children}</Box>
+      <Box flex={1} pt={6}>
+        {children}
+      </Box>
     </Box>
   );
 };

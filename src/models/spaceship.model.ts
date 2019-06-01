@@ -6,6 +6,7 @@ export interface ISpaceship {
   readonly registry: string;
   readonly manufacturer: string;
   readonly manufactured: number;
+  readonly storeType?: string;
   readonly type: string;
   readonly height: number;
   readonly length: number;

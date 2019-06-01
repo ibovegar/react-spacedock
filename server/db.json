@@ -162,5 +162,153 @@
       "manufacturer": "Cryson & Billard Engineering",
       "gain": 52
     }
+  ],
+  "store": [
+    {
+      "name": "Draxon  SA-22",
+      "registry": "drax22",
+      "manufacturer": "Epsilon Laboratories",
+      "manufactured": 2191,
+      "storeType": "spacecraft",
+      "type": "fighter",
+      "height": 12,
+      "length": 80,
+      "price": 3055565,
+      "baseStats": {
+        "speed": 10,
+        "hull": 30,
+        "shield": 80,
+        "damage": 60,
+        "manuvrability": 80
+      }
+    },
+    {
+      "name": "Cygnia F35",
+      "registry": "cygf35",
+      "manufacturer": "Cygnia Corporation",
+      "manufactured": 2157,
+      "storeType": "spacecraft",
+      "type": "supply",
+      "height": 219,
+      "length": 456,
+      "price": 4123334,
+      "baseStats": {
+        "speed": 60,
+        "hull": 50,
+        "shield": 10,
+        "damage": 0,
+        "manuvrability": 10
+      }
+    },
+    {
+      "name": "Hammerhead 2",
+      "registry": "hamm2",
+      "manufacturer": "Cygnia Corporation",
+      "manufactured": 2157,
+      "storeType": "spacecraft",
+      "type": "supply",
+      "height": 219,
+      "length": 456,
+      "price": 4123334,
+      "baseStats": {
+        "speed": 60,
+        "hull": 50,
+        "shield": 10,
+        "damage": 0,
+        "manuvrability": 10
+      }
+    },
+    {
+      "name": "Vanguard SAR",
+      "registry": "vanguard",
+      "manufacturer": "Cygnia Corporation",
+      "manufactured": 2157,
+      "storeType": "spacecraft",
+      "type": "supply",
+      "height": 219,
+      "length": 456,
+      "price": 4123334,
+      "baseStats": {
+        "speed": 60,
+        "hull": 50,
+        "shield": 10,
+        "damage": 0,
+        "manuvrability": 10
+      }
+    },
+    {
+      "name": "Tellus R X5",
+      "registry": "tellrx5",
+      "manufacturer": "Cygnia Corporation",
+      "manufactured": 2157,
+      "storeType": "spacecraft",
+      "type": "supply",
+      "height": 219,
+      "length": 456,
+      "price": 4123334,
+      "baseStats": {
+        "speed": 60,
+        "hull": 50,
+        "shield": 10,
+        "damage": 0,
+        "manuvrability": 10
+      }
+    },
+    {
+      "name": "Shield Aggregator AUT1",
+      "manufacturer": "Epsilon-X Laboratories",
+      "type": "deflector",
+      "storeType": "upgrade",
+      "price": 4123334,
+      "gain": 10
+    },
+    {
+      "name": "Gentec Puls Dampener",
+      "manufacturer": "Gentech MIL Corp.",
+      "type": "deflector",
+      "storeType": "upgrade",
+      "price": 4123334,
+      "gain": 16
+    },
+    {
+      "name": "Gentec FF Fieler",
+      "manufacturer": "Gentech MIL Corp.",
+      "type": "deflector",
+      "storeType": "upgrade",
+      "price": 4123334,
+      "gain": 24
+    },
+    {
+      "name": "Alpha-stream Propultion Enhancer MKI",
+      "manufacturer": "ANTEC Laboratories",
+      "type": "engine",
+      "storeType": "upgrade",
+      "price": 4123334,
+      "gain": 20
+    },
+    {
+      "name": "Crystalin Elocplat Hull",
+      "manufacturer": "Gentech MIL Corp.",
+      "type": "plating",
+      "storeType": "upgrade",
+      "price": 4123334,
+      "gain": 27
+    },
+    {
+      "name": "Cryson Particle Booster IA-1",
+      "manufacturer": "Cryson & Billard Engineering",
+      "type": "engine",
+      "storeType": "upgrade",
+      "price": 4123334,
+      "gain": 21
+    },
+    {
+      "name": "Cryson Particle Booster IA-2",
+      "manufacturer": "Cryson & Billard Engineering",
+      "type": "stabilizer",
+      "storeType": "upgrade",
+      "price": 4123334,
+      "gain": 52
+    }
   ]
 }

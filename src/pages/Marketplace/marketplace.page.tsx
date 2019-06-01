@@ -1,20 +1,44 @@
-import * as React from 'react';
+import React from 'react';
+import { connect } from 'react-redux';
+import { loadStore } from 'store/store';
+import { AppState } from 'store';
+import { IUpgrade, ISpaceship } from 'models';
 
-export interface IMarketplaceProps {}
+interface IStateProps {
+  store: Array<ISpaceship | IUpgrade>;
+}
 
-export interface IMarketplaceState {}
+interface IDispatchProps {
+  loadStore: () => void;
+}
 
-export default class Marketplace extends React.Component<
-  IMarketplaceProps,
-  IMarketplaceState
-> {
-  constructor(props: IMarketplaceProps) {
-    super(props);
+type IProps = IStateProps & IDispatchProps;
 
-    this.state = {};
+class Marketplace extends React.Component<IProps, {}> {
+  componentDidMount() {
+    this.props.loadStore();
   }
 
   public render() {
-    return <div>Marketplace</div>;
+    return (
+      <div>
+        {this.props.store.map((item, index) => (
+          <div key={index}>{item.name}</div>
+        ))}
+      </div>
+    );
   }
 }
+
+export const mapStateToProps = (state: AppState) => ({
+  store: state.store.store
+});
+
+export const mapDispatchToProps = {
+  loadStore
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Marketplace);

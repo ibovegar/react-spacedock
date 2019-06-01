@@ -8,36 +8,42 @@ const spacing: Spacing = createSpacing(4);
 const palette: PaletteOptions = {
   type: 'dark',
   primary: {
-    light: '#757ce8',
+    light: '#ff6b60',
     main: '#f44336', // AppBar
-    dark: '#002884',
+    dark: '#c42115',
     contrastText: '#fff'
   },
   secondary: {
     light: '#f4c5c2', // progress light red
     main: '#f44336', // progress red
-    dark: '#ba000d',
+    dark: '#',
     contrastText: '#000'
   },
   grey: {
-    50: '#0d1f37',
-    100: '#0f243f',
-    200: '#122946',
-    300: '#163252',
-    400: '#19385b',
-    500: '#1d3f64',
-    600: '#1f446c',
-    700: '#234b75',
-    800: '#26517e',
-    900: '#295786',
-    A100: '#d5d5d5',
-    A200: '#aaaaaa',
-    A400: '#303030',
-    A700: '#616161'
+    50: '#141d29',
+    100: '#151e2a',
+    200: '#16212e',
+    300: '#182330',
+    400: '#1a2532',
+    500: '#1f2936',
+    600: '#202b37',
+    700: '#26313d',
+    800: '#2e3843',
+    900: '#3b444f',
+    A100: '#444d57',
+    A200: '#515963',
+    A400: '#606770',
+    A700: '#81878e'
   },
+  // text: {
+  //   primary: 'rgba(0, 0, 0, 0.87)',
+  //   secondary: 'rgba(0, 0, 0, 0.54)',
+  //   disabled: 'rgba(0, 0, 0, 0.38)',
+  //   hint: 'rgba(0, 0, 0, 0.38)'
+  // },
   background: {
-    paper: '#2a598a',
-    default: '#0b1c33'
+    paper: '#16212e',
+    default: '#13161f'
   },
   common: {
     black: '#000',
@@ -50,6 +56,28 @@ const palette: PaletteOptions = {
 };
 
 const overrides: Overrides = {
+  MuiCard: {
+    root: {
+      boxShadow: 'none'
+    }
+  },
+  MuiAppBar: {
+    root: {
+      boxShadow: 'none'
+    }
+  },
+  MuiButton: {
+    root: {
+      boxShadow: 'none',
+      borderRadius: 2,
+      clipPath: `polygon(
+        0 0, 0 0, /* top-left */
+        100% 0%, 100% 0, /* top-right */ 
+        100% 100%, 100% 100%, /* bottom-right */
+        10px 100%, 0% calc(100% - 10px)) /* bottom-left */`
+    }
+  }
+
   // MuiMenuItem: {
   //   root: {
   //     '&:hover': {
