@@ -128,7 +128,7 @@
       "spacecraftRegistry": "drax22",
       "isAttached": true,
       "type": "engine",
-      "name": "Alpha-stream Propultion Enhancer MKI",
+      "name": "Alpha-stream Enhancer MKI",
       "manufacturer": "ANTEC Laboratories",
       "gain": 20
     },
@@ -279,7 +279,7 @@
       "gain": 24
     },
     {
-      "name": "Alpha-stream Propultion Enhancer MKI",
+      "name": "Alpha-stream Enhancer MKI",
       "manufacturer": "ANTEC Laboratories",
       "type": "engine",
       "storeType": "upgrade",
