@@ -51,7 +51,8 @@ const palette: PaletteOptions = {
   },
   action: {
     hover: '#0f243f',
-    selected: '#19385b'
+    selected: '#19385b',
+    disabledBackground: '#3b444f'
   }
 };
 
