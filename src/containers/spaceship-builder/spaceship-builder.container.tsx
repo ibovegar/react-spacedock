@@ -4,7 +4,6 @@ import { SpaceshipControls } from 'components';
 import { SpaceshipViewer } from 'containers';
 import Box from '@material-ui/core/Box';
 import * as interfaces from './spaceship-builder.interface';
-import { Typography } from '@material-ui/core';
 import { IUpgrade } from 'models';
 import { isEmpty } from 'utils/helpers';
 
@@ -37,9 +36,6 @@ class SpaceshipBuilder extends React.Component<interfaces.IProps, {}> {
           />
         </Box>
         <Box width={300} ml={6}>
-          <Typography variant="h4" gutterBottom>
-            Build Controls
-          </Typography>
           <SpaceshipControls
             spacecraft={spacecraft}
             attachedUpgrades={attachedUpgrades}
