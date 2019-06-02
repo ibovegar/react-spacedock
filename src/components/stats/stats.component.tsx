@@ -14,8 +14,8 @@ const Stats: React.FC<IProps> = ({ spacecraft, attachedUpgrades }) => {
 
   return (
     <Box
-      p={2}
-      pt={0}
+      p={5}
+      pt={3}
       bgcolor="background.default"
       width="20%"
       position="absolute"
