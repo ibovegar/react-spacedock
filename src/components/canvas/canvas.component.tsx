@@ -102,9 +102,9 @@ export default class Canvas extends Component<IProps, {}> {
 
     // Add point light
     const pointLight = new THREE.PointLight(0xffffff, 1, 100);
-    pointLight.position.setY(2);
+    pointLight.position.setY(-4);
     pointLight.position.setX(-8);
-    pointLight.position.setZ(-20);
+    pointLight.position.setZ(-10);
     this.scene.add(pointLight);
 
     if (this.enableHelpers) {
