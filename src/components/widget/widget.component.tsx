@@ -10,15 +10,16 @@ const useStyles = makeStyles((theme: Theme) => ({
   card: {
     width: '100%',
     height: '100%',
-    position: 'relative',
+    display: 'flex',
+    flexDirection: 'column',
     backgroundColor: theme.palette.grey[100]
   },
   avatar: {
     backgroundColor: red[500]
   },
   cardContent: {
-    width: '100%',
-    height: '100%'
+    flex: 1,
+    position: 'relative'
   }
 }));
 

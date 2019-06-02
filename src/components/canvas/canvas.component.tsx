@@ -70,10 +70,10 @@ export default class Canvas extends Component<IProps, {}> {
   init = () => {
     const aspectRatio = getAspectRatio(this.canvas);
     this.scene = new THREE.Scene();
-    this.camera = new THREE.PerspectiveCamera(55, aspectRatio, 0.1, 1000);
-    this.camera.position.z = 8;
-    this.camera.position.y = 10;
-    this.camera.position.x = 8;
+    this.camera = new THREE.PerspectiveCamera(40, aspectRatio, 0.1, 100);
+    this.camera.position.z = 12;
+    this.camera.position.y = 14;
+    this.camera.position.x = 12;
     this.camera.lookAt(this.scene.position);
 
     // Add hemisphere light
