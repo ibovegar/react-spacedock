@@ -183,7 +183,9 @@ export default class SpaceshipViewer extends React.Component<IProps, {}> {
     return (
       <Box
         bgcolor="grey.100"
-        style={{ width: '100%', height: '100%', position: 'relative' }}
+        width="100%"
+        height="100%"
+        style={{ position: 'relative' }}
       >
         {this.state.isLoading ? (
           <LinearProgress variant="determinate" value={this.state.progress} />
