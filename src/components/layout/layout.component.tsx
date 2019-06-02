@@ -74,23 +74,32 @@ const Layout: React.FC<IProps> = props => {
               variant="contained"
               size="small"
               component={Link}
-              to="/inventory"
+              to="/marketplace"
             >
               <AddBoxIcon fontSize="small" className={classes.icon} />
-              INVENTORY
+              STORE
             </Button>
           </Grid>
           <Grid item>
             <Button
               className={classes.button}
-              color="primary"
               variant="contained"
               size="small"
-              component={Link}
-              to="/marketplace"
+              disabled
             >
               <AddBoxIcon fontSize="small" className={classes.icon} />
-              MARKETPLACE
+              SOMETHING
+            </Button>
+          </Grid>
+          <Grid item>
+            <Button
+              className={classes.button}
+              variant="contained"
+              size="small"
+              disabled
+            >
+              <AddBoxIcon fontSize="small" className={classes.icon} />
+              INVENTORY
             </Button>
           </Grid>
         </Grid>
