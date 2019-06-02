@@ -35,7 +35,7 @@ const Layout: React.FC<IProps> = props => {
   const { children } = props; // history
 
   return (
-    <Box display="flex" height="100%" flexDirection="column" p={6}>
+    <Box display="flex" height="100vh" flexDirection="column" p={6}>
       <Box p={2}>
         <Grid container alignItems="center" spacing={4} className={classes.nav}>
           <Grid item>
@@ -96,7 +96,7 @@ const Layout: React.FC<IProps> = props => {
         </Grid>
       </Box>
       {/* <aside>Sidenav</aside> */}
-      <Box flex={1} pt={6}>
+      <Box flex={1} mt={6} style={{ minHeight: 0 }}>
         {children}
       </Box>
     </Box>

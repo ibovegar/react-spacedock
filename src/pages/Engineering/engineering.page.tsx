@@ -38,7 +38,7 @@ class Engineering extends React.Component<interfaces.IProps, {}> {
             onSpacecraftClick={this.handleSelectSpacecraft}
           />
         </Box>
-        <Box flex={1}>
+        <Box flex={1} height="100%">
           <Switch>
             <Route
               path={`${match.path}/:spaceshipId`}
