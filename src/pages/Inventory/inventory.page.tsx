@@ -28,7 +28,10 @@ class Inventory extends React.Component<IProps, {}> {
   public render() {
     return (
       <>
-        <Widget />
+        <Widget
+          title="Lorem Ipsum Dolor"
+          subheader="Sit amet siver og amund eeg"
+        />
         <FormControl className={this.props.classes.formControl}>
           <InputLabel htmlFor="age-simple">Age</InputLabel>
           <Select

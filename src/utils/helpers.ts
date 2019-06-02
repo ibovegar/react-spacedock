@@ -45,8 +45,18 @@ export const upsertEntities = (
   };
 };
 
+/**
+ * Calculate ascpecration of a html element.
+ */
+export const getAspectRatio = (element: any) => {
+  const height = element.clientHeight;
+  if (height === 0) return 0;
+  return element.clientWidth / element.clientHeight;
+};
+
 export default {
   toEntities,
   toArray,
-  upsertEntities
+  upsertEntities,
+  getAspectRatio
 };

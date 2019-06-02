@@ -31,9 +31,6 @@ class SpaceshipBuilder extends React.Component<interfaces.IProps, {}> {
     return (
       <Box display="flex">
         <Box width={900} m={8}>
-          <Typography variant="h4" gutterBottom>
-            Spacedock
-          </Typography>
           <SpaceshipViewer
             spacecraft={spacecraft}
             attachedUpgrades={attachedUpgrades}
@@ -52,15 +49,6 @@ class SpaceshipBuilder extends React.Component<interfaces.IProps, {}> {
             }
           />
         </Box>
-        {/* <Box width={500} m={2}>
-          <Typography variant="h4" gutterBottom>
-            Statistics
-          </Typography>
-          <SpaceshipStats
-            spacecraft={spacecraft}
-            attachedUpgrades={attachedUpgrades}
-          />
-        </Box> */}
       </Box>
     );
   }
