@@ -1,7 +1,19 @@
 import React from 'react';
 import { IUpgrade } from 'models';
-import { Box, Typography, Popover } from '@material-ui/core';
-import classes from './spaceship-control.module.scss';
+import { Box, Typography, Popover, makeStyles, Theme } from '@material-ui/core';
+
+const useStyles = makeStyles((theme: Theme) => ({
+  input: {
+    borderRadius: 2,
+    backgroundColor: theme.palette.primary.main,
+    clipPath: `polygon(
+      0 0, 0 0, /* top-left */
+      calc(100% - 10px) 0%, 100% 10px, /* top-right */
+      100% 100%, 100% 100%, /* bottom-right */
+      10px 100%, 0% calc(100% - 10px)) /* bottom-left */`
+  },
+  dropdown: {}
+}));
 
 interface IProps {
   value: IUpgrade;
@@ -13,6 +25,7 @@ interface IProps {
 const SpaceshipControl: React.FC<IProps> = props => {
   const { value, options, type, onSelect } = props;
   const [anchorEl, setAnchorEl]: [any, any] = React.useState(null);
+  const classes = useStyles();
 
   const handleOpen = (event: React.MouseEvent) => {
     setAnchorEl(event.currentTarget);
@@ -32,21 +45,11 @@ const SpaceshipControl: React.FC<IProps> = props => {
 
   return (
     <>
-      <Typography variant="h6">{type}</Typography>
-      <Box bgcolor="grey.300" p={2} m={2} onClick={handleOpen}>
-        {value ? (
-          <>
-            <Typography variant="h5">{value.name}</Typography>
-            <Typography variant="body1" gutterBottom>
-              {value.manufacturer}
-            </Typography>
-          </>
-        ) : (
-          <Typography variant="h5">
-            {options.length} available upgrade
-            {options.length > 1 ? 's' : ''}
-          </Typography>
-        )}
+      <Typography variant="overline">{type}</Typography>
+      <Box className={classes.input} p={1} pl={4} mb={4} onClick={handleOpen}>
+        <Typography variant="overline">
+          {value ? value.name : options.length + ' available'}
+        </Typography>
       </Box>
       <Popover
         id={id}
@@ -62,7 +65,7 @@ const SpaceshipControl: React.FC<IProps> = props => {
           horizontal: 'left'
         }}
       >
-        <ul className={classes.ItemList}>
+        <ul className={classes.dropdown}>
           {!options.length ? (
             <Typography variant="h6">No available upgrades</Typography>
           ) : (
