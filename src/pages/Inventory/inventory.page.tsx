@@ -3,7 +3,7 @@ import { FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
 import { withStyles, createStyles, Theme } from '@material-ui/core/styles';
 import { Widget } from 'components';
 
-const styless = ({ spacing }: Theme) =>
+const styles = ({ spacing }: Theme) =>
   createStyles({
     formControl: {
       margin: spacing(1),
@@ -55,4 +55,4 @@ class Inventory extends React.Component<IProps, {}> {
   }
 }
 
-export default withStyles(styless)(Inventory);
+export default withStyles(styles)(Inventory);

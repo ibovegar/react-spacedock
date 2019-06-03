@@ -13,14 +13,22 @@ const useStyles = makeStyles((theme: Theme) => ({
     textDecoration: 'none',
     color: theme.palette.text.primary,
     outline: 'none',
+    backgroundColor: theme.palette.grey[50],
     '&:hover': {
-      backgroundColor: theme.palette.grey[50]
+      backgroundColor: theme.palette.grey[400]
     }
   },
   active: {
-    backgroundColor: theme.palette.grey[300] + '!important',
-    borderStyle: 'solid',
-    borderColor: theme.palette.grey[800]
+    backgroundColor: theme.palette.primary.main + '!important',
+    border: 'none',
+    borderRadius: 2,
+    clipPath: `polygon(
+      0 0, 0 0, /* top-left */
+      calc(100% - 10px) 0%, 100% 10px, /* top-right */
+      100% 100%, 100% 100%, /* bottom-right */
+      10px 100%, 0% calc(100% - 10px)) /* bottom-left */`
+
+    // borderRadius: theme.shape.borderRadius
   }
 }));
 

@@ -1,13 +1,24 @@
 import React, { Component } from 'react';
 import { ISpaceship, IAttachedUpgrades } from 'models';
 import { Stats, Canvas, Widget } from 'components';
+import { createStyles, withStyles, WithStyles } from '@material-ui/core';
+import Plus from 'assets/images/plus.svg';
 
-interface IProps {
+const styles = () =>
+  createStyles({
+    dots: {
+      height: '100%',
+      backgroundImage: `url(${Plus})`,
+      backgroundRepeat: 'repeat'
+    }
+  });
+
+interface IProps extends WithStyles<typeof styles> {
   spacecraft: ISpaceship;
   attachedUpgrades: IAttachedUpgrades;
 }
 
-export default class SpaceshipViewer extends Component<IProps, {}> {
+class SpaceshipViewer extends Component<IProps, {}> {
   state = {
     isLoading: true
   };
@@ -17,22 +28,28 @@ export default class SpaceshipViewer extends Component<IProps, {}> {
   };
 
   render() {
+    const { classes, spacecraft, attachedUpgrades } = this.props;
+
     return (
       <Widget title="SPACECRAFT VIEWER">
-        {this.state.isLoading ? (
-          <div>LOADING ASSETS. PLEASE WAIT... </div>
-        ) : (
-          <Stats
-            spacecraft={this.props.spacecraft}
-            attachedUpgrades={this.props.attachedUpgrades}
+        <div className={classes.dots}>
+          {this.state.isLoading ? (
+            <div>LOADING ASSETS. PLEASE WAIT... </div>
+          ) : (
+            <Stats
+              spacecraft={spacecraft}
+              attachedUpgrades={attachedUpgrades}
+            />
+          )}
+          <Canvas
+            spacecraft={spacecraft}
+            attachedUpgrades={attachedUpgrades}
+            onLoaded={this.handleLoaded}
           />
-        )}
-        <Canvas
-          spacecraft={this.props.spacecraft}
-          attachedUpgrades={this.props.attachedUpgrades}
-          onLoaded={this.handleLoaded}
-        />
+        </div>
       </Widget>
     );
   }
 }
+
+export default withStyles(styles)(SpaceshipViewer);
