@@ -1,31 +1,32 @@
 import React from 'react';
 import { IUpgrade } from 'models';
-import { Box, Typography, Popover, makeStyles, Theme } from '@material-ui/core';
+import {
+  Box,
+  Typography,
+  Popover,
+  withStyles,
+  WithStyles
+} from '@material-ui/core';
+import clsx from 'clsx';
+import styles from './upgrade-select.styles';
 
-const useStyles = makeStyles((theme: Theme) => ({
-  input: {
-    borderRadius: 2,
-    backgroundColor: theme.palette.primary.main,
-    clipPath: `polygon(
-      0 0, 0 0, /* top-left */
-      calc(100% - 10px) 0%, 100% 10px, /* top-right */
-      100% 100%, 100% 100%, /* bottom-right */
-      10px 100%, 0% calc(100% - 10px)) /* bottom-left */`
-  },
-  dropdown: {}
-}));
-
-interface IProps {
+interface IProps extends WithStyles<typeof styles> {
   value: IUpgrade;
   options: IUpgrade[];
   type: string;
   onSelect: (option: IUpgrade) => void;
 }
 
-const SpaceshipControl: React.FC<IProps> = props => {
-  const { value, options, type, onSelect } = props;
+const UpgradeSelect: React.FC<IProps> = props => {
+  const { classes, value, options, type, onSelect } = props;
   const [anchorEl, setAnchorEl]: [any, any] = React.useState(null);
-  const classes = useStyles();
+
+  console.log(options);
+
+  const className = clsx({
+    [classes.disabled]: !value && options.length === 0,
+    [classes.active]: value
+  });
 
   const handleOpen = (event: React.MouseEvent) => {
     setAnchorEl(event.currentTarget);
@@ -44,7 +45,7 @@ const SpaceshipControl: React.FC<IProps> = props => {
   const id = open ? `${type}spacecraft-control` : undefined;
 
   return (
-    <>
+    <div className={className}>
       <Typography variant="overline">{type}</Typography>
       <Box className={classes.input} p={1} pl={4} mb={4} onClick={handleOpen}>
         <Typography variant="overline">
@@ -80,8 +81,8 @@ const SpaceshipControl: React.FC<IProps> = props => {
           )}
         </ul>
       </Popover>
-    </>
+    </div>
   );
 };
 
-export default SpaceshipControl;
+export default withStyles(styles)(UpgradeSelect);

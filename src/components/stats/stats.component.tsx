@@ -1,6 +1,12 @@
 import * as React from 'react';
 import { ISpaceship, IAttachedUpgrades } from 'models';
-import { LinearProgress, Box, Typography } from '@material-ui/core';
+import {
+  LinearProgress,
+  Box,
+  Typography,
+  Button,
+  Divider
+} from '@material-ui/core';
 
 interface IProps {
   spacecraft: ISpaceship;
@@ -73,6 +79,10 @@ const Stats: React.FC<IProps> = ({ spacecraft, attachedUpgrades }) => {
         variant="determinate"
         value={baseStats.manuvrability + ((stabilizer && stabilizer.gain) || 0)}
       />
+      <Divider />
+      <Button color="primary" variant="contained" size="small">
+        DETAILS
+      </Button>
     </Box>
   );
 };

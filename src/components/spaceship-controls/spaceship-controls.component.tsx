@@ -5,7 +5,7 @@ import {
   IUpgrade,
   IAttachedUpgrades
 } from 'models';
-import SpaceshipControl from './spaceship-control/spaceship-control.component';
+import UpgradeSelect from './upgrade-select';
 
 interface IProps {
   spacecraft: ISpaceship;
@@ -22,7 +22,7 @@ const SpaceshipControls: React.FC<IProps> = props => {
 
   return (
     <>
-      <SpaceshipControl
+      <UpgradeSelect
         onSelect={(option: IUpgrade) =>
           onSelectUpgrade(attachedUpgrades.deflector, option)
         }
@@ -30,7 +30,7 @@ const SpaceshipControls: React.FC<IProps> = props => {
         value={attachedUpgrades.deflector}
         options={availableUpgrades.deflector}
       />
-      <SpaceshipControl
+      <UpgradeSelect
         onSelect={(option: IUpgrade) =>
           onSelectUpgrade(attachedUpgrades.engine, option)
         }
@@ -38,7 +38,7 @@ const SpaceshipControls: React.FC<IProps> = props => {
         value={attachedUpgrades.engine}
         options={availableUpgrades.engine}
       />
-      <SpaceshipControl
+      <UpgradeSelect
         onSelect={(option: IUpgrade) =>
           onSelectUpgrade(attachedUpgrades.plating, option)
         }
@@ -46,7 +46,7 @@ const SpaceshipControls: React.FC<IProps> = props => {
         value={attachedUpgrades.plating}
         options={availableUpgrades.plating}
       />
-      <SpaceshipControl
+      <UpgradeSelect
         onSelect={(option: IUpgrade) =>
           onSelectUpgrade(attachedUpgrades.stabilizer, option)
         }
@@ -54,7 +54,7 @@ const SpaceshipControls: React.FC<IProps> = props => {
         value={attachedUpgrades.stabilizer}
         options={availableUpgrades.stabilizer}
       />
-      <SpaceshipControl
+      <UpgradeSelect
         onSelect={(option: IUpgrade) =>
           onSelectUpgrade(attachedUpgrades.weapons, option)
         }
