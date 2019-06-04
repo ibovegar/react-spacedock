@@ -15,9 +15,9 @@ const SpaceshipCard: React.FC<IProps> = ({ spaceship }) => {
         <Grid item>
           <img
             style={{ display: 'block' }}
-            height="80"
+            height="50"
             alt="spaceship"
-            src={`${process.env.PUBLIC_URL}/images/${spaceship.registry}.jpg`}
+            src={`${process.env.PUBLIC_URL}/images/${spaceship.registry}.png`}
           />
         </Grid>
         <Grid item style={{ paddingLeft: '20px' }}>
