@@ -14,13 +14,14 @@ export function reducer(
   action: ActionTypes
 ): State {
   switch (action.type) {
-    case 'LOAD_UPGRADES_REQUEST':
+    case 'LOAD_UPGRADES_REQUEST': {
       return {
         ...state,
         isLoading: true
       };
+    }
 
-    case 'LOAD_UPGRADES_SUCCESS':
+    case 'LOAD_UPGRADES_SUCCESS': {
       return {
         ...state,
         isLoading: false,
@@ -30,20 +31,35 @@ export function reducer(
         ),
         ids: action.upgrades.map((upgrade: IUpgrade) => upgrade.id)
       };
+    }
 
-    case 'LOAD_UPGRADES_FAILURE':
+    case 'LOAD_UPGRADES_FAILURE': {
       return {
         ...state,
         isLoading: false
       };
+    }
 
-    case 'SET_ATTACHED_UPGRADE_REQUEST':
+    case 'DETACH_UPGRADE_SUCCESS': {
+      const entities: any = { ...state.entities };
+      const upgrade: IUpgrade = entities[action.upgrade.id];
+      upgrade.isAttached = false;
+      upgrade.spaceshipId = '';
+
+      return {
+        ...state,
+        entities
+      };
+    }
+
+    case 'SET_ATTACHED_UPGRADE_REQUEST': {
       return {
         ...state,
         isLoading: true
       };
+    }
 
-    case 'SET_ATTACHED_UPGRADE_SUCCESS':
+    case 'SET_ATTACHED_UPGRADE_SUCCESS': {
       const entities: any = { ...state.entities };
       const newUpgrade: IUpgrade = entities[action.newUpgrade.id];
 
@@ -61,12 +77,14 @@ export function reducer(
         isLoading: false,
         entities
       };
+    }
 
-    case 'SET_ATTACHED_UPGRADE_FAILURE':
+    case 'SET_ATTACHED_UPGRADE_FAILURE': {
       return {
         ...state,
         isLoading: false
       };
+    }
 
     default:
       return state;

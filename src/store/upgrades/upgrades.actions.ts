@@ -3,6 +3,9 @@ import { IUpgrade, ISpaceship } from 'models';
 export type ActionTypes =
   | { type: 'LOAD_UPGRADES_REQUEST' }
   | { type: 'LOAD_UPGRADES_SUCCESS'; upgrades: IUpgrade[] }
+  | { type: 'DETACH_UPGRADE_FAILURE'; error: any }
+  | { type: 'DETACH_UPGRADE_REQUEST' }
+  | { type: 'DETACH_UPGRADE_SUCCESS'; upgrade: IUpgrade }
   | { type: 'LOAD_UPGRADES_FAILURE'; error: any }
   | { type: 'SET_ATTACHED_UPGRADE_REQUEST' }
   | {
@@ -24,6 +27,20 @@ export const loadUpgradesSuccess = (upgrades: IUpgrade[]): ActionTypes => ({
 
 export const loadUpgradesFailure = (error: any): ActionTypes => ({
   type: 'LOAD_UPGRADES_FAILURE',
+  error
+});
+
+export const detachUpgradeRequest = () => ({
+  type: 'DETACH_UPGRADE_REQUEST'
+});
+
+export const detachUpgradeSuccess = (upgrade: IUpgrade): ActionTypes => ({
+  type: 'DETACH_UPGRADE_SUCCESS',
+  upgrade
+});
+
+export const detachUpgradeFailure = (error: any): ActionTypes => ({
+  type: 'DETACH_UPGRADE_FAILURE',
   error
 });
 

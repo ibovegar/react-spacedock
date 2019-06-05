@@ -8,6 +8,7 @@ import {
 import { RouteComponentProps } from 'react-router-dom';
 import { setSelectedSpacecraft } from 'store/spaceships';
 import {
+  detachUpgrade,
   setAttachedUpgrade,
   getAvailableUpgrades,
   getAttachedUpgrades
@@ -26,6 +27,7 @@ export const mapStateToProps = (state: AppState) => ({
 });
 
 export interface IDispatchProps {
+  detachUpgrade: (upgrade: IUpgrade) => void;
   setAttachedUpgrade: (
     spacecraft: ISpaceship,
     oldUpgrade: IUpgrade,
@@ -35,6 +37,7 @@ export interface IDispatchProps {
 }
 
 export const mapDispatchToProps = {
+  detachUpgrade,
   setAttachedUpgrade,
   setSelectedSpacecraft
 };

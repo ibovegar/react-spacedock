@@ -33,6 +33,8 @@ export default ({ palette }: Theme) =>
       }
     },
     //
+    icon: {},
+    //
     disabled: {
       '& $input': {
         opacity: 0.4,

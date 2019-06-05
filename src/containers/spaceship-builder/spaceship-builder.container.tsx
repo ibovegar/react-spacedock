@@ -20,6 +20,10 @@ class SpaceshipBuilder extends React.Component<interfaces.IProps, {}> {
     );
   };
 
+  handleDeselectUpgrade = (upgrade: IUpgrade) => {
+    this.props.detachUpgrade(upgrade);
+  };
+
   render() {
     const { spacecraft, attachedUpgrades, availableUpgrades } = this.props;
 
@@ -40,6 +44,7 @@ class SpaceshipBuilder extends React.Component<interfaces.IProps, {}> {
             spacecraft={spacecraft}
             attachedUpgrades={attachedUpgrades}
             availableUpgrades={availableUpgrades}
+            onDeselectUpgrade={upgrade => this.handleDeselectUpgrade(upgrade)}
             onSelectUpgrade={(oldUpgrade, newUpgrade) =>
               this.handleSelectUpgrade(oldUpgrade, newUpgrade)
             }

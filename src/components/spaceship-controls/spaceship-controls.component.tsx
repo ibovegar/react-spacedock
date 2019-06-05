@@ -11,11 +11,17 @@ interface IProps {
   spacecraft: ISpaceship;
   availableUpgrades: IAvailableUpgrades;
   attachedUpgrades: IAttachedUpgrades;
+  onDeselectUpgrade: (upgradeType: IUpgrade) => void;
   onSelectUpgrade: (oldUpgrade: IUpgrade, newUpgrade: IUpgrade) => void;
 }
 
 const SpaceshipControls: React.FC<IProps> = props => {
-  const { availableUpgrades, onSelectUpgrade, attachedUpgrades } = props;
+  const {
+    availableUpgrades: available,
+    attachedUpgrades: attached,
+    onSelectUpgrade,
+    onDeselectUpgrade
+  } = props;
 
   // TODO: figure out why I render twice
   // console.log('render controls', upgrades);
@@ -23,44 +29,49 @@ const SpaceshipControls: React.FC<IProps> = props => {
   return (
     <>
       <UpgradeSelect
-        onSelect={(option: IUpgrade) =>
-          onSelectUpgrade(attachedUpgrades.deflector, option)
-        }
         type="Deflector"
-        value={attachedUpgrades.deflector}
-        options={availableUpgrades.deflector}
+        value={attached.deflector}
+        options={available.deflector}
+        onDeselect={() => onDeselectUpgrade(attached.deflector)}
+        onSelect={(option: IUpgrade) =>
+          onSelectUpgrade(attached.deflector, option)
+        }
       />
       <UpgradeSelect
-        onSelect={(option: IUpgrade) =>
-          onSelectUpgrade(attachedUpgrades.engine, option)
-        }
         type="Engine"
-        value={attachedUpgrades.engine}
-        options={availableUpgrades.engine}
+        value={attached.engine}
+        options={available.engine}
+        onDeselect={() => onDeselectUpgrade(attached.engine)}
+        onSelect={(option: IUpgrade) =>
+          onSelectUpgrade(attached.engine, option)
+        }
       />
       <UpgradeSelect
-        onSelect={(option: IUpgrade) =>
-          onSelectUpgrade(attachedUpgrades.plating, option)
-        }
         type="Plating"
-        value={attachedUpgrades.plating}
-        options={availableUpgrades.plating}
+        value={attached.plating}
+        options={available.plating}
+        onDeselect={() => onDeselectUpgrade(attached.plating)}
+        onSelect={(option: IUpgrade) =>
+          onSelectUpgrade(attached.plating, option)
+        }
       />
       <UpgradeSelect
-        onSelect={(option: IUpgrade) =>
-          onSelectUpgrade(attachedUpgrades.stabilizer, option)
-        }
         type="Stabilizer"
-        value={attachedUpgrades.stabilizer}
-        options={availableUpgrades.stabilizer}
+        value={attached.stabilizer}
+        options={available.stabilizer}
+        onDeselect={() => onDeselectUpgrade(attached.stabilizer)}
+        onSelect={(option: IUpgrade) =>
+          onSelectUpgrade(attached.stabilizer, option)
+        }
       />
       <UpgradeSelect
-        onSelect={(option: IUpgrade) =>
-          onSelectUpgrade(attachedUpgrades.weapons, option)
-        }
         type="Weapons"
-        value={attachedUpgrades.weapons}
-        options={availableUpgrades.weapons}
+        value={attached.weapons}
+        options={available.weapons}
+        onDeselect={() => onDeselectUpgrade(attached.weapons)}
+        onSelect={(option: IUpgrade) =>
+          onSelectUpgrade(attached.weapons, option)
+        }
       />
     </>
   );

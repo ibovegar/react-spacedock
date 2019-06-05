@@ -25,6 +25,12 @@ export const loadAllUpgrades = () => async (dispatch: Dispatch) => {
   }
 };
 
+export const detachUpgrade = (upgrade: IUpgrade) => async (
+  dispatch: Dispatch
+) => {
+  dispatch(actions.detachUpgradeSuccess(upgrade));
+};
+
 export const setAttachedUpgrade = (
   spacecraft: ISpaceship,
   oldUpgrade: IUpgrade,
