@@ -63,8 +63,11 @@ export default class Canvas extends Component<IProps, {}> {
 
   addControls = () => {
     this.controls = new OrbitControls(this.camera, this.renderer.domElement);
-    this.controls.rotateSpeed = 1.0;
-    this.controls.zoomSpeed = 1.2;
+    this.controls.enableDamping = true;
+    this.controls.dampingFactor = 0.05;
+    this.controls.autoRotate = true;
+    this.controls.autoRotateSpeed = 0.2;
+    this.controls.rotateSpeed = 0.08;
   };
 
   init = () => {
@@ -157,6 +160,7 @@ export default class Canvas extends Component<IProps, {}> {
   };
 
   animate = () => {
+    this.controls.update();
     this.renderScene();
     this.frameId = window.requestAnimationFrame(this.animate);
   };
