@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import * as THREE from 'three';
-import { OrbitControls } from 'three-orbitcontrols-ts';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import GLTFLoader from 'three-gltf-loader';
 import { ISpaceship, IAttachedUpgrades, UpgradeType } from 'models';
 import upgradeMap from './upgrade-map';
@@ -68,6 +68,12 @@ export default class Canvas extends Component<IProps, {}> {
     this.controls.autoRotate = true;
     this.controls.autoRotateSpeed = 0.2;
     this.controls.rotateSpeed = 0.08;
+    this.controls.enablePan = false;
+    this.controls.zoomSpeed = 0.4;
+  };
+
+  handleClick = () => {
+    this.controls.autoRotate = false;
   };
 
   init = () => {
@@ -173,6 +179,7 @@ export default class Canvas extends Component<IProps, {}> {
     return (
       <div
         style={{ width: '100%', height: '100%' }}
+        onClick={this.handleClick}
         ref={canvas => {
           this.canvas = canvas;
         }}

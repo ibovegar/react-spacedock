@@ -22,9 +22,7 @@ const SpaceshipCard: React.FC<IProps> = ({ spaceship }) => {
         </Grid>
         <Grid item style={{ paddingLeft: '20px' }}>
           <Typography variant="h6">{spaceship.name}</Typography>
-          <Typography variant="body1" gutterBottom>
-            {spaceship.manufacturer}
-          </Typography>
+          <Typography variant="body2">{spaceship.manufacturer}</Typography>
         </Grid>
       </Grid>
     </Box>

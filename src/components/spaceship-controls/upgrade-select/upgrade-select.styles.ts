@@ -1,6 +1,6 @@
 import { Theme, createStyles } from '@material-ui/core';
 
-export default ({ palette }: Theme) =>
+export default ({ palette, typography }: Theme) =>
   createStyles({
     input: {
       cursor: 'pointer',
@@ -24,12 +24,17 @@ export default ({ palette }: Theme) =>
       listStyle: 'none',
       //
       '& li': {
-        padding: 0,
+        // padding: `${spacing(3)}px ${spacing(6)}px`,
         cursor: 'pointer',
         //
         '&:hover': {
           backgroundColor: palette.action.hover
         }
+      },
+      '& .gain': {
+        backgroundColor: palette.grey[50],
+        color: palette.text.primary,
+        fontSize: typography.h6.fontSize
       }
     },
     //

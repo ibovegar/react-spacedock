@@ -2,8 +2,15 @@ import { createMuiTheme } from '@material-ui/core';
 import { PaletteOptions } from '@material-ui/core/styles/createPalette';
 import { Overrides } from '@material-ui/core/styles/overrides';
 import createSpacing, { Spacing } from '@material-ui/core/styles/createSpacing';
+// import { ThemeStyle } from '@material-ui/core/styles/createTypography';
 
 const spacing: Spacing = createSpacing(4);
+
+// const typography: ThemeStyle = {
+//   h1: {
+//     fontSize: '2rem'
+//   }
+// };
 
 const palette: PaletteOptions = {
   type: 'dark',
@@ -50,7 +57,7 @@ const palette: PaletteOptions = {
     white: '#fff'
   },
   action: {
-    hover: '#0f243f',
+    hover: '#2e3843',
     selected: '#19385b',
     disabledBackground: '#3b444f'
   }
@@ -82,6 +89,13 @@ const overrides: Overrides = {
     root: {
       height: 2
     }
+  },
+  MuiPopover: {
+    paper: {
+      backgroundColor: '#202b37',
+      borderRadius: '2px',
+      boxShadow: 'none'
+    }
   }
 
   // MuiMenuItem: {
@@ -96,4 +110,37 @@ const overrides: Overrides = {
   // }
 };
 
-export default createMuiTheme({ spacing, palette, overrides });
+export default createMuiTheme({
+  spacing,
+  palette,
+  overrides,
+  typography: {
+    h1: {
+      fontSize: '3.5rem'
+    },
+    h2: {
+      fontSize: '2.75rem'
+    },
+    h3: {
+      fontSize: '2rem',
+      fontWeight: 300
+    },
+    h4: {
+      fontSize: '1.5rem',
+      fontWeight: 300
+    },
+    h5: {
+      fontSize: '1.25rem',
+      fontWeight: 400
+    },
+    h6: {
+      fontSize: '1rem'
+    },
+    subtitle1: {
+      fontSize: '0.85rem'
+    },
+    subtitle2: {
+      fontSize: '0.7rem'
+    }
+  }
+});

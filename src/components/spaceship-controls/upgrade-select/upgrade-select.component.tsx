@@ -5,12 +5,14 @@ import {
   Typography,
   Popover,
   withStyles,
-  WithStyles
+  WithStyles,
+  Divider,
+  Avatar
 } from '@material-ui/core';
 import clsx from 'clsx';
 import styles from './upgrade-select.styles';
-import InfoIcon from '@material-ui/icons/AddBox';
 import RemoveIcon from '@material-ui/icons/IndeterminateCheckBox';
+import { PopoverOrigin } from '@material-ui/core/Popover';
 
 interface IProps extends WithStyles<typeof styles> {
   value: IUpgrade;
@@ -49,6 +51,10 @@ const UpgradeSelect: React.FC<IProps> = props => {
 
   const open = Boolean(anchorEl);
   const id = open ? `${type}spacecraft-control` : undefined;
+  const placeholder = value ? value.name : options.length + ' available';
+  const popoverOrigin: PopoverOrigin = { vertical: 'top', horizontal: 'left' };
+
+  // const dropdownItems =
 
   return (
     <div className={className}>
@@ -63,19 +69,14 @@ const UpgradeSelect: React.FC<IProps> = props => {
         onClick={handleOpen}
       >
         <Box flex={1}>
-          <Typography variant="overline">
-            {value ? value.name : options.length + ' available'}
-          </Typography>
+          <Typography variant="overline">{placeholder}</Typography>
         </Box>
         {value && (
-          <>
-            <InfoIcon fontSize="small" className={classes.icon} />
-            <RemoveIcon
-              fontSize="small"
-              className={classes.icon}
-              onClick={handleDeselect}
-            />
-          </>
+          <RemoveIcon
+            fontSize="small"
+            className={classes.icon}
+            onClick={handleDeselect}
+          />
         )}
       </Box>
       <Popover
@@ -83,26 +84,42 @@ const UpgradeSelect: React.FC<IProps> = props => {
         open={open}
         anchorEl={anchorEl}
         onClose={handleClose}
-        anchorOrigin={{
-          vertical: 'top',
-          horizontal: 'left'
-        }}
-        transformOrigin={{
-          vertical: 'top',
-          horizontal: 'left'
-        }}
+        anchorOrigin={popoverOrigin}
+        transformOrigin={popoverOrigin}
       >
         <ul className={classes.dropdown}>
           {!options.length ? (
-            <Typography variant="h6">No available upgrades</Typography>
+            <Box py={3} px={8}>
+              <Typography variant="subtitle1">NO AVAILABLE UPGRADES</Typography>
+            </Box>
           ) : (
-            options.map((option: IUpgrade) => (
-              <li key={option.id} onClick={() => handleSelect(option)}>
-                <Typography variant="h5">{option.name}</Typography>
-                <Typography variant="body1" gutterBottom>
-                  {option.manufacturer}
-                </Typography>
-              </li>
+            options.map((option: IUpgrade, index) => (
+              <>
+                <li key={option.id} onClick={() => handleSelect(option)}>
+                  <Box display="flex">
+                    <Box
+                      width="80px"
+                      display="flex"
+                      justifyContent="center"
+                      alignItems="center"
+                    >
+                      <Avatar className="gain">{option.gain}</Avatar>
+                    </Box>
+                    <Box pr={8} py={3}>
+                      <Typography style={{ whiteSpace: 'nowrap' }} variant="h6">
+                        {option.name}
+                      </Typography>
+                      <Typography
+                        style={{ whiteSpace: 'nowrap' }}
+                        variant="subtitle1"
+                      >
+                        {option.manufacturer.toUpperCase()}
+                      </Typography>
+                    </Box>
+                  </Box>
+                </li>
+                {index + 1 !== options.length && <Divider />}
+              </>
             ))
           )}
         </ul>
