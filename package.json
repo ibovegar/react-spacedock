@@ -32,7 +32,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "apiserver": "json-server --watch --port 1337 server/db.json"
+    "apiserver": "json-server --port 1337 server/db.json"
   },
   "eslintConfig": {
     "extends": "react-app"
