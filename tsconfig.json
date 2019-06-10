@@ -16,12 +16,8 @@
     "jsx": "preserve",
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noImplicitReturns": true,
-    "plugins": [
-      {
-        "name": "typescript-tslint-plugin"
-      }
-    ],
+    "noImplicitReturns": false,
+    "noImplicitAny": false,
     "baseUrl": "src",
     "suppressImplicitAnyIndexErrors": true,
     "strictPropertyInitialization": false
