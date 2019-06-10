@@ -25,12 +25,12 @@ const useStyles = makeStyles((theme: Theme) => ({
   }
 }));
 
-interface IProps extends RouteComponentProps {
+interface Props extends RouteComponentProps {
   authenticated: boolean;
   children: ReactNode;
 }
 
-const Layout: React.FC<IProps> = props => {
+const Layout: React.FC<Props> = props => {
   const classes = useStyles();
   const { children } = props; // history
 

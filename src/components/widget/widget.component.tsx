@@ -22,12 +22,12 @@ const useStyles = makeStyles(() => ({
   }
 }));
 
-interface IProps {
+interface Props {
   title: string;
   subheader?: string;
 }
 
-const Widget: React.FC<IProps> = props => {
+const Widget: React.FC<Props> = props => {
   const classes = useStyles();
 
   return (

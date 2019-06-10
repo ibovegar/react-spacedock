@@ -7,7 +7,7 @@ import * as interfaces from './spaceship-builder.interface';
 import { IUpgrade } from 'models';
 import { isEmpty } from 'utils/helpers';
 
-class SpaceshipBuilder extends React.Component<interfaces.IProps, {}> {
+class SpaceshipBuilder extends React.Component<interfaces.Props, {}> {
   componentDidMount() {
     this.props.setSelectedSpacecraft(this.props.match.params.spaceshipId);
   }

@@ -7,7 +7,7 @@ import {
 } from 'models';
 import UpgradeSelect from './upgrade-select';
 
-interface IProps {
+interface Props {
   spacecraft: ISpaceship;
   availableUpgrades: IAvailableUpgrades;
   attachedUpgrades: IAttachedUpgrades;
@@ -15,7 +15,7 @@ interface IProps {
   onSelectUpgrade: (oldUpgrade: IUpgrade, newUpgrade: IUpgrade) => void;
 }
 
-const SpaceshipControls: React.FC<IProps> = props => {
+const SpaceshipControls: React.FC<Props> = props => {
   const {
     availableUpgrades: available,
     attachedUpgrades: attached,
@@ -29,7 +29,7 @@ const SpaceshipControls: React.FC<IProps> = props => {
   return (
     <>
       <UpgradeSelect
-        type="Deflector"
+        type="Deflector "
         value={attached.deflector}
         options={available.deflector}
         onDeselect={() => onDeselectUpgrade(attached.deflector)}

@@ -1,6 +1,11 @@
 import React from 'react';
 import { FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
-import { withStyles, createStyles, Theme } from '@material-ui/core/styles';
+import {
+  withStyles,
+  createStyles,
+  Theme,
+  WithStyles
+} from '@material-ui/core/styles';
 import { Widget } from 'components';
 
 const styles = ({ spacing }: Theme) =>
@@ -11,11 +16,7 @@ const styles = ({ spacing }: Theme) =>
     }
   });
 
-export interface IProps {
-  classes: any;
-}
-
-class Inventory extends React.Component<IProps, {}> {
+class Inventory extends React.Component<WithStyles<typeof styles>, {}> {
   state = {
     age: '',
     name: 'hai'

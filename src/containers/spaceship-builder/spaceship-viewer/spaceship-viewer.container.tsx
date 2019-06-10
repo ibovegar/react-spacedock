@@ -13,12 +13,12 @@ const styles = () =>
     }
   });
 
-interface IProps extends WithStyles<typeof styles> {
+interface Props extends WithStyles<typeof styles> {
   spacecraft: ISpaceship;
   attachedUpgrades: IAttachedUpgrades;
 }
 
-class SpaceshipViewer extends Component<IProps, {}> {
+class SpaceshipViewer extends Component<Props, {}> {
   state = {
     isLoading: true
   };

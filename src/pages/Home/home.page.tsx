@@ -5,16 +5,16 @@ import { loadSpacecrafts, getAllSpaceships } from 'store/spaceships';
 import { AppState } from 'store';
 import { SpaceshipList } from 'components';
 
-interface IStateProps {
+interface StateProps {
   isLoading: boolean;
   spaceships: ISpaceship[];
 }
 
-interface IDispatchProps {
+interface DispatchProps {
   loadSpacecrafts: () => void;
 }
 
-type Props = IStateProps & IDispatchProps;
+type Props = StateProps & DispatchProps;
 
 class Home extends React.Component<Props, {}> {
   componentDidMount() {

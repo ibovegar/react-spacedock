@@ -14,7 +14,7 @@ import {
   getAttachedUpgrades
 } from 'store/upgrades';
 
-export interface IStateProps {
+export interface StateProps {
   spacecraft: ISpaceship;
   availableUpgrades: IAvailableUpgrades;
   attachedUpgrades: IAttachedUpgrades;
@@ -26,7 +26,7 @@ export const mapStateToProps = (state: AppState) => ({
   attachedUpgrades: getAttachedUpgrades(state)
 });
 
-export interface IDispatchProps {
+export interface DispatchProps {
   detachUpgrade: (upgrade: IUpgrade) => void;
   setAttachedUpgrade: (
     spacecraft: ISpaceship,
@@ -46,6 +46,6 @@ export interface MatchParams {
   spaceshipId: string;
 }
 
-export type IProps = IStateProps &
-  IDispatchProps &
+export type Props = StateProps &
+  DispatchProps &
   RouteComponentProps<MatchParams>;

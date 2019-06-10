@@ -6,13 +6,13 @@ import { ISpaceship, IAttachedUpgrades, UpgradeType } from 'models';
 import upgradeMap from './upgrade-map';
 import { getAspectRatio } from 'utils/helpers';
 
-interface IProps {
+interface Props {
   spacecraft: ISpaceship;
   attachedUpgrades: IAttachedUpgrades;
   onLoaded: () => void;
 }
 
-export default class Canvas extends Component<IProps, {}> {
+export default class Canvas extends Component<Props, {}> {
   camera: THREE.PerspectiveCamera;
   scene: THREE.Scene;
   renderer: THREE.WebGLRenderer;

@@ -2,12 +2,12 @@ import * as React from 'react';
 import { ISpaceship, IAttachedUpgrades } from 'models';
 import { LinearProgress, Box, Typography, Button } from '@material-ui/core';
 
-interface IProps {
+interface Props {
   spacecraft: ISpaceship;
   attachedUpgrades: IAttachedUpgrades;
 }
 
-const Stats: React.FC<IProps> = ({ spacecraft, attachedUpgrades }) => {
+const Stats: React.FC<Props> = ({ spacecraft, attachedUpgrades }) => {
   // Only rerender if buffs changes
   const { baseStats } = spacecraft;
   const { engine, deflector, weapons, stabilizer, plating } = attachedUpgrades;

@@ -8,7 +8,7 @@ import * as interfaces from './engineering.interface';
 import { Typography } from '@material-ui/core';
 import classes from './engineering.module.scss';
 
-class Engineering extends React.Component<interfaces.IProps, {}> {
+class Engineering extends React.Component<interfaces.Props, {}> {
   componentDidMount() {
     this.props.loadSpacecrafts();
     this.props.loadAllUpgrades();

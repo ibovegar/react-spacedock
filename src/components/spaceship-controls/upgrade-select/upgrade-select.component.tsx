@@ -14,7 +14,7 @@ import styles from './upgrade-select.styles';
 import RemoveIcon from '@material-ui/icons/IndeterminateCheckBox';
 import { PopoverOrigin } from '@material-ui/core/Popover';
 
-interface IProps extends WithStyles<typeof styles> {
+interface Props extends WithStyles<typeof styles> {
   value: IUpgrade;
   options: IUpgrade[];
   type: string;
@@ -22,7 +22,7 @@ interface IProps extends WithStyles<typeof styles> {
   onDeselect: () => void;
 }
 
-const UpgradeSelect: React.FC<IProps> = props => {
+const UpgradeSelect: React.FC<Props> = props => {
   const { classes, value, options, type, onSelect, onDeselect } = props;
   const [anchorEl, setAnchorEl]: [any, any] = React.useState(null);
 
@@ -95,7 +95,7 @@ const UpgradeSelect: React.FC<IProps> = props => {
           ) : (
             options.map((option: IUpgrade, index) => (
               <>
-                <li key={option.id} onClick={() => handleSelect(option)}>
+                <li onClick={() => handleSelect(option)}>
                   <Box display="flex">
                     <Box
                       width="80px"

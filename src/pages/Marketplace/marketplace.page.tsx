@@ -21,17 +21,17 @@ const styles = ({ spacing }: Theme) =>
     }
   });
 
-interface IStateProps extends WithStyles<typeof styles> {
-  store: Array<ISpaceship | IUpgrade>;
+interface StateProps extends WithStyles<typeof styles> {
+  store: (ISpaceship | IUpgrade)[];
 }
 
-interface IDispatchProps {
+interface DispatchProps {
   loadStore: () => void;
 }
 
-type IProps = IStateProps & IDispatchProps;
+type Props = StateProps & DispatchProps;
 
-class Marketplace extends React.Component<IProps, {}> {
+class Marketplace extends React.Component<Props, {}> {
   state = {
     age: '',
     name: 'hai'

@@ -4,11 +4,11 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { Box } from '@material-ui/core';
 
-interface IProps {
+interface Props {
   spaceship: ISpaceship;
 }
 
-const SpaceshipCard: React.FC<IProps> = ({ spaceship }) => {
+const SpaceshipCard: React.FC<Props> = ({ spaceship }) => {
   return (
     <Box p={1}>
       <Grid container justify="center" alignItems="center">

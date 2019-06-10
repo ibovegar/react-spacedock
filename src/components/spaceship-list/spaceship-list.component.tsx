@@ -32,12 +32,12 @@ const useStyles = makeStyles((theme: Theme) => ({
   }
 }));
 
-interface IStateProps {
+interface StateProps {
   spaceships: ISpaceship[];
   onSpacecraftClick?: (event: React.MouseEvent) => void;
 }
 
-const SpaceshipList: React.FC<IStateProps> = props => {
+const SpaceshipList: React.FC<StateProps> = props => {
   const { spaceships, onSpacecraftClick } = props;
   const classes = useStyles();
 
