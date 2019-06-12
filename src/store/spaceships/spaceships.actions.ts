@@ -1,8 +1,8 @@
-import { ISpaceship } from 'models';
+import { Spaceship } from 'models';
 
 export type ActionTypes =
   | { type: 'LOAD_ALL_SPACESHIPS_REQUEST' }
-  | { type: 'LOAD_ALL_SPACESHIPS_SUCCESS'; spaceships: ISpaceship[] }
+  | { type: 'LOAD_ALL_SPACESHIPS_SUCCESS'; spaceships: Spaceship[] }
   | { type: 'LOAD_ALL_SPACESHIPS_FAILURE'; error: any }
   | { type: 'SET_SELECTED_SPACECRAFT'; spacecraftId: string };
 
@@ -11,7 +11,7 @@ export const loadAllSpaceshipsRequest = (): ActionTypes => ({
 });
 
 export const loadAllSpaceshipsSuccess = (
-  spaceships: ISpaceship[]
+  spaceships: Spaceship[]
 ): ActionTypes => ({
   type: 'LOAD_ALL_SPACESHIPS_SUCCESS',
   spaceships

@@ -1,5 +1,5 @@
 export default interface State {
-  readonly isLoading: boolean;
-  readonly ids: string[];
-  readonly entities: any;
+  isLoading: boolean;
+  ids: string[];
+  entities: any;
 }

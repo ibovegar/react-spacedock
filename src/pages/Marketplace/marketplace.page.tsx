@@ -8,7 +8,7 @@ import {
 } from '@material-ui/core/styles';
 import { loadStore } from 'store/store';
 import { AppState } from 'store';
-import { IUpgrade, ISpaceship } from 'models';
+import { Upgrade, Spaceship } from 'models';
 import { FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
 import { Widget } from 'components';
 import { Typography } from '@material-ui/core';
@@ -22,7 +22,7 @@ const styles = ({ spacing }: Theme) =>
   });
 
 interface StateProps extends WithStyles<typeof styles> {
-  store: (ISpaceship | IUpgrade)[];
+  store: (Spaceship | Upgrade)[];
 }
 
 interface DispatchProps {

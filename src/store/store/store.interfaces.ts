@@ -1,6 +1,6 @@
-import { ISpaceship, IUpgrade } from 'models';
+import { Spaceship, Upgrade } from 'models';
 
 export default interface State {
   readonly isLoading: boolean;
-  readonly store: Array<ISpaceship | IUpgrade>;
+  readonly store: (Spaceship | Upgrade)[];
 }

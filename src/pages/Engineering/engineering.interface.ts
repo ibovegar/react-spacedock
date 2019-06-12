@@ -1,5 +1,5 @@
 import { RouteComponentProps } from 'react-router-dom';
-import { ISpaceship } from 'models';
+import { Spaceship } from 'models';
 import {
   loadSpacecrafts,
   getAllSpaceships,
@@ -11,7 +11,7 @@ import { loadAllUpgrades } from 'store/upgrades';
 export interface StateProps extends RouteComponentProps {
   isLoadingSpaceships: boolean;
   isLoadingUpgrades: boolean;
-  spacecrafts: ISpaceship[];
+  spacecrafts: Spaceship[];
 }
 
 export const mapStateToProps = (state: AppState) => ({

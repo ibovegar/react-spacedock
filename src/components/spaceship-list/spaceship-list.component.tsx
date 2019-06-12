@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { ISpaceship } from 'models';
+import { Spaceship } from 'models';
 import SpaceshipCard from './spaceship-card/spaceship-card.component';
 import { makeStyles } from '@material-ui/styles';
 import { Theme } from '@material-ui/core';
@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 }));
 
 interface StateProps {
-  spaceships: ISpaceship[];
+  spaceships: Spaceship[];
   onSpacecraftClick?: (event: React.MouseEvent) => void;
 }
 
@@ -43,7 +43,7 @@ const SpaceshipList: React.FC<StateProps> = props => {
 
   return (
     <>
-      {spaceships.map((spaceship: ISpaceship) => (
+      {spaceships.map((spaceship: Spaceship) => (
         <NavLink
           key={spaceship.id}
           className={classes.navigationItem}

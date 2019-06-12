@@ -1,5 +1,5 @@
 import React from 'react';
-import { IUpgrade } from 'models';
+import { Upgrade } from 'models';
 import {
   Box,
   Typography,
@@ -15,10 +15,10 @@ import RemoveIcon from '@material-ui/icons/IndeterminateCheckBox';
 import { PopoverOrigin } from '@material-ui/core/Popover';
 
 interface Props extends WithStyles<typeof styles> {
-  value: IUpgrade;
-  options: IUpgrade[];
+  value: Upgrade;
+  options: Upgrade[];
   type: string;
-  onSelect: (option: IUpgrade) => void;
+  onSelect: (option: Upgrade) => void;
   onDeselect: () => void;
 }
 
@@ -39,7 +39,7 @@ const UpgradeSelect: React.FC<Props> = props => {
     setAnchorEl(null);
   };
 
-  const handleSelect = (option: IUpgrade) => {
+  const handleSelect = (option: Upgrade) => {
     handleClose();
     onSelect(option);
   };
@@ -93,33 +93,31 @@ const UpgradeSelect: React.FC<Props> = props => {
               <Typography variant="subtitle1">NO AVAILABLE UPGRADES</Typography>
             </Box>
           ) : (
-            options.map((option: IUpgrade, index) => (
-              <>
-                <li onClick={() => handleSelect(option)}>
-                  <Box display="flex">
-                    <Box
-                      width="80px"
-                      display="flex"
-                      justifyContent="center"
-                      alignItems="center"
-                    >
-                      <Avatar className="gain">{option.gain}</Avatar>
-                    </Box>
-                    <Box pr={8} py={3}>
-                      <Typography style={{ whiteSpace: 'nowrap' }} variant="h6">
-                        {option.name}
-                      </Typography>
-                      <Typography
-                        style={{ whiteSpace: 'nowrap' }}
-                        variant="subtitle1"
-                      >
-                        {option.manufacturer.toUpperCase()}
-                      </Typography>
-                    </Box>
+            options.map((option: Upgrade, index) => (
+              <li key={option.id} onClick={() => handleSelect(option)}>
+                <Box display="flex">
+                  <Box
+                    width="80px"
+                    display="flex"
+                    justifyContent="center"
+                    alignItems="center"
+                  >
+                    <Avatar className="gain">{option.gain}</Avatar>
                   </Box>
-                </li>
+                  <Box pr={8} py={3}>
+                    <Typography style={{ whiteSpace: 'nowrap' }} variant="h6">
+                      {option.name}
+                    </Typography>
+                    <Typography
+                      style={{ whiteSpace: 'nowrap' }}
+                      variant="subtitle1"
+                    >
+                      {option.manufacturer.toUpperCase()}
+                    </Typography>
+                  </Box>
+                </Box>
                 {index + 1 !== options.length && <Divider />}
-              </>
+              </li>
             ))
           )}
         </ul>

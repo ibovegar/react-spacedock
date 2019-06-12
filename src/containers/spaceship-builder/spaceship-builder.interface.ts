@@ -1,9 +1,9 @@
 import { AppState } from 'store';
 import {
-  ISpaceship,
-  IUpgrade,
-  IAvailableUpgrades,
-  IAttachedUpgrades
+  Spaceship,
+  Upgrade,
+  AvailableUpgrades,
+  AttachedUpgrades
 } from 'models';
 import { RouteComponentProps } from 'react-router-dom';
 import { setSelectedSpacecraft } from 'store/spaceships';
@@ -15,9 +15,9 @@ import {
 } from 'store/upgrades';
 
 export interface StateProps {
-  spacecraft: ISpaceship;
-  availableUpgrades: IAvailableUpgrades;
-  attachedUpgrades: IAttachedUpgrades;
+  spacecraft: Spaceship | any;
+  availableUpgrades: AvailableUpgrades;
+  attachedUpgrades: AttachedUpgrades;
 }
 
 export const mapStateToProps = (state: AppState) => ({
@@ -26,21 +26,21 @@ export const mapStateToProps = (state: AppState) => ({
   attachedUpgrades: getAttachedUpgrades(state)
 });
 
-export interface DispatchProps {
-  detachUpgrade: (upgrade: IUpgrade) => void;
-  setAttachedUpgrade: (
-    spacecraft: ISpaceship,
-    oldUpgrade: IUpgrade,
-    newUpgrade: IUpgrade
-  ) => void;
-  setSelectedSpacecraft: (id: string) => void;
-}
-
 export const mapDispatchToProps = {
   detachUpgrade,
   setAttachedUpgrade,
   setSelectedSpacecraft
 };
+
+export interface DispatchProps {
+  detachUpgrade: (upgrade: Upgrade) => void;
+  setAttachedUpgrade: (
+    spacecraft: Spaceship,
+    oldUpgrade: Upgrade,
+    newUpgrade: Upgrade
+  ) => void;
+  setSelectedSpacecraft: (id: string) => void;
+}
 
 export interface MatchParams {
   spaceshipId: string;

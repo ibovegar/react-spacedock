@@ -1,4 +1,4 @@
-export interface IBaseStats {
+export interface BaseStats {
   readonly speed: number;
   readonly hull: number;
   readonly shield: number;

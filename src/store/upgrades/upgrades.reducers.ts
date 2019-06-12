@@ -1,7 +1,7 @@
 import { ActionTypes } from './upgrades.actions';
 import State from './upgrades.interfaces';
 import { toEntities, upsertEntities } from 'utils/helpers';
-import { IUpgrade } from 'models';
+import { Upgrade } from 'models';
 
 const initialState: State = {
   ids: [],
@@ -29,7 +29,7 @@ export function reducer(
           state.entities,
           toEntities(action.upgrades, 'id')
         ),
-        ids: action.upgrades.map((upgrade: IUpgrade) => upgrade.id)
+        ids: action.upgrades.map((upgrade: Upgrade) => upgrade.id)
       };
     }
 
@@ -42,7 +42,7 @@ export function reducer(
 
     case 'DETACH_UPGRADE_SUCCESS': {
       const entities: any = { ...state.entities };
-      const upgrade: IUpgrade = entities[action.upgrade.id];
+      const upgrade: Upgrade = entities[action.upgrade.id];
       upgrade.isAttached = false;
       upgrade.spaceshipId = '';
 
@@ -61,13 +61,13 @@ export function reducer(
 
     case 'SET_ATTACHED_UPGRADE_SUCCESS': {
       const entities: any = { ...state.entities };
-      const newUpgrade: IUpgrade = entities[action.newUpgrade.id];
+      const newUpgrade: Upgrade = entities[action.newUpgrade.id];
 
       newUpgrade.isAttached = true;
       newUpgrade.spaceshipId = action.spacecraft.id;
 
       if (action.oldUpgrade) {
-        const oldUpgrade: IUpgrade = entities[action.oldUpgrade.id];
+        const oldUpgrade: Upgrade = entities[action.oldUpgrade.id];
         oldUpgrade.isAttached = false;
         oldUpgrade.spaceshipId = '';
       }

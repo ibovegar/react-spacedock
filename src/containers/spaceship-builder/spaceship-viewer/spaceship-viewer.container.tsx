@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ISpaceship, IAttachedUpgrades } from 'models';
+import { Spaceship, AttachedUpgrades } from 'models';
 import { Stats, Canvas, Widget } from 'components';
 import { createStyles, withStyles, WithStyles } from '@material-ui/core';
 import Plus from 'assets/images/plus.svg';
@@ -14,8 +14,8 @@ const styles = () =>
   });
 
 interface Props extends WithStyles<typeof styles> {
-  spacecraft: ISpaceship;
-  attachedUpgrades: IAttachedUpgrades;
+  spacecraft: Spaceship;
+  attachedUpgrades: AttachedUpgrades;
 }
 
 class SpaceshipViewer extends Component<Props, {}> {

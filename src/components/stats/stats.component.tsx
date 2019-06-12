@@ -1,10 +1,10 @@
 import * as React from 'react';
-import { ISpaceship, IAttachedUpgrades } from 'models';
+import { Spaceship, AttachedUpgrades } from 'models';
 import { LinearProgress, Box, Typography, Button } from '@material-ui/core';
 
 interface Props {
-  spacecraft: ISpaceship;
-  attachedUpgrades: IAttachedUpgrades;
+  spacecraft: Spaceship;
+  attachedUpgrades: AttachedUpgrades;
 }
 
 const Stats: React.FC<Props> = ({ spacecraft, attachedUpgrades }) => {

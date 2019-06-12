@@ -1,29 +1,30 @@
 import { createSelector, Selector } from 'reselect';
 import { AppState } from 'store';
 import {
-  ISpaceship,
-  IUpgrade,
-  IAttachedUpgrades,
-  IAvailableUpgrades
+  Spaceship,
+  Upgrade,
+  AttachedUpgrades,
+  AvailableUpgrades
 } from 'models';
-import { toArray, isEmpty } from 'utils/helpers';
+import { toArray } from 'utils/helpers';
 
 const getUpgradeEnities = (state: AppState) => state.upgrades.entities;
 const getSelectedSpacecraft = (state: AppState) => state.spaceships.selected;
 
-export const getUpgradeList: Selector<AppState, IUpgrade[]> = createSelector(
+export const getUpgradeList: Selector<AppState, Upgrade[]> = createSelector(
   getUpgradeEnities,
   entities => toArray(entities)
 );
 
 export const getAttachedUpgrades: Selector<
   AppState,
-  IAttachedUpgrades
+  AttachedUpgrades
 > = createSelector(
   [getUpgradeList, getSelectedSpacecraft],
-  (upgrades: IUpgrade[], selectedSpacecraft: ISpaceship) => {
-    const attachedUpgrades = {} as IAttachedUpgrades;
-    if (isEmpty(selectedSpacecraft) || !upgrades.length) {
+  (upgrades: Upgrade[], selectedSpacecraft: Spaceship | any) => {
+    const attachedUpgrades = new AttachedUpgrades();
+
+    if (!selectedSpacecraft || !upgrades.length) {
       return attachedUpgrades;
     }
 
@@ -38,17 +39,13 @@ export const getAttachedUpgrades: Selector<
 
 export const getAvailableUpgrades: Selector<
   AppState,
-  IAvailableUpgrades
+  AvailableUpgrades
 > = createSelector(
   [getUpgradeList, getSelectedSpacecraft],
-  (upgrades: IUpgrade[], selectedSpacecraft: ISpaceship) => {
-    const availableUpgrades = {} as IAvailableUpgrades;
+  (upgrades: Upgrade[], selectedSpacecraft: Spaceship | any) => {
+    const availableUpgrades = new AvailableUpgrades();
 
-    availableUpgrades.deflector = [];
-    availableUpgrades.engine = [];
-    availableUpgrades.plating = [];
-    availableUpgrades.stabilizer = [];
-    availableUpgrades.weapons = [];
+    if (!selectedSpacecraft) return availableUpgrades;
 
     for (const upgrade of upgrades) {
       if (

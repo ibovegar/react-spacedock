@@ -1,18 +1,18 @@
 import * as React from 'react';
 import {
-  ISpaceship,
-  IAvailableUpgrades,
-  IUpgrade,
-  IAttachedUpgrades
+  Spaceship,
+  AvailableUpgrades,
+  Upgrade,
+  AttachedUpgrades
 } from 'models';
 import UpgradeSelect from './upgrade-select';
 
 interface Props {
-  spacecraft: ISpaceship;
-  availableUpgrades: IAvailableUpgrades;
-  attachedUpgrades: IAttachedUpgrades;
-  onDeselectUpgrade: (upgradeType: IUpgrade) => void;
-  onSelectUpgrade: (oldUpgrade: IUpgrade, newUpgrade: IUpgrade) => void;
+  spacecraft: Spaceship;
+  availableUpgrades: AvailableUpgrades;
+  attachedUpgrades: AttachedUpgrades;
+  onDeselectUpgrade: (upgradeType: Upgrade) => void;
+  onSelectUpgrade: (oldUpgrade: Upgrade, newUpgrade: Upgrade) => void;
 }
 
 const SpaceshipControls: React.FC<Props> = props => {
@@ -33,7 +33,7 @@ const SpaceshipControls: React.FC<Props> = props => {
         value={attached.deflector}
         options={available.deflector}
         onDeselect={() => onDeselectUpgrade(attached.deflector)}
-        onSelect={(option: IUpgrade) =>
+        onSelect={(option: Upgrade) =>
           onSelectUpgrade(attached.deflector, option)
         }
       />
@@ -42,16 +42,14 @@ const SpaceshipControls: React.FC<Props> = props => {
         value={attached.engine}
         options={available.engine}
         onDeselect={() => onDeselectUpgrade(attached.engine)}
-        onSelect={(option: IUpgrade) =>
-          onSelectUpgrade(attached.engine, option)
-        }
+        onSelect={(option: Upgrade) => onSelectUpgrade(attached.engine, option)}
       />
       <UpgradeSelect
         type="Plating"
         value={attached.plating}
         options={available.plating}
         onDeselect={() => onDeselectUpgrade(attached.plating)}
-        onSelect={(option: IUpgrade) =>
+        onSelect={(option: Upgrade) =>
           onSelectUpgrade(attached.plating, option)
         }
       />
@@ -60,7 +58,7 @@ const SpaceshipControls: React.FC<Props> = props => {
         value={attached.stabilizer}
         options={available.stabilizer}
         onDeselect={() => onDeselectUpgrade(attached.stabilizer)}
-        onSelect={(option: IUpgrade) =>
+        onSelect={(option: Upgrade) =>
           onSelectUpgrade(attached.stabilizer, option)
         }
       />
@@ -69,7 +67,7 @@ const SpaceshipControls: React.FC<Props> = props => {
         value={attached.weapons}
         options={available.weapons}
         onDeselect={() => onDeselectUpgrade(attached.weapons)}
-        onSelect={(option: IUpgrade) =>
+        onSelect={(option: Upgrade) =>
           onSelectUpgrade(attached.weapons, option)
         }
       />

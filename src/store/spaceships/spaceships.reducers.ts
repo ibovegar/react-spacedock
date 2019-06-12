@@ -1,10 +1,10 @@
 import { ActionTypes } from './spaceships.actions';
 import State from './spaceships.interfaces';
-import { ISpaceship } from 'models';
+import { Spaceship } from 'models';
 import { toEntities } from 'utils/helpers';
 
 const initialState: State = {
-  selected: {} as ISpaceship,
+  selected: null,
   entities: {},
   ids: [],
   isLoading: true
@@ -27,7 +27,7 @@ export function reducer(
         ...state,
         isLoading: false,
         entities: toEntities(action.spaceships, 'id'),
-        ids: action.spaceships.map((spaceship: ISpaceship) => spaceship.id)
+        ids: action.spaceships.map((spaceship: Spaceship) => spaceship.id)
       };
     }
 

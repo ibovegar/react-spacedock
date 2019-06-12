@@ -1,6 +1,6 @@
-import { IBaseStats } from 'models';
+import { BaseStats } from 'models';
 
-export interface ISpaceship {
+export interface Spaceship {
   readonly id: string;
   readonly name: string;
   readonly registry: string;
@@ -11,6 +11,6 @@ export interface ISpaceship {
   readonly height: number;
   readonly length: number;
   readonly price: number;
-  readonly baseStats: IBaseStats;
+  readonly baseStats: BaseStats;
   attachedUpgrades: string[];
 }

@@ -1,13 +1,13 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { ISpaceship } from 'models';
+import { Spaceship } from 'models';
 import { loadSpacecrafts, getAllSpaceships } from 'store/spaceships';
 import { AppState } from 'store';
 import { SpaceshipList } from 'components';
 
 interface StateProps {
   isLoading: boolean;
-  spaceships: ISpaceship[];
+  spaceships: Spaceship[];
 }
 
 interface DispatchProps {

@@ -1,14 +1,14 @@
 import axios, { AxiosResponse } from 'axios';
-import { IUpgrade } from 'models';
+import { Upgrade } from 'models';
 
 const url = process.env.REACT_APP_API_URL;
 
-export const getAll = async (): Promise<IUpgrade[]> => {
+export const getAll = async (): Promise<Upgrade[]> => {
   const response: AxiosResponse = await axios.get(`${url}/upgrades`);
   return response.data;
 };
 
-export const get = async (spaceshipId: string): Promise<IUpgrade[]> => {
+export const get = async (spaceshipId: string): Promise<Upgrade[]> => {
   const response: AxiosResponse = await axios.get(
     `${url}/spaceships/${spaceshipId}/upgrades`
   );
@@ -17,7 +17,7 @@ export const get = async (spaceshipId: string): Promise<IUpgrade[]> => {
 
 export const setAttachedUpgrade = async (
   spaceshipId: string,
-  upgrade: IUpgrade
+  upgrade: Upgrade
 ): Promise<void> => {
   await axios.post(
     `${url}/attachedUpgrades/${spaceshipId}/attachedUpgrades/${upgrade.type}`,

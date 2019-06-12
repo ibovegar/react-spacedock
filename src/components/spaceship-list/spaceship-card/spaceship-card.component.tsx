@@ -1,11 +1,11 @@
 import React from 'react';
-import { ISpaceship } from 'models';
+import { Spaceship } from 'models';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { Box } from '@material-ui/core';
 
 interface Props {
-  spaceship: ISpaceship;
+  spaceship: Spaceship;
 }
 
 const SpaceshipCard: React.FC<Props> = ({ spaceship }) => {

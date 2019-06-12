@@ -1,4 +1,4 @@
-export interface IUpgrade {
+export interface Upgrade {
   readonly id: string;
   readonly spacecraftRegistry: string;
   readonly type: string;
@@ -10,20 +10,20 @@ export interface IUpgrade {
   spaceshipId?: string;
 }
 
-export interface IAttachedUpgrades {
-  engine: IUpgrade;
-  plating: IUpgrade;
-  deflector: IUpgrade;
-  weapons: IUpgrade;
-  stabilizer: IUpgrade;
+export class AttachedUpgrades {
+  engine: Upgrade;
+  plating: Upgrade;
+  deflector: Upgrade;
+  weapons: Upgrade;
+  stabilizer: Upgrade;
 }
 
-export interface IAvailableUpgrades {
-  engine: IUpgrade[];
-  plating: IUpgrade[];
-  deflector: IUpgrade[];
-  weapons: IUpgrade[];
-  stabilizer: IUpgrade[];
+export class AvailableUpgrades {
+  engine: Upgrade[] = [];
+  plating: Upgrade[] = [];
+  deflector: Upgrade[] = [];
+  weapons: Upgrade[] = [];
+  stabilizer: Upgrade[] = [];
 }
 
 export enum UpgradeType {

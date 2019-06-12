@@ -1,8 +1,8 @@
-import { IUpgrade, ISpaceship } from 'models';
+import { Upgrade, Spaceship } from 'models';
 
 export type ActionTypes =
   | { type: 'LOAD_STORE_REQUEST' }
-  | { type: 'LOAD_STORE_SUCCESS'; store: Array<IUpgrade | ISpaceship> }
+  | { type: 'LOAD_STORE_SUCCESS'; store: (Upgrade | Spaceship)[] }
   | { type: 'LOAD_STORE_FAILURE'; error: any };
 
 export const loadStoreRequest = () => ({
@@ -10,7 +10,7 @@ export const loadStoreRequest = () => ({
 });
 
 export const loadStoreSuccess = (
-  store: Array<IUpgrade | ISpaceship>
+  store: (Upgrade | Spaceship)[]
 ): ActionTypes => ({
   type: 'LOAD_STORE_SUCCESS',
   store

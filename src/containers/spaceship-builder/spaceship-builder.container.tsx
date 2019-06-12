@@ -4,30 +4,27 @@ import { SpaceshipControls } from 'components';
 import { SpaceshipViewer } from 'containers';
 import Box from '@material-ui/core/Box';
 import * as interfaces from './spaceship-builder.interface';
-import { IUpgrade } from 'models';
-import { isEmpty } from 'utils/helpers';
+import { Upgrade } from 'models';
 
 class SpaceshipBuilder extends React.Component<interfaces.Props, {}> {
   componentDidMount() {
     this.props.setSelectedSpacecraft(this.props.match.params.spaceshipId);
   }
 
-  handleSelectUpgrade = (oldUpgrade: IUpgrade, newUpgrade: IUpgrade) => {
-    this.props.setAttachedUpgrade(
-      this.props.spacecraft,
-      oldUpgrade,
-      newUpgrade
-    );
+  handleSelectUpgrade = (oldUpgrade: Upgrade, newUpgrade: Upgrade) => {
+    const { spacecraft } = this.props;
+    if (!spacecraft) return;
+    this.props.setAttachedUpgrade(spacecraft, oldUpgrade, newUpgrade);
   };
 
-  handleDeselectUpgrade = (upgrade: IUpgrade) => {
+  handleDeselectUpgrade = (upgrade: Upgrade) => {
     this.props.detachUpgrade(upgrade);
   };
 
   render() {
     const { spacecraft, attachedUpgrades, availableUpgrades } = this.props;
 
-    if (isEmpty(spacecraft)) {
+    if (!spacecraft) {
       return <div>Loading...</div>;
     }
 
