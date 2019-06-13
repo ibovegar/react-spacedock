@@ -1,8 +1,6 @@
-// import { Spaceship } from 'models';
+import { Spaceship, EntityState } from 'models';
 
-export default interface State {
+export default interface State extends EntityState<Spaceship> {
   isLoading: boolean;
-  ids: string[];
-  entities: any;
-  selected: any;
+  selected?: Spaceship;
 }

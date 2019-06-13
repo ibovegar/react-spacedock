@@ -4,7 +4,7 @@ import { Spaceship } from 'models';
 import { toEntities } from 'utils/helpers';
 
 const initialState: State = {
-  selected: null,
+  selected: undefined,
   entities: {},
   ids: [],
   isLoading: true

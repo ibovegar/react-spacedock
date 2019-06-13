@@ -21,7 +21,7 @@ export const getAttachedUpgrades: Selector<
   AttachedUpgrades
 > = createSelector(
   [getUpgradeList, getSelectedSpacecraft],
-  (upgrades: Upgrade[], selectedSpacecraft: Spaceship | any) => {
+  (upgrades: Upgrade[], selectedSpacecraft?: Spaceship) => {
     const attachedUpgrades = new AttachedUpgrades();
 
     if (!selectedSpacecraft || !upgrades.length) {
@@ -42,7 +42,7 @@ export const getAvailableUpgrades: Selector<
   AvailableUpgrades
 > = createSelector(
   [getUpgradeList, getSelectedSpacecraft],
-  (upgrades: Upgrade[], selectedSpacecraft: Spaceship | any) => {
+  (upgrades: Upgrade[], selectedSpacecraft?: Spaceship) => {
     const availableUpgrades = new AvailableUpgrades();
 
     if (!selectedSpacecraft) return availableUpgrades;
