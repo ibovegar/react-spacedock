@@ -31,12 +31,9 @@ export const detachUpgrade = (upgrade: Upgrade) => async (
   dispatch(actions.detachUpgradeSuccess(upgrade));
 };
 
-export const setAttachedUpgrade = (
+export const attachUpgrade = (
   spacecraft: Spaceship,
-  oldUpgrade: Upgrade,
-  newUpgrade: Upgrade
+  upgrade: Upgrade
 ) => async (dispatch: Dispatch) => {
-  dispatch(
-    actions.setAttachedUpgradeSuccess(spacecraft, oldUpgrade, newUpgrade)
-  );
+  dispatch(actions.attachUpgradeSuccess(spacecraft, upgrade));
 };

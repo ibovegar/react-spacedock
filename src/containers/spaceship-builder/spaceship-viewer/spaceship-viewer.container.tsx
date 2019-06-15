@@ -6,7 +6,7 @@ import Plus from 'assets/images/plus.svg';
 
 const styles = () =>
   createStyles({
-    dots: {
+    crosses: {
       height: '100%',
       backgroundImage: `url(${Plus})`,
       backgroundRepeat: 'repeat'
@@ -32,7 +32,7 @@ class SpaceshipViewer extends Component<Props, {}> {
 
     return (
       <Widget title="SPACECRAFT VIEWER">
-        <div className={classes.dots}>
+        <div className={classes.crosses}>
           {this.state.isLoading ? (
             <div>LOADING ASSETS. PLEASE WAIT... </div>
           ) : (

@@ -7,14 +7,13 @@ export type ActionTypes =
   | { type: 'DETACH_UPGRADE_REQUEST' }
   | { type: 'DETACH_UPGRADE_SUCCESS'; upgrade: Upgrade }
   | { type: 'LOAD_UPGRADES_FAILURE'; error: any }
-  | { type: 'SET_ATTACHED_UPGRADE_REQUEST' }
+  | { type: 'ATTACH_UPGRADE_REQUEST' }
   | {
-      type: 'SET_ATTACHED_UPGRADE_SUCCESS';
+      type: 'ATTACH_UPGRADE_SUCCESS';
       spacecraft: Spaceship;
-      oldUpgrade: Upgrade;
-      newUpgrade: Upgrade;
+      upgrade: Upgrade;
     }
-  | { type: 'SET_ATTACHED_UPGRADE_FAILURE'; error: any };
+  | { type: 'ATTACH_UPGRADE_FAILURE'; error: any };
 
 export const loadUpgradesRequest = () => ({
   type: 'LOAD_UPGRADES_REQUEST'
@@ -44,22 +43,20 @@ export const detachUpgradeFailure = (error: any): ActionTypes => ({
   error
 });
 
-export const setAttachedUpgradeRequest = () => ({
-  type: 'SET_ATTACHED_UPGRADE_REQUEST'
+export const attachUpgradeRequest = () => ({
+  type: 'ATTACH_UPGRADE_REQUEST'
 });
 
-export const setAttachedUpgradeSuccess = (
+export const attachUpgradeSuccess = (
   spacecraft: Spaceship,
-  oldUpgrade: Upgrade,
-  newUpgrade: Upgrade
+  upgrade: Upgrade
 ): ActionTypes => ({
-  type: 'SET_ATTACHED_UPGRADE_SUCCESS',
+  type: 'ATTACH_UPGRADE_SUCCESS',
   spacecraft,
-  oldUpgrade,
-  newUpgrade
+  upgrade
 });
 
-export const setAttachedUpgradeFailure = (error: any): ActionTypes => ({
-  type: 'SET_ATTACHED_UPGRADE_FAILURE',
+export const attachUpgradeFailure = (error: any): ActionTypes => ({
+  type: 'ATTACH_UPGRADE_FAILURE',
   error
 });

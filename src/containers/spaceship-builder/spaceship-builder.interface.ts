@@ -9,15 +9,18 @@ import { RouteComponentProps } from 'react-router-dom';
 import { setSelectedSpacecraft } from 'store/spaceships';
 import {
   detachUpgrade,
-  setAttachedUpgrade,
+  attachUpgrade,
   getAvailableUpgrades,
   getAttachedUpgrades
 } from 'store/upgrades';
 
 export interface StateProps {
-  spacecraft: Spaceship | any;
+  spacecraft?: Spaceship;
   availableUpgrades: AvailableUpgrades;
   attachedUpgrades: AttachedUpgrades;
+  detachUpgrade: (upgrade: Upgrade) => void;
+  attachUpgrade: (spacecraft: Spaceship, upgrade: Upgrade) => void;
+  setSelectedSpacecraft: (id: string) => void;
 }
 
 export const mapStateToProps = (state: AppState) => ({
@@ -28,24 +31,12 @@ export const mapStateToProps = (state: AppState) => ({
 
 export const mapDispatchToProps = {
   detachUpgrade,
-  setAttachedUpgrade,
+  attachUpgrade,
   setSelectedSpacecraft
 };
-
-export interface DispatchProps {
-  detachUpgrade: (upgrade: Upgrade) => void;
-  setAttachedUpgrade: (
-    spacecraft: Spaceship,
-    oldUpgrade: Upgrade,
-    newUpgrade: Upgrade
-  ) => void;
-  setSelectedSpacecraft: (id: string) => void;
-}
 
 export interface MatchParams {
   spaceshipId: string;
 }
 
-export type Props = StateProps &
-  DispatchProps &
-  RouteComponentProps<MatchParams>;
+export type Props = StateProps & RouteComponentProps<MatchParams>;
