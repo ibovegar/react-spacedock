@@ -1,4 +1,4 @@
-import { Upgrade, Spaceship } from 'models';
+import { Upgrade } from 'models';
 
 export type ActionTypes =
   | { type: 'LOAD_UPGRADES_REQUEST' }
@@ -8,11 +8,7 @@ export type ActionTypes =
   | { type: 'DETACH_UPGRADE_SUCCESS'; upgrade: Upgrade }
   | { type: 'LOAD_UPGRADES_FAILURE'; error: any }
   | { type: 'ATTACH_UPGRADE_REQUEST' }
-  | {
-      type: 'ATTACH_UPGRADE_SUCCESS';
-      spacecraft: Spaceship;
-      upgrade: Upgrade;
-    }
+  | { type: 'ATTACH_UPGRADE_SUCCESS'; upgrade: Upgrade }
   | { type: 'ATTACH_UPGRADE_FAILURE'; error: any };
 
 export const loadUpgradesRequest = () => ({
@@ -47,12 +43,8 @@ export const attachUpgradeRequest = () => ({
   type: 'ATTACH_UPGRADE_REQUEST'
 });
 
-export const attachUpgradeSuccess = (
-  spacecraft: Spaceship,
-  upgrade: Upgrade
-): ActionTypes => ({
+export const attachUpgradeSuccess = (upgrade: Upgrade): ActionTypes => ({
   type: 'ATTACH_UPGRADE_SUCCESS',
-  spacecraft,
   upgrade
 });
 

@@ -14,7 +14,7 @@ class SpaceshipBuilder extends React.Component<interfaces.Props, {}> {
   handleSelectUpgrade = (oldUpgrade: Upgrade, newUpgrade: Upgrade) => {
     const { spacecraft } = this.props;
     if (!spacecraft) return;
-    this.props.detachUpgrade(oldUpgrade);
+    if (oldUpgrade) this.props.detachUpgrade(oldUpgrade);
     this.props.attachUpgrade(spacecraft, newUpgrade);
   };
 

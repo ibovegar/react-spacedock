@@ -28,12 +28,30 @@ export const loadAllUpgrades = () => async (dispatch: Dispatch) => {
 export const detachUpgrade = (upgrade: Upgrade) => async (
   dispatch: Dispatch
 ) => {
-  dispatch(actions.detachUpgradeSuccess(upgrade));
+  const newUpgrade = { ...upgrade };
+  newUpgrade.isAttached = false;
+  newUpgrade.spaceshipId = '';
+
+  try {
+    await API.update(newUpgrade);
+    dispatch(actions.detachUpgradeSuccess(newUpgrade));
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export const attachUpgrade = (
   spacecraft: Spaceship,
   upgrade: Upgrade
 ) => async (dispatch: Dispatch) => {
-  dispatch(actions.attachUpgradeSuccess(spacecraft, upgrade));
+  const newUpgrade = { ...upgrade };
+  newUpgrade.isAttached = true;
+  newUpgrade.spaceshipId = spacecraft.id;
+
+  try {
+    await API.update(newUpgrade);
+    dispatch(actions.attachUpgradeSuccess(newUpgrade));
+  } catch (error) {
+    console.log(error);
+  }
 };

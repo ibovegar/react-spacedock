@@ -14,3 +14,11 @@ export const get = async (spaceshipId: string): Promise<Upgrade[]> => {
   );
   return response.data;
 };
+
+export const update = async (upgrade: Upgrade): Promise<any> => {
+  const response: AxiosResponse = await axios.put(
+    `${url}/upgrades/${upgrade.id}`,
+    { ...upgrade }
+  );
+  return response;
+};

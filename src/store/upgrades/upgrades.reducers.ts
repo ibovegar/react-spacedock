@@ -40,42 +40,14 @@ export function reducer(
       };
     }
 
-    case 'DETACH_UPGRADE_SUCCESS': {
-      const entities: any = { ...state.entities };
-      const upgrade: Upgrade = entities[action.upgrade.id];
-      upgrade.isAttached = false;
-      upgrade.spaceshipId = '';
-
-      return {
-        ...state,
-        entities
-      };
-    }
-
-    case 'ATTACH_UPGRADE_REQUEST': {
-      return {
-        ...state,
-        isLoading: true
-      };
-    }
-
+    case 'DETACH_UPGRADE_SUCCESS':
     case 'ATTACH_UPGRADE_SUCCESS': {
-      const entities: any = { ...state.entities };
-      const newUpgrade: Upgrade = entities[action.upgrade.id];
-      newUpgrade.isAttached = true;
-      newUpgrade.spaceshipId = action.spacecraft.id;
+      let entities: any = { ...state.entities };
+      entities[action.upgrade.id] = action.upgrade;
 
       return {
         ...state,
-        isLoading: false,
         entities
-      };
-    }
-
-    case 'ATTACH_UPGRADE_FAILURE': {
-      return {
-        ...state,
-        isLoading: false
       };
     }
 

@@ -134,9 +134,9 @@
     },
     {
       "id": "lgj47463",
-      "spaceshipId": "",
+      "spaceshipId": "j5id63sd",
       "spacecraftRegistry": "drax22",
-      "isAttached": false,
+      "isAttached": true,
       "type": "plating",
       "name": "Crystalin Elocplat Hull",
       "manufacturer": "Gentech MIL Corp.",
@@ -154,9 +154,9 @@
     },
     {
       "id": "19j46dkt",
-      "spaceshipId": "",
+      "spaceshipId": "29heh478",
       "spacecraftRegistry": "cygf35",
-      "isAttached": false,
+      "isAttached": true,
       "type": "stabilizer",
       "name": "Cryson Particle Booster IA-2",
       "manufacturer": "Cryson & Billard Engineering",
