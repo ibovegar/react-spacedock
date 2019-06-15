@@ -14,13 +14,3 @@ export const get = async (spaceshipId: string): Promise<Upgrade[]> => {
   );
   return response.data;
 };
-
-export const setAttachedUpgrade = async (
-  spaceshipId: string,
-  upgrade: Upgrade
-): Promise<void> => {
-  await axios.post(
-    `${url}/attachedUpgrades/${spaceshipId}/attachedUpgrades/${upgrade.type}`,
-    upgrade
-  );
-};
