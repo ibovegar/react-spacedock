@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Spaceship, AttachedUpgrades } from 'models';
-import { Stats, Canvas, Widget } from 'components';
+import Stats from './stats';
+import Canvas from './canvas';
+import { Widget } from 'components';
 import { createStyles, withStyles, WithStyles } from '@material-ui/core';
 import Plus from 'assets/images/plus.svg';
 

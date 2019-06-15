@@ -15,7 +15,7 @@ interface Props {
   onSelectUpgrade: (oldUpgrade: Upgrade, newUpgrade: Upgrade) => void;
 }
 
-const SpaceshipControls: React.FC<Props> = props => {
+const UpgradeControls: React.FC<Props> = props => {
   const {
     availableUpgrades: available,
     attachedUpgrades: attached,
@@ -75,4 +75,4 @@ const SpaceshipControls: React.FC<Props> = props => {
   );
 };
 
-export default SpaceshipControls;
+export default UpgradeControls;
