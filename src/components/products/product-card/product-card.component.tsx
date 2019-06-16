@@ -26,7 +26,7 @@ const ProductCard: React.FC<Props> = props => {
       <div className={classes.details}>
         <CardContent className={classes.content}>
           <Typography component="h5" variant="h5">
-            {product.name}
+            {product.name} {product.storeType}
           </Typography>
           <Typography variant="subtitle1" color="textSecondary">
             {product.manufacturer}

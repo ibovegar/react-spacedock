@@ -1,11 +1,11 @@
 export interface Upgrade {
-  readonly id: string;
-  readonly spacecraftRegistry: string;
-  readonly type: string;
-  readonly storeType?: string;
-  readonly name: string;
-  readonly manufacturer: string;
-  readonly gain: number;
+  id: string;
+  spacecraftRegistry: string;
+  type: UpgradeType;
+  storeType?: string;
+  name: string;
+  manufacturer: string;
+  gain: number;
   isAttached?: boolean;
   spaceshipId?: string;
 }

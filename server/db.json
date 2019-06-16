@@ -2,7 +2,7 @@
   "spaceships": [
     {
       "id": "j5id63sd",
-      "name": "Draxon  SA-22",
+      "name": "Draxon SA-22",
       "registry": "drax22",
       "manufacturer": "Epsilon Laboratories",
       "manufactured": 2191,
@@ -94,9 +94,9 @@
   "upgrades": [
     {
       "id": "kd78sg34",
-      "spaceshipId": "",
+      "spaceshipId": "j5id63sd",
       "spacecraftRegistry": "drax22",
-      "isAttached": false,
+      "isAttached": true,
       "type": "deflector",
       "name": "Shield Aggregator AUT1",
       "manufacturer": "Epsilon-X Laboratories",
@@ -104,9 +104,9 @@
     },
     {
       "id": "iru579eo",
-      "spaceshipId": "j5id63sd",
+      "spaceshipId": "",
       "spacecraftRegistry": "drax22",
-      "isAttached": true,
+      "isAttached": false,
       "type": "deflector",
       "name": "Gentec Puls Dampener",
       "manufacturer": "Gentech MIL Corp.",
