@@ -1,95 +1,83 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { withStyles, createStyles, WithStyles } from '@material-ui/core/styles';
 import {
-  withStyles,
-  createStyles,
-  Theme,
-  WithStyles
-} from '@material-ui/core/styles';
-import { loadStore } from 'store/store';
+  loadStore,
+  addToCart,
+  removeFromCart,
+  purchase
+} from 'store/marketplace';
 import { AppState } from 'store';
 import { Upgrade, Spaceship } from 'models';
-import { FormControl, InputLabel, Select, MenuItem } from '@material-ui/core';
-import { Widget } from 'components';
-import { Typography } from '@material-ui/core';
+import { Products, ProductFilters, Cart } from 'components';
+import { Grid } from '@material-ui/core';
 
-const styles = ({ spacing }: Theme) =>
+const styles = () =>
   createStyles({
-    formControl: {
-      margin: spacing(1),
-      minWidth: 200
+    grid: {
+      height: '100%'
     }
   });
 
-interface StateProps extends WithStyles<typeof styles> {
-  store: (Spaceship | Upgrade)[];
-}
-
-interface DispatchProps {
+interface Props extends WithStyles<typeof styles> {
+  products: (Spaceship | Upgrade)[];
+  cart: (Spaceship | Upgrade)[];
   loadStore: () => void;
+  addToCart: (product: Spaceship | Upgrade) => void;
+  removeFromCart: (index: number) => void;
+  purchase: () => void;
 }
-
-type Props = StateProps & DispatchProps;
 
 class Marketplace extends React.Component<Props, {}> {
-  state = {
-    age: '',
-    name: 'hai'
-  };
-
   componentDidMount() {
     this.props.loadStore();
   }
 
-  handleChange = (event: any) => {
-    this.setState({ [event.target.name]: event.target.value });
+  handleAddToCart = (product: Spaceship | Upgrade) => {
+    this.props.addToCart(product);
+  };
+
+  handleRemoveFromCart = (index: number) => {
+    this.props.removeFromCart(index);
+  };
+
+  handlePurchase = () => {
+    this.props.purchase();
   };
 
   public render() {
+    const { products, cart, classes } = this.props;
+
     return (
-      <Widget title="Lorem Ipsum Dolor" subheader="Sit amet siver og amund eeg">
-        <FormControl className={this.props.classes.formControl}>
-          <InputLabel htmlFor="age-simple">Age</InputLabel>
-          <Select
-            value={this.state.age}
-            onChange={this.handleChange}
-            inputProps={{
-              name: 'age',
-              id: 'age-simple'
-            }}
-          >
-            <MenuItem value="">
-              <em>None</em>
-            </MenuItem>
-            <MenuItem value={10}>Ten</MenuItem>
-            <MenuItem value={20}>Twenty</MenuItem>
-            <MenuItem value={30}>Thirty</MenuItem>
-          </Select>
-        </FormControl>
-        <div>
-          {this.props.store.map((item, index) => (
-            <div key={index}>{item.name}</div>
-          ))}
-        </div>
-        <Typography variant="h1">Lorem ipsum dolor</Typography>
-        <Typography variant="h2">Lorem ipsum dolor</Typography>
-        <Typography variant="h3">Lorem ipsum dolor</Typography>
-        <Typography variant="h4">Lorem ipsum dolor</Typography>
-        <Typography variant="h5">Lorem ipsum dolor</Typography>
-        <Typography variant="h6">Lorem ipsum dolor</Typography>
-        <Typography variant="subtitle1">Lorem ipsum dolor</Typography>
-        <Typography variant="subtitle2">Lorem ipsum dolor</Typography>
-      </Widget>
+      <Grid container spacing={10} className={classes.grid}>
+        <Grid item xs={2}>
+          <ProductFilters />
+        </Grid>
+        <Grid item xs={7}>
+          <Products onAddClick={this.handleAddToCart} products={products} />
+        </Grid>
+        <Grid item xs={3}>
+          <Cart
+            cart={cart}
+            onRemove={this.handleRemoveFromCart}
+            onPurchase={this.handlePurchase}
+          />
+        </Grid>
+      </Grid>
     );
   }
 }
 
 export const mapStateToProps = (state: AppState) => ({
-  store: state.store.store
+  products: state.marketplace.products,
+  cart: state.marketplace.cart
 });
 
 export const mapDispatchToProps = {
-  loadStore
+  loadStore,
+  addToCart,
+  removeFromCart,
+  purchase
 };
 
 export default withStyles(styles)(

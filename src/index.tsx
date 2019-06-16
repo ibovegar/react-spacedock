@@ -15,7 +15,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 import 'normalize.css';
-import './assets/css/styles.scss';
+import './assets/css/styles.css';
 import { CssBaseline } from '@material-ui/core';
 
 const middleware = [thunk];

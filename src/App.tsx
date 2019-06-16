@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
-// import classes from './App.module.scss';
 import Layout from './components/layout/layout.component';
 import { Home, Marketplace, Inventory, Engineering } from 'pages';
 

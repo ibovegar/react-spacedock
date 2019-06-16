@@ -1,8 +1,9 @@
-import { ActionTypes } from './store.actions';
-import State from './store.interfaces';
+import { ActionTypes } from './marketplace.actions';
+import State from './marketplace.interfaces';
 
 const initialState: State = {
-  store: [],
+  products: [],
+  cart: [],
   isLoading: true
 };
 
@@ -21,13 +22,25 @@ export function reducer(
       return {
         ...state,
         isLoading: false,
-        store: action.store
+        products: action.products
       };
 
     case 'LOAD_STORE_FAILURE':
       return {
         ...state,
         isLoading: false
+      };
+
+    case 'ADD_CART':
+      return {
+        ...state,
+        cart: [...state.cart, action.product]
+      };
+
+    case 'REMOVE_CART':
+      return {
+        ...state,
+        cart: state.cart.filter((_, i) => i !== action.index)
       };
 
     default:

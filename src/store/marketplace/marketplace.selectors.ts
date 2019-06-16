@@ -3,7 +3,7 @@ import { AppState } from 'store';
 import { Spaceship, Upgrade } from 'models';
 import { toArray } from 'utils/helpers';
 
-const getStoreEnities = (state: AppState) => state.store.store;
+const getStoreEnities = (state: AppState) => state.marketplace.products;
 
 export const getUpgradeList: Selector<
   AppState,
