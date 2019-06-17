@@ -29,7 +29,7 @@ interface Props extends WithStyles<typeof styles> {
   loadStore: () => void;
   addToCart: (product: Spaceship | Upgrade) => void;
   removeFromCart: (index: number) => void;
-  purchase: () => void;
+  purchase: (cart: (Spaceship | Upgrade)[]) => void;
 }
 
 interface State {
@@ -56,7 +56,7 @@ class Marketplace extends React.Component<Props, State> {
   };
 
   handlePurchase = () => {
-    this.props.purchase();
+    this.props.purchase(this.props.cart);
   };
 
   handleCategoryFilter = (filters: string[]) => {

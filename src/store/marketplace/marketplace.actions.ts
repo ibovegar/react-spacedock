@@ -44,6 +44,7 @@ export const purchaseSuccess = () => ({
   type: 'PURCHASE_SUCCESS'
 });
 
-export const purchaseFailure = () => ({
-  type: 'PURCHASE_FAILURE'
+export const purchaseFailure = (error: any) => ({
+  type: 'PURCHASE_FAILURE',
+  error
 });

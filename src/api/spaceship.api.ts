@@ -15,8 +15,10 @@ export const get = async (spaceshipId: string): Promise<Spaceship> => {
   return response.data;
 };
 
-// export const getAll = (): Promise<Spaceship[]> => {
-//   return axios
-//     .get('http://localhost:1337/spaceships')
-//     .then((response: AxiosResponse) => response.data);
-// };
+export const post = async (spaceship: Spaceship): Promise<Spaceship> => {
+  const response: AxiosResponse = await axios.post(
+    `${url}/spaceships`,
+    spaceship
+  );
+  return response.data;
+};

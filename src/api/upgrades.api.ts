@@ -22,3 +22,8 @@ export const update = async (upgrade: Upgrade): Promise<any> => {
   );
   return response;
 };
+
+export const post = async (upgrade: Upgrade): Promise<Upgrade> => {
+  const response: AxiosResponse = await axios.post(`${url}/upgrades`, upgrade);
+  return response.data;
+};
