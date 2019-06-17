@@ -8,12 +8,13 @@ import {
   purchase
 } from 'store/marketplace';
 import { AppState } from 'store';
-import { Upgrade, Spaceship, ProductFilter } from 'models';
+import { Upgrade, Spaceship } from 'models';
 import { Products, Cart } from 'components';
 import { Grid } from '@material-ui/core';
-import CategoryFilter from './category-filter/category-filter.component';
+// import CategoryFilter from './category-filter/category-filter.component';
 import SpacecraftFilter from './spacecraft-filter/spacecraft-filter.component';
-import UpgradeFilter from './upgrade-filter/upgrade-filter.component';
+import StoreTypeFilter from './store-type-filter/store-type-filter.component';
+import { filterObjArr } from 'utils/helpers';
 
 const styles = () =>
   createStyles({
@@ -31,7 +32,17 @@ interface Props extends WithStyles<typeof styles> {
   purchase: () => void;
 }
 
-class Marketplace extends React.Component<Props, any> {
+interface State {
+  productTypeFilter: string[];
+  spacecraftFilter: string[];
+}
+
+class Marketplace extends React.Component<Props, State> {
+  state: State = {
+    productTypeFilter: [],
+    spacecraftFilter: []
+  };
+
   componentDidMount() {
     this.props.loadStore();
   }
@@ -48,30 +59,36 @@ class Marketplace extends React.Component<Props, any> {
     this.props.purchase();
   };
 
-  handleCategoryFilter = (filters: ProductFilter[]) => {
+  handleCategoryFilter = (filters: string[]) => {
     console.log('category', filters);
   };
 
-  handleSpacecraftFilter = (filters: ProductFilter[]) => {
-    console.log('spacecraft', filters);
+  handleSpacecraftFilter = (filters: string[]) => {
+    this.setState({ spacecraftFilter: filters });
   };
 
-  handleUpgradeFilter = (filters: ProductFilter[]) => {
+  handleUpgradeFilter = (filters: string[]) => {
     console.log('upgrade', filters);
+    this.setState({ productTypeFilter: filters });
   };
 
   public render() {
     const { products, cart, classes } = this.props;
+    const { productTypeFilter, spacecraftFilter } = this.state;
+
+    let filtered: (Spaceship | Upgrade)[] = products;
+    filtered = filterObjArr(products, spacecraftFilter, 'spacecraftRegistry');
+    filtered = filterObjArr(filtered, productTypeFilter, 'storeType');
 
     return (
       <Grid container spacing={10} className={classes.grid}>
         <Grid item xs={2}>
-          <CategoryFilter onFilterClick={this.handleCategoryFilter} />
+          {/* <CategoryFilter onFilterClick={this.handleCategoryFilter} /> */}
           <SpacecraftFilter onFilterClick={this.handleSpacecraftFilter} />
-          <UpgradeFilter onFilterClick={this.handleUpgradeFilter} />
+          <StoreTypeFilter onFilterClick={this.handleUpgradeFilter} />
         </Grid>
         <Grid item xs={7}>
-          <Products onAddClick={this.handleAddToCart} products={products} />
+          <Products onAddClick={this.handleAddToCart} products={filtered} />
         </Grid>
         <Grid item xs={3}>
           <Cart

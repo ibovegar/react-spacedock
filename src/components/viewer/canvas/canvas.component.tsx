@@ -51,7 +51,8 @@ export default class Canvas extends Component<Props, {}> {
   updateModel = (upgradeType: string, isVisible: boolean) => {
     if (!this.spacecraftModel) return;
 
-    const map = upgradeMap[this.props.spacecraft.registry][upgradeType];
+    const map =
+      upgradeMap[this.props.spacecraft.spacecraftRegistry][upgradeType];
 
     for (const modelName of map) {
       const model = this.spacecraftModel.children.find(
@@ -140,7 +141,7 @@ export default class Canvas extends Component<Props, {}> {
 
     const loader = new GLTFLoader(manager);
     loader.load(
-      `${process.env.PUBLIC_URL}/images/${this.props.spacecraft.registry}.glb`,
+      `${process.env.PUBLIC_URL}/images/${this.props.spacecraft.spacecraftRegistry}.glb`,
       gltf => {
         this.scene.add(gltf.scene);
         this.spacecraftModel = this.scene.children.find(

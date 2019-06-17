@@ -1,14 +1,19 @@
 import React from 'react';
 import { ProductFilter } from 'models';
 import { ProductFilterGroup } from 'components';
-import { toArray } from 'utils/helpers';
+import { toArray, flatArrByValue } from 'utils/helpers';
 
 interface Props {
-  onFilterClick: (filters: ProductFilter[]) => void;
+  onFilterClick: (filters: string[]) => void; // TODO: typedef with ('spacecraft | 'etc')[]
 }
 
-export default class UpgradeFilter extends React.Component<Props, any> {
+export default class StoreTypeFilter extends React.Component<Props, any> {
   state = {
+    spacecraft: {
+      id: 'spacecraft',
+      value: false,
+      label: 'Spacecraft'
+    },
     engine: {
       id: 'engine',
       value: false,
@@ -45,14 +50,18 @@ export default class UpgradeFilter extends React.Component<Props, any> {
           value: !prevState[filter.id].value
         }
       }),
-      () => this.props.onFilterClick(toArray(this.state))
+      () => {
+        const arr: ProductFilter[] = toArray(this.state);
+        const filters = flatArrByValue(arr, 'value', 'id');
+        return this.props.onFilterClick(filters);
+      }
     );
   };
 
   public render() {
     return (
       <ProductFilterGroup
-        title="Upgrades"
+        title="Product category"
         filters={toArray(this.state)}
         onFilterClick={this.handleFilterClick}
       />

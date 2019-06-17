@@ -1,10 +1,10 @@
 import React from 'react';
 import { ProductFilter } from 'models';
 import { ProductFilterGroup } from 'components';
-import { toArray } from 'utils/helpers';
+import { toArray, flatArrByValue } from 'utils/helpers';
 
 interface Props {
-  onFilterClick: (filters: ProductFilter[]) => void;
+  onFilterClick: (filters: string[]) => void;
 }
 
 export default class SpacecraftFilter extends React.Component<Props, any> {
@@ -40,7 +40,11 @@ export default class SpacecraftFilter extends React.Component<Props, any> {
           value: !prevState[filter.id].value
         }
       }),
-      () => this.props.onFilterClick(toArray(this.state))
+      () => {
+        const arr: ProductFilter[] = toArray(this.state);
+        const filters = flatArrByValue(arr, 'value', 'id');
+        return this.props.onFilterClick(filters);
+      }
     );
   };
 

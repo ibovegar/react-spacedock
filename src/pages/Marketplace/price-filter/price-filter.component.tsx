@@ -7,17 +7,27 @@ interface Props {
   onFilterClick: (filters: ProductFilter[]) => void;
 }
 
-class CategoryFilter extends React.Component<Props, any> {
+class PriceFilter extends React.Component<Props, any> {
   state = {
-    spaceship: {
-      id: 'spaceship',
+    100: {
+      id: '100',
       value: false,
-      label: 'Spaceship'
+      label: '0-100'
     },
-    upgrade: {
-      id: 'upgrade',
+    500: {
+      id: '500',
       value: false,
-      label: 'Upgrade'
+      label: '100-500'
+    },
+    1000: {
+      id: '1000',
+      value: false,
+      label: '500-1000'
+    },
+    2000: {
+      id: '2000',
+      value: false,
+      label: '1000-2000'
     }
   };
 
@@ -45,4 +55,4 @@ class CategoryFilter extends React.Component<Props, any> {
   }
 }
 
-export default CategoryFilter;
+export default PriceFilter;

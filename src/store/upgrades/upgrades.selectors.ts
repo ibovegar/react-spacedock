@@ -30,7 +30,7 @@ export const getAttachedUpgrades: Selector<
 
     for (const upgrade of upgrades) {
       if (upgrade.spaceshipId === selectedSpacecraft.id) {
-        attachedUpgrades[upgrade.type] = upgrade;
+        attachedUpgrades[upgrade.storeType] = upgrade;
       }
     }
     return attachedUpgrades;
@@ -50,9 +50,9 @@ export const getAvailableUpgrades: Selector<
     for (const upgrade of upgrades) {
       if (
         !upgrade.isAttached &&
-        upgrade.spacecraftRegistry === selectedSpacecraft.registry
+        upgrade.spacecraftRegistry === selectedSpacecraft.spacecraftRegistry
       ) {
-        availableUpgrades[upgrade.type].push(upgrade);
+        availableUpgrades[upgrade.storeType].push(upgrade);
       }
     }
 
