@@ -2,13 +2,18 @@ import React from 'react';
 import { ProductFilter } from 'models';
 import { ProductFilterGroup } from 'components';
 import { toArray, flatArrByValue } from 'utils/helpers';
+import produce from 'immer';
 
 interface Props {
   onFilterClick: (filters: string[]) => void;
 }
 
-export default class SpacecraftFilter extends React.Component<Props, any> {
-  state = {
+interface State {
+  [id: string]: ProductFilter;
+}
+
+export default class SpacecraftFilter extends React.Component<Props, State> {
+  state: State = {
     drax22: {
       id: 'drax22',
       value: false,
@@ -33,12 +38,8 @@ export default class SpacecraftFilter extends React.Component<Props, any> {
 
   handleFilterClick = (filter: ProductFilter) => {
     this.setState(
-      (prevState: any) => ({
-        ...prevState,
-        [filter.id]: {
-          ...prevState[filter.id],
-          value: !prevState[filter.id].value
-        }
+      produce(state => {
+        state[filter.id].value = !state[filter.id].value;
       }),
       () => {
         const arr: ProductFilter[] = toArray(this.state);

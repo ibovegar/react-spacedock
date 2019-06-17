@@ -1,4 +1,5 @@
 import React from 'react';
+import produce from 'immer';
 import { ProductFilter } from 'models';
 import { ProductFilterGroup } from 'components';
 import { toArray, flatArrByValue } from 'utils/helpers';
@@ -7,7 +8,11 @@ interface Props {
   onFilterClick: (filters: string[]) => void; // TODO: typedef with ('spacecraft | 'etc')[]
 }
 
-export default class StoreTypeFilter extends React.Component<Props, any> {
+interface State {
+  [id: string]: ProductFilter;
+}
+
+export default class StoreTypeFilter extends React.Component<Props, State> {
   state = {
     spacecraft: {
       id: 'spacecraft',
@@ -43,12 +48,8 @@ export default class StoreTypeFilter extends React.Component<Props, any> {
 
   handleFilterClick = (filter: ProductFilter) => {
     this.setState(
-      (prevState: any) => ({
-        ...prevState,
-        [filter.id]: {
-          ...prevState[filter.id],
-          value: !prevState[filter.id].value
-        }
+      produce(state => {
+        state[filter.id].value = !state[filter.id].value;
       }),
       () => {
         const arr: ProductFilter[] = toArray(this.state);

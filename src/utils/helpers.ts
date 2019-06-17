@@ -84,9 +84,10 @@ export function filterObjArr<T>(
  * @example
  * const arr: [
  *   { id: 'id1', value: false },
- *   { id: 'id2', value: true }
+ *   { id: 'id2', value: true },
+ *   { id: 'id3', value: true }
  * ]
- * const filters = flatArrByValue(arr, 'value', 'id'); // => ['id2']
+ * const filters = flatArrByValue(arr, 'value', 'id'); // => ['id2', 'id3']
  */
 export function flatArrByValue<T>(
   arr: T[],

@@ -68,7 +68,6 @@ class Marketplace extends React.Component<Props, State> {
   };
 
   handleUpgradeFilter = (filters: string[]) => {
-    console.log('upgrade', filters);
     this.setState({ productTypeFilter: filters });
   };
 
