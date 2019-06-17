@@ -35,7 +35,6 @@ export default class Canvas extends Component<Props, {}> {
 
   componentDidUpdate() {
     const { attachedUpgrades } = this.props;
-
     this.updateModel(UpgradeType.Engine, !!attachedUpgrades.engine);
     this.updateModel(UpgradeType.Weapons, !!attachedUpgrades.weapons);
     this.updateModel(UpgradeType.Stabilizer, !!attachedUpgrades.stabilizer);
