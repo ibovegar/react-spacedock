@@ -182,8 +182,8 @@
       "price": 4123334,
       "gain": 52,
       "id": 8,
-      "isAttached": true,
-      "spaceshipId": 3
+      "isAttached": false,
+      "spaceshipId": ""
     },
     {
       "name": "Gentec Puls Dampener",
@@ -192,7 +192,9 @@
       "storeType": "deflector",
       "price": 4123334,
       "gain": 16,
-      "id": 9
+      "id": 9,
+      "isAttached": false,
+      "spaceshipId": ""
     },
     {
       "name": "Pratney Shield Generator",
@@ -202,8 +204,8 @@
       "price": 4123334,
       "gain": 52,
       "id": 10,
-      "isAttached": true,
-      "spaceshipId": 3
+      "isAttached": false,
+      "spaceshipId": ""
     },
     {
       "name": "Alpha-stream Enhancer BX-22",
@@ -213,8 +215,8 @@
       "price": 4123334,
       "gain": 52,
       "id": 11,
-      "isAttached": true,
-      "spaceshipId": 4
+      "isAttached": false,
+      "spaceshipId": ""
     },
     {
       "name": "GXS Ion-subductor",
@@ -224,8 +226,8 @@
       "price": 4123334,
       "gain": 52,
       "id": 12,
-      "isAttached": true,
-      "spaceshipId": 4
+      "isAttached": false,
+      "spaceshipId": ""
     },
     {
       "name": "Gatling-rail enforcer",
@@ -235,8 +237,8 @@
       "price": 4123334,
       "gain": 52,
       "id": 13,
-      "isAttached": true,
-      "spaceshipId": 4
+      "isAttached": false,
+      "spaceshipId": ""
     },
     {
       "name": "Tritinum-Boron plating ",
@@ -376,6 +378,7 @@
     },
     {
       "name": "Gentec FF Fieler",
+      "upgradeRegistry": "drax22_stabilizer",
       "spacecraftRegistry": "drax22",
       "manufacturer": "Gentech MIL Corp.",
       "storeType": "stabilizer",
@@ -384,6 +387,7 @@
     },
     {
       "name": "Alpha-stream Enhancer MKI",
+      "upgradeRegistry": "drax22_engine",
       "spacecraftRegistry": "drax22",
       "manufacturer": "ANTEC Laboratories",
       "storeType": "engine",
@@ -392,6 +396,7 @@
     },
     {
       "name": "Crystalin Turret",
+      "upgradeRegistry": "drax22_weapons",
       "spacecraftRegistry": "drax22",
       "manufacturer": "Gentech MIL Corp.",
       "storeType": "weapons",
@@ -400,6 +405,7 @@
     },
     {
       "name": "Cylino BEAM-CBE",
+      "upgradeRegistry": "cygf35_weapons",
       "spacecraftRegistry": "cygf35",
       "manufacturer": "Cryson & Billard Engineering",
       "storeType": "weapons",
@@ -408,6 +414,7 @@
     },
     {
       "name": "Cryson Particle Booster IA-2",
+      "upgradeRegistry": "cygf35_stabilizer",
       "spacecraftRegistry": "cygf35",
       "manufacturer": "Cryson & Billard Engineering",
       "storeType": "stabilizer",
@@ -416,6 +423,7 @@
     },
     {
       "name": "Shield Aggregator AUT1",
+      "upgradeRegistry": "cygf35_deflector",
       "spacecraftRegistry": "cygf35",
       "manufacturer": "Epsilon-X Laboratories",
       "storeType": "deflector",
@@ -424,6 +432,7 @@
     },
     {
       "name": "Sungrazer MOD-1",
+      "upgradeRegistry": "tellrx5_engine",
       "spacecraftRegistry": "tellrx5",
       "manufacturer": "Pritech Industries",
       "storeType": "engine",
@@ -432,6 +441,7 @@
     },
     {
       "name": "GXX Ion-tracker",
+      "upgradeRegistry": "tellrx5_stabilizer",
       "spacecraftRegistry": "tellrx5",
       "manufacturer": "Pritech Industries",
       "storeType": "stabilizer",
@@ -440,6 +450,7 @@
     },
     {
       "name": "Advanced Weapons System",
+      "upgradeRegistry": "tellrx5_weapons",
       "spacecraftRegistry": "tellrx5",
       "manufacturer": "Cryson & Billard Engineering",
       "storeType": "weapons",
@@ -448,6 +459,7 @@
     },
     {
       "name": "Precision DEX-Wing ",
+      "upgradeRegistry": "hamm2_stabilizer",
       "spacecraftRegistry": "hamm2",
       "manufacturer": "Pratney Mechanical",
       "storeType": "stabilizer",
@@ -456,6 +468,7 @@
     },
     {
       "name": "Craft Lazer MIL22",
+      "upgradeRegistry": "hamm2_weapons",
       "spacecraftRegistry": "hamm2",
       "manufacturer": "Pratney Mechanical",
       "storeType": "weapons",
@@ -464,6 +477,7 @@
     },
     {
       "name": "Pratney Shield Generator",
+      "upgradeRegistry": "hamm2_deflector",
       "spacecraftRegistry": "hamm2",
       "manufacturer": "Cygnia Corporation",
       "storeType": "deflector",
@@ -472,6 +486,7 @@
     },
     {
       "name": "Gentec Puls Dampener",
+      "upgradeRegistry": "hamm2_deflector",
       "spacecraftRegistry": "hamm2",
       "manufacturer": "Gentech MIL Corp.",
       "storeType": "deflector",
@@ -480,6 +495,7 @@
     },
     {
       "name": "Alpha-stream Enhancer BX-22",
+      "upgradeRegistry": "vanguard_engine",
       "spacecraftRegistry": "vanguard",
       "manufacturer": "Epsilon Laboratories",
       "storeType": "engine",
@@ -488,6 +504,7 @@
     },
     {
       "name": "GXS Ion-subductor",
+      "upgradeRegistry": "vanguard_stabilizer",
       "spacecraftRegistry": "vanguard",
       "manufacturer": "ANTEC Laboratories",
       "storeType": "stabilizer",
@@ -496,6 +513,7 @@
     },
     {
       "name": "Gatling-rail enforcer",
+      "upgradeRegistry": "vanguard_weapons",
       "spacecraftRegistry": "vanguard",
       "manufacturer": "ANTEC Laboratories",
       "storeType": "weapons",
@@ -504,6 +522,7 @@
     },
     {
       "name": "Tritinum-Boron plating ",
+      "upgradeRegistry": "vanguard_plating",
       "spacecraftRegistry": "vanguard",
       "manufacturer": "Gentech MIL Corp.",
       "storeType": "plating",

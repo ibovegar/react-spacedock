@@ -1,8 +1,10 @@
 export interface Upgrade {
   id: string;
   spacecraftRegistry: string;
+  upgradeRegistry: string;
   storeType: 'deflector' | 'engine' | 'plating' | 'stabilizer' | 'weapons';
   name: string;
+  price: number;
   manufacturer: string;
   gain: number;
   isAttached?: boolean;

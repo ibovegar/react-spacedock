@@ -140,7 +140,7 @@ export default class Canvas extends Component<Props, {}> {
 
     const loader = new GLTFLoader(manager);
     loader.load(
-      `${process.env.PUBLIC_URL}/images/${this.props.spacecraft.spacecraftRegistry}.glb`,
+      `${process.env.PUBLIC_URL}/models/${this.props.spacecraft.spacecraftRegistry}.glb`,
       gltf => {
         this.scene.add(gltf.scene);
         this.spacecraftModel = this.scene.children.find(

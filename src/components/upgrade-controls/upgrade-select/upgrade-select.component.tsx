@@ -54,8 +54,6 @@ const UpgradeSelect: React.FC<Props> = props => {
   const placeholder = value ? value.name : options.length + ' available';
   const popoverOrigin: PopoverOrigin = { vertical: 'top', horizontal: 'left' };
 
-  // const dropdownItems =
-
   return (
     <div className={className}>
       <Typography variant="overline">{type}</Typography>

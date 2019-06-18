@@ -5,24 +5,32 @@ export default (theme: Theme) =>
     card: {
       display: 'flex'
     },
-    details: {
-      display: 'flex',
-      flexDirection: 'column'
-    },
     content: {
-      flex: '1 0 auto'
+      flex: '1',
+      padding: theme.spacing(8)
     },
     cover: {
-      width: 151
+      width: 320,
+      height: 220,
+      backgroundColor: theme.palette.grey[100]
     },
     controls: {
-      display: 'flex',
-      alignItems: 'center',
-      paddingLeft: theme.spacing(1),
-      paddingBottom: theme.spacing(1)
+      // width: 140,
+      padding: theme.spacing(8),
+      textAlign: 'right'
+    },
+    divider: {
+      marginTop: theme.spacing(2),
+      marginBottom: theme.spacing(4)
     },
     playIcon: {
       height: 38,
       width: 38
+    },
+    img: {
+      padding: 0
+    },
+    chip: {
+      marginLeft: theme.spacing(4)
     }
   });

@@ -17,7 +17,7 @@ const SpaceshipCard: React.FC<Props> = ({ spaceship }) => {
             style={{ display: 'block' }}
             height="50"
             alt="spaceship"
-            src={`${process.env.PUBLIC_URL}/images/${spaceship.spacecraftRegistry}.png`}
+            src={`${process.env.PUBLIC_URL}/icons/spacecraft/${spaceship.spacecraftRegistry}.png`}
           />
         </Grid>
         <Grid item style={{ paddingLeft: '20px' }}>
