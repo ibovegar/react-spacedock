@@ -4,6 +4,6 @@ export default ({ spacing }: Theme) =>
   createStyles({
     root: {
       padding: 14,
-      paddingLeft: spacing(6)
+      marginLeft: spacing(4)
     }
   });
