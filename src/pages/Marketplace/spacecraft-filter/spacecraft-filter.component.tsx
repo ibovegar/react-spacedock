@@ -33,6 +33,11 @@ export default class SpacecraftFilter extends React.Component<Props, State> {
       id: 'vanguard',
       value: false,
       label: 'Vanguard SAR'
+    },
+    tellrx5: {
+      id: 'tellrx5',
+      value: false,
+      label: 'Tellus R X5'
     }
   };
 

@@ -1,6 +1,288 @@
 {
-  "spaceships": [],
-  "upgrades": [],
+  "spaceships": [
+    {
+      "name": "Draxon SA-22",
+      "spacecraftRegistry": "drax22",
+      "manufacturer": "Epsilon Laboratories",
+      "manufactured": 2191,
+      "storeType": "spacecraft",
+      "type": "fighter",
+      "height": 12,
+      "length": 80,
+      "price": 3055565,
+      "baseStats": {
+        "speed": 10,
+        "hull": 30,
+        "shield": 80,
+        "damage": 60,
+        "manuvrability": 80
+      },
+      "id": 1
+    },
+    {
+      "name": "Cygnia F35",
+      "spacecraftRegistry": "cygf35",
+      "manufacturer": "Cygnia Corporation",
+      "manufactured": 2157,
+      "storeType": "spacecraft",
+      "type": "supply",
+      "height": 219,
+      "length": 456,
+      "price": 4123334,
+      "baseStats": {
+        "speed": 60,
+        "hull": 50,
+        "shield": 10,
+        "damage": 0,
+        "manuvrability": 10
+      },
+      "id": 2
+    },
+    {
+      "name": "Hammerhead 2",
+      "spacecraftRegistry": "hamm2",
+      "manufacturer": "Cygnia Corporation",
+      "manufactured": 2157,
+      "storeType": "spacecraft",
+      "type": "supply",
+      "height": 219,
+      "length": 456,
+      "price": 4123334,
+      "baseStats": {
+        "speed": 60,
+        "hull": 50,
+        "shield": 10,
+        "damage": 0,
+        "manuvrability": 10
+      },
+      "id": 3
+    },
+    {
+      "name": "Vanguard SAR",
+      "spacecraftRegistry": "vanguard",
+      "manufacturer": "Cygnia Corporation",
+      "manufactured": 2157,
+      "storeType": "spacecraft",
+      "type": "supply",
+      "height": 219,
+      "length": 456,
+      "price": 4123334,
+      "baseStats": {
+        "speed": 60,
+        "hull": 50,
+        "shield": 10,
+        "damage": 0,
+        "manuvrability": 10
+      },
+      "id": 4
+    },
+    {
+      "name": "Tellus R X5",
+      "spacecraftRegistry": "tellrx5",
+      "manufacturer": "Cygnia Corporation",
+      "manufactured": 2157,
+      "storeType": "spacecraft",
+      "type": "supply",
+      "height": 219,
+      "length": 456,
+      "price": 4123334,
+      "baseStats": {
+        "speed": 60,
+        "hull": 50,
+        "shield": 10,
+        "damage": 0,
+        "manuvrability": 10
+      },
+      "id": 5
+    }
+  ],
+  "upgrades": [
+    {
+      "name": "Alpha-stream Enhancer MKI",
+      "spacecraftRegistry": "drax22",
+      "manufacturer": "ANTEC Laboratories",
+      "storeType": "engine",
+      "price": 4123334,
+      "gain": 20,
+      "id": 1,
+      "isAttached": true,
+      "spaceshipId": 1
+    },
+    {
+      "name": "Gentec FF Fieler",
+      "spacecraftRegistry": "drax22",
+      "manufacturer": "Gentech MIL Corp.",
+      "storeType": "stabilizer",
+      "price": 4123334,
+      "gain": 24,
+      "id": 2,
+      "isAttached": true,
+      "spaceshipId": 1
+    },
+    {
+      "name": "Crystalin Turret",
+      "spacecraftRegistry": "drax22",
+      "manufacturer": "Gentech MIL Corp.",
+      "storeType": "weapons",
+      "price": 4123334,
+      "gain": 27,
+      "id": 3,
+      "isAttached": true,
+      "spaceshipId": 1
+    },
+    {
+      "name": "Cryson Particle Booster IA-2",
+      "spacecraftRegistry": "cygf35",
+      "manufacturer": "Cryson & Billard Engineering",
+      "storeType": "stabilizer",
+      "price": 4123334,
+      "gain": 52,
+      "id": 4,
+      "isAttached": true,
+      "spaceshipId": 2
+    },
+    {
+      "name": "Shield Aggregator AUT1",
+      "spacecraftRegistry": "cygf35",
+      "manufacturer": "Epsilon-X Laboratories",
+      "storeType": "deflector",
+      "price": 4123334,
+      "gain": 10,
+      "id": 5,
+      "isAttached": true,
+      "spaceshipId": 2
+    },
+    {
+      "name": "Cylino BEAM-CBE",
+      "spacecraftRegistry": "cygf35",
+      "manufacturer": "Cryson & Billard Engineering",
+      "storeType": "weapons",
+      "price": 4123334,
+      "gain": 21,
+      "id": 6,
+      "isAttached": true,
+      "spaceshipId": 2
+    },
+    {
+      "name": "Craft Lazer MIL22",
+      "spacecraftRegistry": "hamm2",
+      "manufacturer": "Pratney Mechanical",
+      "storeType": "weapons",
+      "price": 4123334,
+      "gain": 52,
+      "id": 7,
+      "isAttached": true,
+      "spaceshipId": 3
+    },
+    {
+      "name": "Precision DEX-Wing ",
+      "spacecraftRegistry": "hamm2",
+      "manufacturer": "Pratney Mechanical",
+      "storeType": "stabilizer",
+      "price": 4123334,
+      "gain": 52,
+      "id": 8,
+      "isAttached": true,
+      "spaceshipId": 3
+    },
+    {
+      "name": "Gentec Puls Dampener",
+      "spacecraftRegistry": "hamm2",
+      "manufacturer": "Gentech MIL Corp.",
+      "storeType": "deflector",
+      "price": 4123334,
+      "gain": 16,
+      "id": 9
+    },
+    {
+      "name": "Pratney Shield Generator",
+      "spacecraftRegistry": "hamm2",
+      "manufacturer": "Cygnia Corporation",
+      "storeType": "deflector",
+      "price": 4123334,
+      "gain": 52,
+      "id": 10,
+      "isAttached": true,
+      "spaceshipId": 3
+    },
+    {
+      "name": "Alpha-stream Enhancer BX-22",
+      "spacecraftRegistry": "vanguard",
+      "manufacturer": "Epsilon Laboratories",
+      "storeType": "engine",
+      "price": 4123334,
+      "gain": 52,
+      "id": 11,
+      "isAttached": true,
+      "spaceshipId": 4
+    },
+    {
+      "name": "GXS Ion-subductor",
+      "spacecraftRegistry": "vanguard",
+      "manufacturer": "ANTEC Laboratories",
+      "storeType": "stabilizer",
+      "price": 4123334,
+      "gain": 52,
+      "id": 12,
+      "isAttached": true,
+      "spaceshipId": 4
+    },
+    {
+      "name": "Gatling-rail enforcer",
+      "spacecraftRegistry": "vanguard",
+      "manufacturer": "ANTEC Laboratories",
+      "storeType": "weapons",
+      "price": 4123334,
+      "gain": 52,
+      "id": 13,
+      "isAttached": true,
+      "spaceshipId": 4
+    },
+    {
+      "name": "Tritinum-Boron plating ",
+      "spacecraftRegistry": "vanguard",
+      "manufacturer": "Gentech MIL Corp.",
+      "storeType": "plating",
+      "price": 4123334,
+      "gain": 52,
+      "id": 14,
+      "isAttached": true,
+      "spaceshipId": 4
+    },
+    {
+      "name": "GXX Ion-tracker",
+      "spacecraftRegistry": "tellrx5",
+      "manufacturer": "Pritech Industries",
+      "storeType": "stabilizer",
+      "price": 4123334,
+      "gain": 52,
+      "id": 15,
+      "isAttached": true,
+      "spaceshipId": 5
+    },
+    {
+      "name": "Advanced Weapons System",
+      "spacecraftRegistry": "tellrx5",
+      "manufacturer": "Cryson & Billard Engineering",
+      "storeType": "weapons",
+      "price": 4123334,
+      "gain": 52,
+      "id": 16,
+      "isAttached": true,
+      "spaceshipId": 5
+    },
+    {
+      "name": "Sungrazer MOD-1",
+      "spacecraftRegistry": "tellrx5",
+      "manufacturer": "Pritech Industries",
+      "storeType": "engine",
+      "price": 4123334,
+      "gain": 52,
+      "id": 17,
+      "isAttached": true,
+      "spaceshipId": 5
+    }
+  ],
   "store": [
     {
       "name": "Draxon SA-22",
@@ -91,14 +373,6 @@
         "damage": 0,
         "manuvrability": 10
       }
-    },
-    {
-      "name": "Gentec Puls Dampener",
-      "spacecraftRegistry": "drax22",
-      "manufacturer": "Gentech MIL Corp.",
-      "storeType": "deflector",
-      "price": 4123334,
-      "gain": 16
     },
     {
       "name": "Gentec FF Fieler",
@@ -195,6 +469,14 @@
       "storeType": "deflector",
       "price": 4123334,
       "gain": 52
+    },
+    {
+      "name": "Gentec Puls Dampener",
+      "spacecraftRegistry": "hamm2",
+      "manufacturer": "Gentech MIL Corp.",
+      "storeType": "deflector",
+      "price": 4123334,
+      "gain": 16
     },
     {
       "name": "Alpha-stream Enhancer BX-22",
