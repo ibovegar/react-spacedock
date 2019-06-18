@@ -66,7 +66,7 @@ const palette: PaletteOptions = {
 const overrides: Overrides = {
   MuiCard: {
     root: {
-      boxShadow: 'none'
+      // boxShadow: 'none'
     }
   },
   MuiAppBar: {
@@ -76,7 +76,7 @@ const overrides: Overrides = {
   },
   MuiButton: {
     root: {
-      boxShadow: 'none',
+      // boxShadow: 'none',
       borderRadius: 2,
       clipPath: `polygon(
         0 0, 0 0, /* top-left */
@@ -93,8 +93,8 @@ const overrides: Overrides = {
   MuiPopover: {
     paper: {
       backgroundColor: '#202b37',
-      borderRadius: '2px',
-      boxShadow: 'none'
+      borderRadius: '2px'
+      // boxShadow: 'none'
     }
   }
 
