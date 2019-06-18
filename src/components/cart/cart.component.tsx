@@ -1,29 +1,41 @@
 import React from 'react';
-import { Button } from '@material-ui/core';
+import { Button, Typography } from '@material-ui/core';
+import { WithStyles, withStyles } from '@material-ui/core/styles';
 import { Spaceship, Upgrade } from 'models';
+import styles from './cart.styles';
 
-interface Props {
+interface Props extends WithStyles<typeof styles> {
   cart: (Spaceship | Upgrade)[];
   onRemove: (index: number) => void;
   onPurchase: () => void;
 }
 
 const Cart: React.FC<Props> = props => {
-  const { cart, onRemove, onPurchase } = props;
+  const { classes, cart, onRemove, onPurchase } = props;
 
   const isPurchasable = cart.length > 0;
+  const totalPrice = cart.reduce((sum, i) => {
+    return sum + i.price;
+  }, 0);
 
   return (
-    <>
-      {cart.map((product, index) => (
-        <div key={index}>
-          {product.name}
-          <Button variant="contained" onClick={() => onRemove(index)}>
-            REMOVE
-          </Button>
-        </div>
-      ))}
+    <div className={classes.root}>
+      <div className={classes.top}>
+        {cart.map((product, index) => (
+          <div key={index}>
+            {product.name}
+            <Button variant="contained" onClick={() => onRemove(index)}>
+              REMOVE
+            </Button>
+          </div>
+        ))}
+      </div>
+      <div className={classes.middle}>
+        <Typography variant="subtitle1">TOTAL PRICE</Typography>
+        <Typography variant="h6">{totalPrice} $</Typography>
+      </div>
       <Button
+        className={classes.bottom}
         color="primary"
         disabled={!isPurchasable}
         variant="contained"
@@ -31,8 +43,8 @@ const Cart: React.FC<Props> = props => {
       >
         PURCHASE
       </Button>
-    </>
+    </div>
   );
 };
 
-export default Cart;
+export default withStyles(styles)(Cart);

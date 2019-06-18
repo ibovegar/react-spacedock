@@ -19,6 +19,10 @@ import { filterObjArr } from 'utils/helpers';
 const styles = () =>
   createStyles({
     grid: {
+      position: 'relative',
+      height: 'calc(100% + 26px)'
+    },
+    cart: {
       height: '100%'
     }
   });
@@ -80,16 +84,16 @@ class Marketplace extends React.Component<Props, State> {
     filtered = filterObjArr(filtered, productTypeFilter, 'storeType');
 
     return (
-      <Grid container spacing={10} className={classes.grid}>
+      <Grid container spacing={6} className={classes.grid}>
         <Grid item xs={2}>
           {/* <CategoryFilter onFilterClick={this.handleCategoryFilter} /> */}
           <SpacecraftFilter onFilterClick={this.handleSpacecraftFilter} />
           <StoreTypeFilter onFilterClick={this.handleUpgradeFilter} />
         </Grid>
-        <Grid item xs={7}>
+        <Grid item xs={8}>
           <Products onAddClick={this.handleAddToCart} products={filtered} />
         </Grid>
-        <Grid item xs={3}>
+        <Grid item xs={2} className={classes.cart}>
           <Cart
             cart={cart}
             onRemove={this.handleRemoveFromCart}

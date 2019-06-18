@@ -12,7 +12,7 @@ const Products: React.FC<Props> = props => {
   const { products, onAddClick } = props;
 
   return (
-    <Grid container spacing={4}>
+    <Grid container spacing={6}>
       {products.map((product, index) => (
         <Grid item xs={12} key={index}>
           <ProductCard
