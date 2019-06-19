@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Typography, Box } from '@material-ui/core';
+import { Button, Typography, Box, Divider } from '@material-ui/core';
 import { Spaceship, Upgrade } from 'models';
 
 interface Props {
@@ -25,19 +25,30 @@ const Cart: React.FC<Props> = props => {
       flexDirection="column"
     >
       {cart.map((product, index) => (
-        <div key={index}>
-          {product.name}
-          <Button variant="contained" onClick={() => onRemove(index)}>
-            REMOVE
-          </Button>
-        </div>
+        <>
+          <Box
+            key={index}
+            display="flex"
+            alignItems="center"
+            p={2}
+            justifyContent="space-between"
+          >
+            <Box flex="1">
+              <Typography variant="h6">{product.name}</Typography>
+            </Box>
+            <Button variant="contained" onClick={() => onRemove(index)}>
+              REMOVE
+            </Button>
+          </Box>
+          <Divider />
+        </>
       ))}
       <Box
         display="flex"
         alignItems="center"
         justifyContent="space-between"
-        px={3}
-        py={2}
+        px={2}
+        py={3}
       >
         <Typography variant="subtitle1">TOTAL PRICE</Typography>
         <Typography variant="h6">{totalPrice} $</Typography>
