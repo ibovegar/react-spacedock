@@ -7,7 +7,7 @@ export interface Spaceship {
   manufacturer: string;
   manufactured: number;
   storeType: 'spacecraft';
-  type: string;
+  type: 'interceptor' | 'fighter' | 'bomber' | 'support' | 'scout';
   height: number;
   length: number;
   price: number;
