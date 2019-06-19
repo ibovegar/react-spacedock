@@ -33,7 +33,7 @@ class SpaceshipViewer extends Component<Props, {}> {
     const { classes, spacecraft, attachedUpgrades } = this.props;
 
     return (
-      <Widget title="SPACECRAFT VIEWER">
+      <Widget>
         <div className={classes.crosses}>
           {this.state.isLoading ? (
             <div>LOADING ASSETS. PLEASE WAIT... </div>

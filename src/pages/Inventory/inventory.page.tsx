@@ -6,7 +6,6 @@ import {
   Theme,
   WithStyles
 } from '@material-ui/core/styles';
-import { Widget } from 'components';
 
 const styles = ({ spacing }: Theme) =>
   createStyles({
@@ -28,30 +27,24 @@ class Inventory extends React.Component<WithStyles<typeof styles>, {}> {
 
   public render() {
     return (
-      <>
-        <Widget
-          title="Lorem Ipsum Dolor"
-          subheader="Sit amet siver og amund eeg"
-        />
-        <FormControl className={this.props.classes.formControl}>
-          <InputLabel htmlFor="age-simple">Age</InputLabel>
-          <Select
-            value={this.state.age}
-            onChange={this.handleChange}
-            inputProps={{
-              name: 'age',
-              id: 'age-simple'
-            }}
-          >
-            <MenuItem value="">
-              <em>None</em>
-            </MenuItem>
-            <MenuItem value={10}>Ten</MenuItem>
-            <MenuItem value={20}>Twenty</MenuItem>
-            <MenuItem value={30}>Thirty</MenuItem>
-          </Select>
-        </FormControl>
-      </>
+      <FormControl className={this.props.classes.formControl}>
+        <InputLabel htmlFor="age-simple">Age</InputLabel>
+        <Select
+          value={this.state.age}
+          onChange={this.handleChange}
+          inputProps={{
+            name: 'age',
+            id: 'age-simple'
+          }}
+        >
+          <MenuItem value="">
+            <em>None</em>
+          </MenuItem>
+          <MenuItem value={10}>Ten</MenuItem>
+          <MenuItem value={20}>Twenty</MenuItem>
+          <MenuItem value={30}>Thirty</MenuItem>
+        </Select>
+      </FormControl>
     );
   }
 }

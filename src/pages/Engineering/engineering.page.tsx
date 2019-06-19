@@ -1,11 +1,12 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { SpaceshipBuilder } from 'containers';
 import { SpaceshipList } from 'components';
 import Box from '@material-ui/core/Box';
 import * as interfaces from './engineering.interface';
-import { Typography } from '@material-ui/core';
+import { Placeholder } from 'components/ui';
+import { Button } from '@material-ui/core';
 
 class Engineering extends React.Component<interfaces.Props, {}> {
   componentDidMount() {
@@ -24,6 +25,24 @@ class Engineering extends React.Component<interfaces.Props, {}> {
       isLoadingSpaceships,
       isLoadingUpgrades
     } = this.props;
+
+    if (!spacecrafts.length) {
+      return (
+        <Placeholder
+          message="INVENTORY IS EMPTY"
+          action={
+            <Button
+              color="primary"
+              variant="contained"
+              component={Link}
+              to="/marketplace"
+            >
+              GO TO STORE
+            </Button>
+          }
+        />
+      );
+    }
 
     if (isLoadingSpaceships || isLoadingUpgrades) {
       return <div>Loading...</div>;
@@ -51,7 +70,7 @@ class Engineering extends React.Component<interfaces.Props, {}> {
             <Route
               path={`${match.path}/`}
               render={() => (
-                <Typography variant="h5">NO SPACECRAFT SELECTED</Typography>
+                <Placeholder message="PLEASE SELECT A SPACECRAFT" />
               )}
             />
           </Switch>

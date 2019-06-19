@@ -7,4 +7,4 @@ export { default as Cart } from './cart';
 
 export {
   default as ProductFilterGroup
-} from './product-filter-group/product-filter-group.component';
+} from './products/product-filter-group/product-filter-group.component';
