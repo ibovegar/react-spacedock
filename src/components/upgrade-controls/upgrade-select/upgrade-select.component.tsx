@@ -1,14 +1,7 @@
 import React from 'react';
 import { Upgrade } from 'models';
-import {
-  Box,
-  Typography,
-  Popover,
-  withStyles,
-  WithStyles,
-  Divider,
-  Avatar
-} from '@material-ui/core';
+import { Box, Typography, Popover, Divider, Avatar } from '@material-ui/core';
+import { withStyles, WithStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import styles from './upgrade-select.styles';
 import RemoveIcon from '@material-ui/icons/IndeterminateCheckBox';

@@ -3,7 +3,7 @@ import { Spaceship, AttachedUpgrades } from 'models';
 import Stats from './stats';
 import Canvas from './canvas';
 import { Widget } from 'components';
-import { createStyles, withStyles, WithStyles } from '@material-ui/core';
+import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles';
 import Plus from 'assets/images/plus.svg';
 
 const styles = () =>
