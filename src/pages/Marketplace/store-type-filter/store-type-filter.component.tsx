@@ -65,7 +65,6 @@ export default class StoreTypeFilter extends React.Component<Props, State> {
         title="Product category"
         filters={toArray(this.state)}
         onFilterClick={this.handleFilterClick}
-        defaultExpanded
       />
     );
   }

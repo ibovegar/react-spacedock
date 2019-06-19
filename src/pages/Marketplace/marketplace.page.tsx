@@ -19,11 +19,12 @@ import { filterObjArr } from 'utils/helpers';
 const styles = () =>
   createStyles({
     grid: {
-      position: 'relative',
-      height: 'calc(100% + 26px)'
+      position: 'relative'
     },
-    cart: {
-      height: '100%'
+    sticky: {
+      height: '100%',
+      position: 'sticky',
+      top: 0
     }
   });
 
@@ -85,7 +86,7 @@ class Marketplace extends React.Component<Props, State> {
 
     return (
       <Grid container spacing={6} className={classes.grid}>
-        <Grid item xs={2}>
+        <Grid item xs className={classes.sticky}>
           {/* <CategoryFilter onFilterClick={this.handleCategoryFilter} /> */}
           <SpacecraftFilter onFilterClick={this.handleSpacecraftFilter} />
           <StoreTypeFilter onFilterClick={this.handleUpgradeFilter} />
@@ -93,7 +94,7 @@ class Marketplace extends React.Component<Props, State> {
         <Grid item xs={8}>
           <Products onAddClick={this.handleAddToCart} products={filtered} />
         </Grid>
-        <Grid item xs={2} className={classes.cart}>
+        <Grid item xs className={classes.sticky}>
           <Cart
             cart={cart}
             onRemove={this.handleRemoveFromCart}

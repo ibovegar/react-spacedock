@@ -43,8 +43,8 @@ const ProductFilterGroup: React.FC<Props> = props => {
       </ExpansionPanelSummary>
       <ExpansionPanelDetails>
         <FormGroup>
-          {filters.map(filter => (
-            <>
+          {filters.map((filter, index) => (
+            <React.Fragment key={index}>
               <Divider />
               <FormControlLabel
                 key={filter.id}
@@ -61,7 +61,7 @@ const ProductFilterGroup: React.FC<Props> = props => {
                 }
                 label={filter.label}
               />
-            </>
+            </React.Fragment>
           ))}
         </FormGroup>
       </ExpansionPanelDetails>
