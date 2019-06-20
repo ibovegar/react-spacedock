@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, Typography, Box, Divider } from '@material-ui/core';
 import { Spacecraft, Upgrade } from 'models';
+import { formatCurrency } from 'utils/helpers';
 
 interface Props {
   cart: (Spacecraft | Upgrade)[];
@@ -50,7 +51,7 @@ const Cart: React.FC<Props> = props => {
         py={3}
       >
         <Typography variant="subtitle1">TOTAL PRICE</Typography>
-        <Typography variant="h6">{totalPrice} $</Typography>
+        <Typography variant="h6">{formatCurrency(totalPrice)}</Typography>
       </Box>
       <Button
         color="primary"

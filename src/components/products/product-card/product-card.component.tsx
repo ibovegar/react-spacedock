@@ -8,6 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import { Spacecraft, Upgrade } from 'models';
 import { Button, Divider, Chip, Box } from '@material-ui/core';
 import { isSpacecraft } from 'utils/guards';
+import { formatCurrency } from 'utils/helpers';
 
 interface Props extends WithStyles<typeof styles> {
   product: Spacecraft | Upgrade;
@@ -48,7 +49,7 @@ const ProductCard: React.FC<Props> = props => {
         </Typography>
       </CardContent>
       <div className={classes.controls}>
-        <Typography component="h6">$ {product.price}</Typography>
+        <Typography component="h6">{formatCurrency(product.price)}</Typography>
         <Divider className={classes.divider} />
         <Button
           variant="contained"

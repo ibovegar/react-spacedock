@@ -14,6 +14,7 @@ class Engineering extends React.Component<interfaces.Props, {}> {
     this.props.loadAllUpgrades();
   }
 
+  // Gogogo
   handleSelectSpacecraft = (event: React.MouseEvent) => {
     this.props.setSelectedSpacecraft(event.currentTarget.id);
   };
