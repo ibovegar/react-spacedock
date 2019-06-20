@@ -1,7 +1,7 @@
 import axios, { AxiosResponse } from 'axios';
-import { Upgrade, Spaceship } from 'models';
+import { Upgrade, Spacecraft } from 'models';
 import { isUpgrade, isSpacecraft } from 'utils/guards';
-import * as spaceshipAPI from './spaceship.api';
+import * as spacecraftAPI from './spacecraft.api';
 import * as upgradeAPI from './upgrades.api';
 
 const url = process.env.REACT_APP_API_URL;
@@ -11,12 +11,14 @@ export const get = async (): Promise<Upgrade[]> => {
   return response.data;
 };
 
-export const purchase = async (cart: (Spaceship | Upgrade)[]): Promise<any> => {
-  const promises: Promise<Spaceship | Upgrade>[] = [];
+export const purchase = async (
+  cart: (Spacecraft | Upgrade)[]
+): Promise<any> => {
+  const promises: Promise<Spacecraft | Upgrade>[] = [];
 
   for (let product of cart) {
     if (isSpacecraft(product)) {
-      promises.push(spaceshipAPI.post(product));
+      promises.push(spacecraftAPI.post(product));
     }
     if (isUpgrade(product)) {
       promises.push(upgradeAPI.post(product));

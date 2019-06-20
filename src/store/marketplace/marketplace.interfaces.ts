@@ -1,8 +1,8 @@
-import { Spaceship, Upgrade } from 'models';
+import { Spacecraft, Upgrade } from 'models';
 
 export default interface State {
   isLoading: boolean;
-  products: (Spaceship | Upgrade)[];
-  cart: (Spaceship | Upgrade)[];
+  products: (Spacecraft | Upgrade)[];
+  cart: (Spacecraft | Upgrade)[];
   isPurchasing: boolean;
 }

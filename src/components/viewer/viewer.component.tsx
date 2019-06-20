@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Spaceship, AttachedUpgrades } from 'models';
-import Stats from './stats';
-import Canvas from './canvas';
+import { Spacecraft, AttachedUpgrades } from 'models';
+import Stats from './stats/stats.component';
+import Canvas from './canvas/canvas.component';
 import { Widget } from 'components';
 import { createStyles, withStyles, WithStyles } from '@material-ui/core/styles';
 import Plus from 'assets/images/plus.svg';
@@ -16,11 +16,11 @@ const styles = () =>
   });
 
 interface Props extends WithStyles<typeof styles> {
-  spacecraft: Spaceship;
+  spacecraft: Spacecraft;
   attachedUpgrades: AttachedUpgrades;
 }
 
-class SpaceshipViewer extends Component<Props, {}> {
+class SpacecraftViewer extends Component<Props, {}> {
   state = {
     isLoading: true
   };
@@ -54,4 +54,4 @@ class SpaceshipViewer extends Component<Props, {}> {
   }
 }
 
-export default withStyles(styles)(SpaceshipViewer);
+export default withStyles(styles)(SpacecraftViewer);

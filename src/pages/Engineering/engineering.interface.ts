@@ -1,23 +1,23 @@
 import { RouteComponentProps } from 'react-router-dom';
-import { Spaceship } from 'models';
+import { Spacecraft } from 'models';
 import {
   loadSpacecrafts,
-  getAllSpaceships,
+  getAllspacecrafts,
   setSelectedSpacecraft
-} from 'store/spaceships';
+} from 'store/spacecrafts';
 import { AppState } from 'store';
 import { loadAllUpgrades } from 'store/upgrades';
 
 export interface StateProps extends RouteComponentProps {
-  isLoadingSpaceships: boolean;
+  isLoadingspacecrafts: boolean;
   isLoadingUpgrades: boolean;
-  spacecrafts: Spaceship[];
+  spacecrafts: Spacecraft[];
 }
 
 export const mapStateToProps = (state: AppState) => ({
   isLoadingUpgrades: state.upgrades.isLoading,
-  isLoadingSpacerafts: state.spaceships.isLoading,
-  spacecrafts: getAllSpaceships(state)
+  isLoadingSpacerafts: state.spacecrafts.isLoading,
+  spacecrafts: getAllspacecrafts(state)
 });
 
 export interface DispatchProps {

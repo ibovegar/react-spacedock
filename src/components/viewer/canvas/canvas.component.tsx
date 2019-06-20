@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import GLTFLoader from 'three-gltf-loader';
-import { Spaceship, AttachedUpgrades, UpgradeType } from 'models';
+import { Spacecraft, AttachedUpgrades, UpgradeType } from 'models';
 import upgradeMap from './upgrade-map';
 import { getAspectRatio } from 'utils/helpers';
 
 interface Props {
-  spacecraft: Spaceship;
+  spacecraft: Spacecraft;
   attachedUpgrades: AttachedUpgrades;
   onLoaded: () => void;
 }

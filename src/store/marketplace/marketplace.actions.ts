@@ -1,13 +1,13 @@
-import { Upgrade, Spaceship } from 'models';
+import { Upgrade, Spacecraft } from 'models';
 
 export type ActionTypes =
   | { type: 'LOAD_STORE_REQUEST' }
-  | { type: 'LOAD_STORE_SUCCESS'; products: (Upgrade | Spaceship)[] }
+  | { type: 'LOAD_STORE_SUCCESS'; products: (Upgrade | Spacecraft)[] }
   | { type: 'LOAD_STORE_FAILURE'; error: any }
   | { type: 'PURCHASE_REQUEST' }
   | { type: 'PURCHASE_SUCCESS' }
   | { type: 'PURCHASE_FAILURE'; error: any }
-  | { type: 'ADD_CART'; product: Upgrade | Spaceship }
+  | { type: 'ADD_CART'; product: Upgrade | Spacecraft }
   | { type: 'REMOVE_CART'; index: number };
 
 export const loadStoreRequest = () => ({
@@ -15,7 +15,7 @@ export const loadStoreRequest = () => ({
 });
 
 export const loadStoreSuccess = (
-  products: (Upgrade | Spaceship)[]
+  products: (Upgrade | Spacecraft)[]
 ): ActionTypes => ({
   type: 'LOAD_STORE_SUCCESS',
   products
@@ -26,7 +26,7 @@ export const loadStoreFailure = (error: any): ActionTypes => ({
   error
 });
 
-export const addToCart = (product: Upgrade | Spaceship) => ({
+export const addToCart = (product: Upgrade | Spacecraft) => ({
   type: 'ADD_CART',
   product
 });

@@ -1,14 +1,14 @@
 import React from 'react';
-import { Spaceship } from 'models';
+import { Spacecraft } from 'models';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { Box } from '@material-ui/core';
 
 interface Props {
-  spaceship: Spaceship;
+  spacecraft: Spacecraft;
 }
 
-const SpaceshipCard: React.FC<Props> = ({ spaceship }) => {
+const spacecraftCard: React.FC<Props> = ({ spacecraft }) => {
   return (
     <Box p={1}>
       <Grid container justify="center" alignItems="center">
@@ -16,17 +16,17 @@ const SpaceshipCard: React.FC<Props> = ({ spaceship }) => {
           <img
             style={{ display: 'block' }}
             height="50"
-            alt="spaceship"
-            src={`${process.env.PUBLIC_URL}/icons/spacecraft/${spaceship.spacecraftRegistry}.png`}
+            alt="spacecraft"
+            src={`${process.env.PUBLIC_URL}/icons/spacecraft/${spacecraft.spacecraftRegistry}.png`}
           />
         </Grid>
         <Grid item style={{ paddingLeft: '20px' }}>
-          <Typography variant="h6">{spaceship.name}</Typography>
-          <Typography variant="body2">{spaceship.manufacturer}</Typography>
+          <Typography variant="h6">{spacecraft.name}</Typography>
+          <Typography variant="body2">{spacecraft.manufacturer}</Typography>
         </Grid>
       </Grid>
     </Box>
   );
 };
 
-export default SpaceshipCard;
+export default spacecraftCard;

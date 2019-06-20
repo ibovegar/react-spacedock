@@ -1,7 +1,7 @@
 import { createSelector, Selector } from 'reselect';
 import { AppState } from 'store';
 import {
-  Spaceship,
+  Spacecraft,
   Upgrade,
   AttachedUpgrades,
   AvailableUpgrades
@@ -9,7 +9,7 @@ import {
 import { toArray } from 'utils/helpers';
 
 const getUpgradeEnities = (state: AppState) => state.upgrades.entities;
-const getSelectedSpacecraft = (state: AppState) => state.spaceships.selected;
+const getSelectedSpacecraft = (state: AppState) => state.spacecrafts.selected;
 
 export const getUpgradeList: Selector<AppState, Upgrade[]> = createSelector(
   getUpgradeEnities,
@@ -21,7 +21,7 @@ export const getAttachedUpgrades: Selector<
   AttachedUpgrades
 > = createSelector(
   [getUpgradeList, getSelectedSpacecraft],
-  (upgrades: Upgrade[], selectedSpacecraft?: Spaceship) => {
+  (upgrades: Upgrade[], selectedSpacecraft?: Spacecraft) => {
     const attachedUpgrades = new AttachedUpgrades();
 
     if (!selectedSpacecraft || !upgrades.length) {
@@ -29,7 +29,7 @@ export const getAttachedUpgrades: Selector<
     }
 
     for (const upgrade of upgrades) {
-      if (upgrade.spaceshipId === selectedSpacecraft.id) {
+      if (upgrade.spacecraftId === selectedSpacecraft.id) {
         attachedUpgrades[upgrade.storeType] = upgrade;
       }
     }
@@ -42,7 +42,7 @@ export const getAvailableUpgrades: Selector<
   AvailableUpgrades
 > = createSelector(
   [getUpgradeList, getSelectedSpacecraft],
-  (upgrades: Upgrade[], selectedSpacecraft?: Spaceship) => {
+  (upgrades: Upgrade[], selectedSpacecraft?: Spacecraft) => {
     const availableUpgrades = new AvailableUpgrades();
 
     if (!selectedSpacecraft) return availableUpgrades;

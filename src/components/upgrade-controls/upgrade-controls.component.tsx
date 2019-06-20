@@ -1,14 +1,14 @@
 import React from 'react';
 import {
-  Spaceship,
+  Spacecraft,
   AvailableUpgrades,
   Upgrade,
   AttachedUpgrades
 } from 'models';
-import UpgradeSelect from './upgrade-select';
+import UpgradeSelect from './upgrade-select/upgrade-select.component';
 
 interface Props {
-  spacecraft: Spaceship;
+  spacecraft: Spacecraft;
   availableUpgrades: AvailableUpgrades;
   attachedUpgrades: AttachedUpgrades;
   onDeselectUpgrade: (upgradeType: Upgrade) => void;

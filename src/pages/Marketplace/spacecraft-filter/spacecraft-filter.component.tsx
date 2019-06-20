@@ -57,7 +57,7 @@ export default class SpacecraftFilter extends React.Component<Props, State> {
   public render() {
     return (
       <ProductFilterGroup
-        title="Spaceships"
+        title="spacecrafts"
         filters={toArray(this.state)}
         onFilterClick={this.handleFilterClick}
       />

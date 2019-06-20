@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { Spaceship } from 'models';
-import SpaceshipCard from './spaceship-card/spaceship-card.component';
+import { Spacecraft } from 'models';
+import SpacecraftCard from './spacecraft-card/spacecraft-card.component';
 import { makeStyles } from '@material-ui/styles';
 import { Theme } from '@material-ui/core';
 
@@ -33,30 +33,30 @@ const useStyles = makeStyles((theme: Theme) => ({
 }));
 
 interface StateProps {
-  spaceships: Spaceship[];
+  spacecrafts: Spacecraft[];
   onSpacecraftClick?: (event: React.MouseEvent) => void;
 }
 
-const SpaceshipList: React.FC<StateProps> = props => {
-  const { spaceships, onSpacecraftClick } = props;
+const SpacecraftList: React.FC<StateProps> = props => {
+  const { spacecrafts, onSpacecraftClick } = props;
   const classes = useStyles();
 
   return (
     <>
-      {spaceships.map((spaceship: Spaceship) => (
+      {spacecrafts.map((spacecraft: Spacecraft) => (
         <NavLink
-          key={spaceship.id}
+          key={spacecraft.id}
           className={classes.navigationItem}
-          to={`/engineering/${spaceship.id}`}
+          to={`/engineering/${spacecraft.id}`}
           onClick={onSpacecraftClick}
-          id={spaceship.id}
+          id={spacecraft.id}
           activeClassName={classes.active}
         >
-          <SpaceshipCard spaceship={spaceship} />
+          <SpacecraftCard spacecraft={spacecraft} />
         </NavLink>
       ))}
     </>
   );
 };
 
-export default SpaceshipList;
+export default SpacecraftList;

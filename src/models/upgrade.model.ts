@@ -8,7 +8,7 @@ export interface Upgrade {
   manufacturer: string;
   gain: number;
   isAttached?: boolean;
-  spaceshipId?: string;
+  spacecraftId?: string;
 }
 
 export class AttachedUpgrades {

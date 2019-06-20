@@ -3,12 +3,12 @@ import { connect } from 'react-redux';
 import { UpgradeControls } from 'components';
 import { Viewer } from 'components';
 import Box from '@material-ui/core/Box';
-import * as interfaces from './spaceship-builder.interface';
+import * as interfaces from './spacecraft-builder.interface';
 import { Upgrade } from 'models';
 
-class SpaceshipBuilder extends React.Component<interfaces.Props, {}> {
+class SpacecraftBuilder extends React.Component<interfaces.Props, {}> {
   componentDidMount() {
-    this.props.setSelectedSpacecraft(this.props.match.params.spaceshipId);
+    this.props.setSelectedSpacecraft(this.props.match.params.spacecraftId);
   }
 
   handleSelectUpgrade = (oldUpgrade: Upgrade, newUpgrade: Upgrade) => {
@@ -53,4 +53,4 @@ class SpaceshipBuilder extends React.Component<interfaces.Props, {}> {
 export default connect(
   interfaces.mapStateToProps,
   interfaces.mapDispatchToProps
-)(SpaceshipBuilder);
+)(SpacecraftBuilder);

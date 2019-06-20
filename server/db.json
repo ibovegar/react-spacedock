@@ -1,5 +1,25 @@
 {
-  "spaceships": [],
+  "spacecrafts": [
+    {
+      "name": "Draxon SA-22",
+      "spacecraftRegistry": "drax22",
+      "manufacturer": "Epsilon Laboratories",
+      "manufactured": 2191,
+      "storeType": "spacecraft",
+      "type": "interceptor",
+      "height": 12,
+      "length": 80,
+      "price": 3055565,
+      "baseStats": {
+        "speed": 10,
+        "hull": 30,
+        "shield": 80,
+        "damage": 60,
+        "manuvrability": 80
+      },
+      "id": 1
+    }
+  ],
   "upgrades": [],
   "store": [
     {

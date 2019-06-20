@@ -1,9 +1,9 @@
 import React from 'react';
 import { Button, Typography, Box, Divider } from '@material-ui/core';
-import { Spaceship, Upgrade } from 'models';
+import { Spacecraft, Upgrade } from 'models';
 
 interface Props {
-  cart: (Spaceship | Upgrade)[];
+  cart: (Spacecraft | Upgrade)[];
   onRemove: (index: number) => void;
   onPurchase: () => void;
 }
@@ -25,9 +25,8 @@ const Cart: React.FC<Props> = props => {
       flexDirection="column"
     >
       {cart.map((product, index) => (
-        <>
+        <React.Fragment key={index}>
           <Box
-            key={index}
             display="flex"
             alignItems="center"
             p={2}
@@ -41,7 +40,7 @@ const Cart: React.FC<Props> = props => {
             </Button>
           </Box>
           <Divider />
-        </>
+        </React.Fragment>
       ))}
       <Box
         display="flex"

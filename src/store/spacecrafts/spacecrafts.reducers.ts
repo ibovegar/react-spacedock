@@ -1,6 +1,6 @@
-import { ActionTypes } from './spaceships.actions';
-import State from './spaceships.interfaces';
-import { Spaceship } from 'models';
+import { ActionTypes } from './spacecrafts.actions';
+import State from './spacecrafts.interfaces';
+import { Spacecraft } from 'models';
 import { toEntities } from 'utils/helpers';
 
 const initialState: State = {
@@ -15,23 +15,23 @@ export function reducer(
   action: ActionTypes
 ): State {
   switch (action.type) {
-    case 'LOAD_ALL_SPACESHIPS_REQUEST': {
+    case 'LOAD_ALL_spacecraftS_REQUEST': {
       return {
         ...state,
         isLoading: true
       };
     }
 
-    case 'LOAD_ALL_SPACESHIPS_SUCCESS': {
+    case 'LOAD_ALL_spacecraftS_SUCCESS': {
       return {
         ...state,
         isLoading: false,
-        entities: toEntities(action.spaceships, 'id'),
-        ids: action.spaceships.map((spaceship: Spaceship) => spaceship.id)
+        entities: toEntities(action.spacecrafts, 'id'),
+        ids: action.spacecrafts.map((spacecraft: Spacecraft) => spacecraft.id)
       };
     }
 
-    case 'LOAD_ALL_SPACESHIPS_FAILURE': {
+    case 'LOAD_ALL_spacecraftS_FAILURE': {
       return {
         ...state,
         isLoading: false
@@ -46,15 +46,15 @@ export function reducer(
     }
 
     // case 'LOAD_SPACECRAFT_SUCCESS':
-    //   const newSpaceships = { ...state.entities };
-    //   newSpaceships[action.spaceship.id] = action.spaceship;
+    //   const newspacecrafts = { ...state.entities };
+    //   newspacecrafts[action.spacecraft.id] = action.spacecraft;
 
     //   return {
     //     ...state,
     //     isLoading: false,
-    //     entities: newSpaceships,
-    //     ids: [...state.ids, action.spaceship.id],
-    //     selectedId: action.spaceship.id
+    //     entities: newspacecrafts,
+    //     ids: [...state.ids, action.spacecraft.id],
+    //     selectedId: action.spacecraft.id
     //   };
 
     default:

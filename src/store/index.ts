@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
-import * as spaceships from './spaceships';
+import * as spacecrafts from './spacecrafts';
 import * as upgrades from './upgrades';
 import * as marketplace from './marketplace';
 
 export const rootReducer = combineReducers({
-  spaceships: spaceships.reducer,
+  spacecrafts: spacecrafts.reducer,
   upgrades: upgrades.reducer,
   marketplace: marketplace.reducer
 });

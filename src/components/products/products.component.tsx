@@ -1,11 +1,11 @@
 import React from 'react';
-import { Spaceship, Upgrade } from 'models';
+import { Spacecraft, Upgrade } from 'models';
 import ProductCard from './product-card/product-card.component';
 import { Grid } from '@material-ui/core';
 
 interface Props {
-  products: (Spaceship | Upgrade)[];
-  onAddClick: (product: Spaceship | Upgrade) => void;
+  products: (Spacecraft | Upgrade)[];
+  onAddClick: (product: Spacecraft | Upgrade) => void;
 }
 
 const Products: React.FC<Props> = props => {

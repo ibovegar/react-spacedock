@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { Spaceship, AttachedUpgrades } from 'models';
+import { Spacecraft, AttachedUpgrades } from 'models';
 import { LinearProgress, Box, Typography, Button } from '@material-ui/core';
 
 interface Props {
-  spacecraft: Spaceship;
+  spacecraft: Spacecraft;
   attachedUpgrades: AttachedUpgrades;
 }
 

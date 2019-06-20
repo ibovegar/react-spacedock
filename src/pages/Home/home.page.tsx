@@ -1,13 +1,13 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { Spaceship } from 'models';
-import { loadSpacecrafts, getAllSpaceships } from 'store/spaceships';
+import { Spacecraft } from 'models';
+import { loadSpacecrafts, getAllspacecrafts } from 'store/spacecrafts';
 import { AppState } from 'store';
-import { SpaceshipList } from 'components';
+import { SpacecraftList } from 'components';
 
 interface StateProps {
   isLoading: boolean;
-  spaceships: Spaceship[];
+  spacecrafts: Spacecraft[];
 }
 
 interface DispatchProps {
@@ -22,19 +22,19 @@ class Home extends React.Component<Props, {}> {
   }
 
   render() {
-    const { spaceships } = this.props;
+    const { spacecrafts } = this.props;
 
     return (
       <>
-        <SpaceshipList spaceships={spaceships} />
+        <SpacecraftList spacecrafts={spacecrafts} />
       </>
     );
   }
 }
 
 const mapStateToProps = (state: AppState) => ({
-  isLoading: state.spaceships.isLoading,
-  spaceships: getAllSpaceships(state)
+  isLoading: state.spacecrafts.isLoading,
+  spacecrafts: getAllspacecrafts(state)
 });
 
 const mapDispatchToProps = {

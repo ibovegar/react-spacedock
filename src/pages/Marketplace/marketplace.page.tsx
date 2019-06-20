@@ -8,7 +8,7 @@ import {
   purchase
 } from 'store/marketplace';
 import { AppState } from 'store';
-import { Upgrade, Spaceship } from 'models';
+import { Upgrade, Spacecraft } from 'models';
 import { Products, Cart } from 'components';
 import { Grid } from '@material-ui/core';
 // import CategoryFilter from './category-filter/category-filter.component';
@@ -29,12 +29,12 @@ const styles = () =>
   });
 
 interface Props extends WithStyles<typeof styles> {
-  products: (Spaceship | Upgrade)[];
-  cart: (Spaceship | Upgrade)[];
+  products: (Spacecraft | Upgrade)[];
+  cart: (Spacecraft | Upgrade)[];
   loadStore: () => void;
-  addToCart: (product: Spaceship | Upgrade) => void;
+  addToCart: (product: Spacecraft | Upgrade) => void;
   removeFromCart: (index: number) => void;
-  purchase: (cart: (Spaceship | Upgrade)[]) => void;
+  purchase: (cart: (Spacecraft | Upgrade)[]) => void;
 }
 
 interface State {
@@ -52,7 +52,7 @@ class Marketplace extends React.Component<Props, State> {
     this.props.loadStore();
   }
 
-  handleAddToCart = (product: Spaceship | Upgrade) => {
+  handleAddToCart = (product: Spacecraft | Upgrade) => {
     this.props.addToCart(product);
   };
 
@@ -80,7 +80,7 @@ class Marketplace extends React.Component<Props, State> {
     const { products, cart, classes } = this.props;
     const { productTypeFilter, spacecraftFilter } = this.state;
 
-    let filtered: (Spaceship | Upgrade)[] = products;
+    let filtered: (Spacecraft | Upgrade)[] = products;
     filtered = filterObjArr(products, spacecraftFilter, 'spacecraftRegistry');
     filtered = filterObjArr(filtered, productTypeFilter, 'storeType');
 

@@ -1,6 +1,6 @@
 import { BaseStats } from 'models';
 
-export interface Spaceship {
+export interface Spacecraft {
   id: string;
   name: string;
   spacecraftRegistry: string;

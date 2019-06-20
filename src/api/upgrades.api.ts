@@ -8,9 +8,9 @@ export const getAll = async (): Promise<Upgrade[]> => {
   return response.data;
 };
 
-export const get = async (spaceshipId: string): Promise<Upgrade[]> => {
+export const get = async (spacecraftId: string): Promise<Upgrade[]> => {
   const response: AxiosResponse = await axios.get(
-    `${url}/spaceships/${spaceshipId}/upgrades`
+    `${url}/spacecrafts/${spacecraftId}/upgrades`
   );
   return response.data;
 };
