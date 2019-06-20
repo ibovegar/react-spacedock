@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Switch, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { SpacecraftBuilder } from 'containers';
+import SpacecraftBuilder from './spacecraft-builder/spacecraft-builder.component';
 import { SpacecraftList } from 'components';
 import Box from '@material-ui/core/Box';
 import * as interfaces from './engineering.interface';

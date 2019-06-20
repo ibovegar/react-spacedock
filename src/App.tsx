@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import Layout from './components/layout/layout.component';
-import { Home, Marketplace, Inventory, Engineering } from 'pages';
+import { Home, Marketplace, Inventory, Engineering } from 'containers';
 
 class App extends Component {
   render() {
