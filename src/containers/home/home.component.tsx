@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Spacecraft } from 'models';
 import { loadSpacecrafts, getAllspacecrafts } from 'store/spacecrafts';
 import { AppState } from 'store';
-import { SpacecraftList } from 'components';
+import { MissionTag } from 'components/ui';
 
 interface StateProps {
   isLoading: boolean;
@@ -22,11 +22,28 @@ class Home extends React.Component<Props, {}> {
   }
 
   render() {
-    const { spacecrafts } = this.props;
-
     return (
       <>
-        <SpacecraftList spacecrafts={spacecrafts} />
+        <MissionTag title="NCC-Triton [ RESCUE ]" posX={5} posY={20}>
+          Lorem ipsum dolor sit amet lorem ipsum.
+        </MissionTag>
+        <MissionTag title="Asteroid XBF-1342 [ MINING ]" posX={32} posY={35}>
+          Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet. Lorem ipsum
+          dolor sit amet.
+        </MissionTag>
+        <MissionTag title="Daemolous [ SALVAGE ]" posX={25} posY={65} mirrored>
+          Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet. Lorem ipsum
+          dolor sit amet.
+        </MissionTag>
+        <MissionTag
+          title="Cygvin Harvest [ TACTICAL ]"
+          posX={70}
+          posY={30}
+          mirrored
+        >
+          Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet. Lorem ipsum
+          dolor sit amet.
+        </MissionTag>
       </>
     );
   }

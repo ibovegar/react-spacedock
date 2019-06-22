@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -16,14 +16,17 @@ const useStyles = makeStyles(() => ({
   }
 }));
 
-const Widget: React.FC = props => {
+interface Props {
+  children: ReactNode;
+}
+
+const Widget: React.FC<Props> = props => {
   const classes = useStyles();
+  const { children } = props;
 
   return (
     <Card className={classes.card}>
-      <CardContent className={classes.cardContent}>
-        {props.children}
-      </CardContent>
+      <CardContent className={classes.cardContent}>{children}</CardContent>
     </Card>
   );
 };

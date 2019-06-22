@@ -1,17 +1,12 @@
 import React, { ReactNode } from 'react';
-import { withRouter, RouteComponentProps, Link } from 'react-router-dom';
-import {
-  Box,
-  Button,
-  makeStyles,
-  Theme,
-  Typography,
-  Grid
-} from '@material-ui/core';
-import AddBoxIcon from '@material-ui/icons/AddBox';
+import { withRouter, RouteComponentProps } from 'react-router-dom';
+import clsx from 'clsx';
+import { Box } from '@material-ui/core';
+import { makeStyles, Theme } from '@material-ui/core/styles';
+import Nav from './nav/nav.component';
 import backgroundImage from 'assets/images/15.jpg';
 
-const useStyles = makeStyles((theme: Theme) => ({
+const useStyles = makeStyles(({ transitions }: Theme) => ({
   background: {
     position: 'fixed',
     top: 0,
@@ -21,19 +16,15 @@ const useStyles = makeStyles((theme: Theme) => ({
     zIndex: -1,
     backgroundImage: `url(${backgroundImage})`,
     backgroundSize: 'cover',
-    filter: 'grayscale(20%) brightness(12%)' // 15
+    filter: 'grayscale(20%) brightness(30%)',
+    transition: `filter 0.5s ${transitions.easing.easeInOut}, transform 1.2s ${transitions.easing.easeInOut}`,
+    transform: 'scale(1.05)'
   },
-  nav: {
-    borderStyle: 'solid',
-    borderWidth: '1px 0 1px 0',
-    borderColor: theme.palette.grey[800]
-  },
-  button: {
-    paddingLeft: theme.spacing(4),
-    paddingRight: theme.spacing(5)
-  },
-  icon: {
-    marginRight: theme.spacing(4)
+  isTactical: {
+    '& $background': {
+      transform: 'scale(1)',
+      filter: 'grayscale(10%) brightness(80%)'
+    }
   }
 }));
 
@@ -44,80 +35,26 @@ interface Props extends RouteComponentProps {
 
 const Layout: React.FC<Props> = props => {
   const classes = useStyles();
-  const { children } = props; // history
+  const { children, history } = props;
+
+  const className = clsx({
+    [classes.isTactical]: history.location.pathname === '/'
+  });
+
+  console.log(props.location);
 
   return (
-    <Box display="flex" height="100vh" flexDirection="column" p={6}>
+    <Box
+      display="flex"
+      height="100vh"
+      flexDirection="column"
+      p={6}
+      className={className}
+    >
       <img className={classes.background} alt=" " />
       <Box p={2}>
-        <Grid container alignItems="center" spacing={4} className={classes.nav}>
-          <Grid item>
-            <Typography variant="overline">MENU</Typography>
-          </Grid>
-          <Grid item>
-            <Button
-              className={classes.button}
-              color="primary"
-              variant="contained"
-              size="small"
-              component={Link}
-              to="/"
-            >
-              <AddBoxIcon fontSize="small" className={classes.icon} />
-              TACTICAL
-            </Button>
-          </Grid>
-          <Grid item>
-            <Button
-              className={classes.button}
-              color="primary"
-              variant="contained"
-              size="small"
-              component={Link}
-              to="/engineering"
-            >
-              <AddBoxIcon fontSize="small" className={classes.icon} />
-              ENGINEERING
-            </Button>
-          </Grid>
-          <Grid item>
-            <Button
-              className={classes.button}
-              color="primary"
-              variant="contained"
-              size="small"
-              component={Link}
-              to="/marketplace"
-            >
-              <AddBoxIcon fontSize="small" className={classes.icon} />
-              STORE
-            </Button>
-          </Grid>
-          <Grid item>
-            <Button
-              className={classes.button}
-              variant="contained"
-              size="small"
-              disabled
-            >
-              <AddBoxIcon fontSize="small" className={classes.icon} />
-              SOMETHING
-            </Button>
-          </Grid>
-          <Grid item>
-            <Button
-              className={classes.button}
-              variant="contained"
-              size="small"
-              disabled
-            >
-              <AddBoxIcon fontSize="small" className={classes.icon} />
-              INVENTORY
-            </Button>
-          </Grid>
-        </Grid>
+        <Nav />
       </Box>
-      {/* <aside>Sidenav</aside> */}
       <Box flex={1} mt={6} style={{ minHeight: 0 }}>
         {children}
       </Box>
