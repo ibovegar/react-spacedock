@@ -49,7 +49,7 @@ const palette: PaletteOptions = {
   //   hint: 'rgba(0, 0, 0, 0.38)'
   // },
   background: {
-    paper: '#16212e',
+    paper: 'rgba(21,30,42, 0.9)', // '#16212e',
     default: '#13161f'
   },
   common: {

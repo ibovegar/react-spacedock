@@ -11,8 +11,8 @@ export default (theme: Theme) =>
     },
     cover: {
       width: 320,
-      height: 220,
-      backgroundColor: theme.palette.grey[100]
+      height: 220
+      // backgroundColor: theme.palette.grey[100]
     },
     controls: {
       // width: 140,

@@ -9,8 +9,20 @@ import {
   Grid
 } from '@material-ui/core';
 import AddBoxIcon from '@material-ui/icons/AddBox';
+import backgroundImage from 'assets/images/15.jpg';
 
 const useStyles = makeStyles((theme: Theme) => ({
+  background: {
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    bottom: 0,
+    right: 0,
+    zIndex: -1,
+    backgroundImage: `url(${backgroundImage})`,
+    backgroundSize: 'cover',
+    filter: 'grayscale(20%) brightness(12%)' // 15
+  },
   nav: {
     borderStyle: 'solid',
     borderWidth: '1px 0 1px 0',
@@ -36,6 +48,7 @@ const Layout: React.FC<Props> = props => {
 
   return (
     <Box display="flex" height="100vh" flexDirection="column" p={6}>
+      <img className={classes.background} alt=" " />
       <Box p={2}>
         <Grid container alignItems="center" spacing={4} className={classes.nav}>
           <Grid item>
