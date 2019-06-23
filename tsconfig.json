@@ -22,5 +22,6 @@
     "suppressImplicitAnyIndexErrors": true,
     "strictPropertyInitialization": false
   },
-  "include": ["src"]
+  "include": ["src"],
+  "exclude": ["node_modules", "build", "src/setupTests.ts"]
 }
