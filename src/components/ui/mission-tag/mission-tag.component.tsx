@@ -22,7 +22,7 @@ const styles = (theme: Theme) =>
       transition: `all 0.4s ${theme.transitions.easing.easeInOut}`,
       borderColor: theme.palette.background.paper,
       borderStyle: 'solid',
-      borderWidth: 1,
+      borderWidth: 2,
       borderRadius: theme.shape.borderRadius,
       '&:hover': {
         borderColor: theme.palette.primary.main,

@@ -28,12 +28,10 @@ class Home extends React.Component<Props, {}> {
           Lorem ipsum dolor sit amet lorem ipsum.
         </MissionTag>
         <MissionTag title="Asteroid XBF-1342 [ MINING ]" posX={32} posY={35}>
-          Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet. Lorem ipsum
-          dolor sit amet.
+          Lorem ipsum dolor sit amet lorem ipsum.
         </MissionTag>
         <MissionTag title="Daemolous [ SALVAGE ]" posX={25} posY={65} mirrored>
-          Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet. Lorem ipsum
-          dolor sit amet.
+          Lorem ipsum dolor sit amet lorem ipsum.
         </MissionTag>
         <MissionTag
           title="Cygvin Harvest [ TACTICAL ]"
@@ -41,8 +39,7 @@ class Home extends React.Component<Props, {}> {
           posY={30}
           mirrored
         >
-          Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet. Lorem ipsum
-          dolor sit amet.
+          Lorem ipsum dolor sit amet lorem ipsum.
         </MissionTag>
       </>
     );
