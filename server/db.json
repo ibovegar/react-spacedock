@@ -1,6 +1,76 @@
 {
+  "user": {
+    "credits": 10000000
+  },
   "spacecrafts": [],
   "upgrades": [],
+  "missions": [
+    {
+      "id": "m1",
+      "type": "salvage",
+      "completed": false,
+      "title": "Daemolous wreckage",
+      "description": "",
+      "credits": 100,
+      "difficulty": "medium",
+      "constellation": "Corvus",
+      "distance": 45,
+      "ascention": "12h 01m 53.0s",
+      "declination": "−18° 52′ 10″"
+    },
+    {
+      "id": "m2",
+      "type": "mining",
+      "completed": false,
+      "title": "Asteroid XBF-1342",
+      "description": "",
+      "credits": 100,
+      "difficulty": "medium",
+      "constellation": "Corvus",
+      "distance": 17.3,
+      "ascention": "12h 56m 43.696s",
+      "declination": "+21° 40′ 57.57″"
+    },
+    {
+      "id": "m3",
+      "type": "rescue",
+      "completed": false,
+      "title": "NCC-Triton emergancy broadcast",
+      "description": "",
+      "credits": 100,
+      "difficulty": "easy",
+      "constellation": "Corvus",
+      "distance": 11.1,
+      "ascention": "09h 55m 33.2s",
+      "declination": "+69° 3′ 55″"
+    },
+    {
+      "id": "m4",
+      "type": "tactical",
+      "completed": false,
+      "title": "Prevent cygvin harvest",
+      "description": "",
+      "credits": 100,
+      "difficulty": "hard",
+      "constellation": "Corvus",
+      "distance": 33,
+      "ascention": "12h 36m 34.3s",
+      "declination": "+11° 14′ 17″"
+    },
+    {
+      "id": "m5",
+      "type": "exploration",
+      "completed": false,
+      "title": "Investigate unknown broadcast",
+      "description": "",
+      "credits": 100,
+      "difficulty": "unknown",
+      "constellation": "Corvus",
+      "distance": 120,
+      "ascention": "126h 10m 73.1s",
+      "declination": "+91° 10′ 89.5″"
+    }
+  ],
   "store": [
     {
       "name": "Draxon SA-22",

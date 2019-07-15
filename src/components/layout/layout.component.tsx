@@ -3,7 +3,7 @@ import { withRouter, RouteComponentProps } from 'react-router-dom';
 import clsx from 'clsx';
 import { Box } from '@material-ui/core';
 import { makeStyles, Theme } from '@material-ui/core/styles';
-import Nav from './nav/nav.component';
+import Toolbar from './toolbar/toolbar.component';
 import backgroundImage from 'assets/images/15.jpg';
 
 const useStyles = makeStyles(({ transitions }: Theme) => ({
@@ -30,18 +30,17 @@ const useStyles = makeStyles(({ transitions }: Theme) => ({
 
 interface Props extends RouteComponentProps {
   authenticated: boolean;
+  credits: number;
   children: ReactNode;
 }
 
 const Layout: React.FC<Props> = props => {
   const classes = useStyles();
-  const { children, history } = props;
+  const { children, history, credits } = props;
 
   const className = clsx({
     [classes.isTactical]: history.location.pathname === '/'
   });
-
-  console.log(props.location);
 
   return (
     <Box
@@ -52,9 +51,7 @@ const Layout: React.FC<Props> = props => {
       className={className}
     >
       <img className={classes.background} alt=" " />
-      <Box p={2}>
-        <Nav />
-      </Box>
+      <Toolbar credits={credits} />
       <Box flex={1} mt={6} style={{ minHeight: 0 }}>
         {children}
       </Box>

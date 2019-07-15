@@ -1,30 +1,38 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { Spacecraft } from 'models';
+import { Spacecraft, Mission } from 'models';
 import { loadSpacecrafts, getAllspacecrafts } from 'store/spacecrafts';
+import { loadMissions, getAllMissions } from 'store/missions';
 import { AppState } from 'store';
 import { MissionTag } from 'components/ui';
 
-interface StateProps {
+interface Props {
   isLoading: boolean;
   spacecrafts: Spacecraft[];
-}
-
-interface DispatchProps {
+  missions: Mission[];
   loadSpacecrafts: () => void;
+  loadMissions: () => void;
 }
-
-type Props = StateProps & DispatchProps;
 
 class Home extends React.Component<Props, {}> {
   componentDidMount() {
     this.props.loadSpacecrafts();
+    this.props.loadMissions();
   }
+
+  handleMissionSuccess = (event: React.MouseEvent) => {
+    console.log('click', event);
+  };
 
   render() {
     return (
       <>
-        <MissionTag title="NCC-Triton [ RESCUE ]" posX={5} posY={20}>
+        <MissionTag
+          title="NCC-Triton [ RESCUE ]"
+          posX={5}
+          posY={20}
+          // onClick={this.handleMissionSuccess}
+        >
           Lorem ipsum dolor sit amet lorem ipsum.
         </MissionTag>
         <MissionTag title="Asteroid XBF-1342 [ MINING ]" posX={32} posY={35}>
@@ -48,11 +56,13 @@ class Home extends React.Component<Props, {}> {
 
 const mapStateToProps = (state: AppState) => ({
   isLoading: state.spacecrafts.isLoading,
-  spacecrafts: getAllspacecrafts(state)
+  spacecrafts: getAllspacecrafts(state),
+  missions: getAllMissions(state)
 });
 
 const mapDispatchToProps = {
-  loadSpacecrafts
+  loadSpacecrafts,
+  loadMissions
 };
 
 export default connect(

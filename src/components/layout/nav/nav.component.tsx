@@ -4,11 +4,6 @@ import { Button, makeStyles, Theme, Typography, Grid } from '@material-ui/core';
 import AddBoxIcon from '@material-ui/icons/AddBox';
 
 const useStyles = makeStyles((theme: Theme) => ({
-  nav: {
-    borderStyle: 'solid',
-    borderWidth: '1px 0 1px 0',
-    borderColor: theme.palette.grey[800]
-  },
   button: {
     paddingLeft: theme.spacing(4),
     paddingRight: theme.spacing(5)
@@ -22,7 +17,7 @@ const Nav: React.FC = () => {
   const classes = useStyles();
 
   return (
-    <Grid container alignItems="center" spacing={4} className={classes.nav}>
+    <Grid container alignItems="center" spacing={4}>
       <Grid item>
         <Typography variant="overline">MENU</Typography>
       </Grid>
