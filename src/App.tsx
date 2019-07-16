@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Route } from 'react-router-dom';
 import Layout from './components/layout/layout.component';
-import { Home, Marketplace, Inventory, Engineering } from 'containers';
+import { Tactical, Marketplace, Inventory, Engineering } from 'containers';
 import { loadUserStats } from 'store/user';
 import { AppState } from 'store';
 
@@ -21,7 +21,7 @@ class App extends Component<Props> {
 
     return (
       <Layout authenticated credits={credits}>
-        <Route exact path="/" component={Home} />
+        <Route path="/tactical" component={Tactical} />
         <Route path="/marketplace" component={Marketplace} />
         <Route path="/inventory" component={Inventory} />
         <Route path="/engineering" component={Engineering} />

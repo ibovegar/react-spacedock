@@ -5,6 +5,7 @@ export interface Mission {
   completed: boolean;
   title: string;
   description: string;
+  shortDescription: string;
   credits: number;
   difficulty: 'hard' | 'medium' | 'easy' | 'unknown';
   constellation: string;

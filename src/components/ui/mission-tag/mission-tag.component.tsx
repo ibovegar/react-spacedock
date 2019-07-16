@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import {
   WithStyles,
   withStyles,
@@ -6,6 +6,8 @@ import {
   Theme
 } from '@material-ui/core/styles';
 import { Typography } from '@material-ui/core';
+import { Mission } from 'models';
+import clsx from 'clsx';
 
 const styles = (theme: Theme) =>
   createStyles({
@@ -13,7 +15,11 @@ const styles = (theme: Theme) =>
       position: 'fixed',
       display: 'inline-flex',
       alignItems: 'center',
-      maxWidth: 500
+      maxWidth: 500,
+      '&$disabled': {
+        filter: 'blur(10px)',
+        pointerEvents: 'none'
+      }
     },
     tag: {
       backgroundColor: theme.palette.background.paper,
@@ -54,36 +60,45 @@ const styles = (theme: Theme) =>
       '100%': {
         transform: 'rotate(360deg)'
       }
-    }
+    },
+    disabled: {}
   });
 
 interface Props extends WithStyles<typeof styles> {
-  title: string;
-  posX: number;
-  posY: number;
-  mirrored?: boolean;
-  children: ReactNode;
+  mission: Mission;
+  position: any;
+  disabled?: boolean;
+  rtl?: boolean;
+  onSelect: () => void;
 }
 
 const MissionTag: React.FC<Props> = props => {
-  const { classes, title, posX, posY, children, mirrored } = props;
+  const { classes, mission, position, rtl, onSelect, disabled } = props;
+
+  const rootClasses = clsx(classes.root, {
+    [classes.disabled]: disabled
+  });
 
   return (
-    <div className={classes.root} style={{ left: posX + '%', top: posY + '%' }}>
-      {!mirrored && <div className={classes.spinner}></div>}
+    <div
+      className={rootClasses}
+      style={{ left: position.x + '%', top: position.y + '%' }}
+      onClick={() => onSelect()}
+    >
+      {!rtl && <div className={classes.spinner}></div>}
       <div className={classes.tag}>
         <Typography variant="h6" gutterBottom>
-          {title}
+          {mission.title}
         </Typography>
         <Typography
           className={classes.description}
           variant="overline"
           color="textSecondary"
         >
-          {children}
+          {mission.shortDescription}
         </Typography>
       </div>
-      {mirrored && <div className={classes.spinner}></div>}
+      {rtl && <div className={classes.spinner}></div>}
     </div>
   );
 };

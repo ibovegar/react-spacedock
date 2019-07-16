@@ -39,7 +39,7 @@ const Layout: React.FC<Props> = props => {
   const { children, history, credits } = props;
 
   const className = clsx({
-    [classes.isTactical]: history.location.pathname === '/'
+    [classes.isTactical]: history.location.pathname === '/tactical'
   });
 
   return (

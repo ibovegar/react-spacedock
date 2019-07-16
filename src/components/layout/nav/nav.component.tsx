@@ -28,7 +28,7 @@ const Nav: React.FC = () => {
           variant="contained"
           size="small"
           component={Link}
-          to="/"
+          to="/tactical"
         >
           <AddBoxIcon fontSize="small" className={classes.icon} />
           TACTICAL
