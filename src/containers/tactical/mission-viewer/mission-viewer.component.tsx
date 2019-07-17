@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   stats: {
     position: 'absolute',
-    top: 80,
+    top: 100,
     left: 10
   },
   content: {
