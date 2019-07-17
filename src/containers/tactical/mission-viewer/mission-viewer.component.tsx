@@ -10,7 +10,7 @@ import {
   Card,
   CardHeader,
   Avatar,
-  CardMedia,
+  // CardMedia,
   CardContent,
   Typography,
   CardActions,
@@ -19,6 +19,7 @@ import {
   Theme,
   IconButton
 } from '@material-ui/core';
+import { MissionStats } from 'components/ui';
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -30,16 +31,25 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   card: {
     width: '50%',
-    zIndex: 1000
+    zIndex: 1000,
+    position: 'relative'
+  },
+  stats: {
+    position: 'absolute',
+    top: 80,
+    left: 10
   },
   content: {
     padding: theme.spacing(8)
   },
   media: {
-    height: 0,
-    paddingTop: '50%' // 16:9
+    height: '440px',
+    width: '100%',
+    objectFit: 'cover'
   },
   avatar: {
+    marginLeft: theme.spacing(2),
+    marginRight: theme.spacing(1),
     backgroundColor: theme.palette.primary.main
   },
   actions: {
@@ -79,11 +89,11 @@ const MissionViewer: React.FC<Props> = props => {
           title={mission.title}
           subheader={mission.shortDescription}
         />
-        <CardMedia
+        <img
           className={classes.media}
-          image={`${process.env.PUBLIC_URL}/images/art/${mission.id}.jpg`}
-          title="Paella dish"
+          src={`${process.env.PUBLIC_URL}/images/art/${mission.id}.jpg`}
         />
+        <MissionStats className={classes.stats} mission={mission} />
         <CardContent className={classes.content}>
           <Typography variant="body2" color="textSecondary" component="p">
             {mission.description}
