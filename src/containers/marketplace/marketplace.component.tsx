@@ -31,6 +31,7 @@ const styles = () =>
 interface Props extends WithStyles<typeof styles> {
   products: (Spacecraft | Upgrade)[];
   cart: (Spacecraft | Upgrade)[];
+  credits: number;
   loadStore: () => void;
   addToCart: (product: Spacecraft | Upgrade) => void;
   removeFromCart: (index: number) => void;
@@ -77,7 +78,7 @@ class Marketplace extends React.Component<Props, State> {
   };
 
   public render() {
-    const { products, cart, classes } = this.props;
+    const { products, cart, credits, classes } = this.props;
     const { productTypeFilter, spacecraftFilter } = this.state;
 
     let filtered: (Spacecraft | Upgrade)[] = products;
@@ -96,6 +97,7 @@ class Marketplace extends React.Component<Props, State> {
         </Grid>
         <Grid item xs className={classes.sticky}>
           <Cart
+            credits={credits}
             cart={cart}
             onRemove={this.handleRemoveFromCart}
             onPurchase={this.handlePurchase}
@@ -108,7 +110,8 @@ class Marketplace extends React.Component<Props, State> {
 
 export const mapStateToProps = (state: AppState) => ({
   products: state.marketplace.products,
-  cart: state.marketplace.cart
+  cart: state.marketplace.cart,
+  credits: state.user.credits
 });
 
 export const mapDispatchToProps = {

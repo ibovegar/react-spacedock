@@ -4,18 +4,20 @@ import { Spacecraft, Upgrade } from 'models';
 import { formatCurrency } from 'utils/helpers';
 
 interface Props {
+  credits: number;
   cart: (Spacecraft | Upgrade)[];
   onRemove: (index: number) => void;
   onPurchase: () => void;
 }
 
 const Cart: React.FC<Props> = props => {
-  const { cart, onRemove, onPurchase } = props;
+  const { cart, credits, onRemove, onPurchase } = props;
 
-  const isPurchasable = cart.length > 0;
   const totalPrice = cart.reduce((sum, i) => {
     return sum + i.price;
   }, 0);
+
+  const isPurchasable = cart.length > 0 && totalPrice < credits;
 
   return (
     <Box
@@ -59,7 +61,7 @@ const Cart: React.FC<Props> = props => {
         variant="contained"
         onClick={onPurchase}
       >
-        PURCHASE
+        {totalPrice > credits ? 'INSUFFICIENT FUNDS' : 'PURCHASE'}
       </Button>
     </Box>
   );
