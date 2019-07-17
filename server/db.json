@@ -86,7 +86,7 @@
       "type": "interceptor",
       "height": 12,
       "length": 80,
-      "price": 3055565,
+      "price": 3055555,
       "baseStats": {
         "speed": 10,
         "hull": 30,
@@ -104,7 +104,7 @@
       "type": "fighter",
       "height": 219,
       "length": 456,
-      "price": 4123334,
+      "price": 4550000,
       "baseStats": {
         "speed": 60,
         "hull": 50,
@@ -122,7 +122,7 @@
       "type": "scout",
       "height": 219,
       "length": 456,
-      "price": 4123334,
+      "price": 2999999,
       "baseStats": {
         "speed": 60,
         "hull": 50,
@@ -140,7 +140,7 @@
       "type": "bomber",
       "height": 219,
       "length": 456,
-      "price": 4123334,
+      "price": 1900000,
       "baseStats": {
         "speed": 60,
         "hull": 50,
@@ -158,7 +158,7 @@
       "type": "support",
       "height": 219,
       "length": 456,
-      "price": 4123334,
+      "price": 5000000,
       "baseStats": {
         "speed": 60,
         "hull": 50,
@@ -173,7 +173,7 @@
       "spacecraftRegistry": "drax22",
       "manufacturer": "Gentech MIL Corp.",
       "storeType": "stabilizer",
-      "price": 4123334,
+      "price": 1000000,
       "gain": 24
     },
     {
@@ -182,7 +182,7 @@
       "spacecraftRegistry": "drax22",
       "manufacturer": "ANTEC Laboratories",
       "storeType": "engine",
-      "price": 4123334,
+      "price": 500000,
       "gain": 20
     },
     {
@@ -191,7 +191,7 @@
       "spacecraftRegistry": "drax22",
       "manufacturer": "Gentech MIL Corp.",
       "storeType": "weapons",
-      "price": 4123334,
+      "price": 500000,
       "gain": 27
     },
     {
@@ -200,7 +200,7 @@
       "spacecraftRegistry": "cygf35",
       "manufacturer": "Cryson & Billard Engineering",
       "storeType": "weapons",
-      "price": 4123334,
+      "price": 800000,
       "gain": 21
     },
     {
@@ -209,7 +209,7 @@
       "spacecraftRegistry": "cygf35",
       "manufacturer": "Cryson & Billard Engineering",
       "storeType": "stabilizer",
-      "price": 4123334,
+      "price": 200000,
       "gain": 52
     },
     {
@@ -218,7 +218,7 @@
       "spacecraftRegistry": "cygf35",
       "manufacturer": "Epsilon-X Laboratories",
       "storeType": "deflector",
-      "price": 4123334,
+      "price": 350000,
       "gain": 10
     },
     {
@@ -227,7 +227,7 @@
       "spacecraftRegistry": "tellrx5",
       "manufacturer": "Pritech Industries",
       "storeType": "engine",
-      "price": 4123334,
+      "price": 420000,
       "gain": 52
     },
     {
@@ -236,7 +236,7 @@
       "spacecraftRegistry": "tellrx5",
       "manufacturer": "Pritech Industries",
       "storeType": "stabilizer",
-      "price": 4123334,
+      "price": 390000,
       "gain": 52
     },
     {
@@ -245,7 +245,7 @@
       "spacecraftRegistry": "tellrx5",
       "manufacturer": "Cryson & Billard Engineering",
       "storeType": "weapons",
-      "price": 4123334,
+      "price": 560000,
       "gain": 52
     },
     {
@@ -254,7 +254,7 @@
       "spacecraftRegistry": "hamm2",
       "manufacturer": "Pratney Mechanical",
       "storeType": "stabilizer",
-      "price": 4123334,
+      "price": 790500,
       "gain": 52
     },
     {
@@ -263,7 +263,7 @@
       "spacecraftRegistry": "hamm2",
       "manufacturer": "Pratney Mechanical",
       "storeType": "weapons",
-      "price": 4123334,
+      "price": 810000,
       "gain": 52
     },
     {
@@ -272,7 +272,7 @@
       "spacecraftRegistry": "hamm2",
       "manufacturer": "Cygnia Corporation",
       "storeType": "deflector",
-      "price": 4123334,
+      "price": 390100,
       "gain": 52
     },
     {
@@ -281,7 +281,7 @@
       "spacecraftRegistry": "hamm2",
       "manufacturer": "Gentech MIL Corp.",
       "storeType": "deflector",
-      "price": 4123334,
+      "price": 370500,
       "gain": 16
     },
     {
@@ -290,7 +290,7 @@
       "spacecraftRegistry": "vanguard",
       "manufacturer": "Epsilon Laboratories",
       "storeType": "engine",
-      "price": 4123334,
+      "price": 410200,
       "gain": 52
     },
     {
@@ -299,7 +299,7 @@
       "spacecraftRegistry": "vanguard",
       "manufacturer": "ANTEC Laboratories",
       "storeType": "stabilizer",
-      "price": 4123334,
+      "price": 133700,
       "gain": 52
     },
     {
@@ -308,7 +308,7 @@
       "spacecraftRegistry": "vanguard",
       "manufacturer": "ANTEC Laboratories",
       "storeType": "weapons",
-      "price": 4123334,
+      "price": 390400,
       "gain": 52
     },
     {
@@ -317,7 +317,7 @@
       "spacecraftRegistry": "vanguard",
       "manufacturer": "Gentech MIL Corp.",
       "storeType": "plating",
-      "price": 4123334,
+      "price": 412000,
       "gain": 52
     }
   ]
