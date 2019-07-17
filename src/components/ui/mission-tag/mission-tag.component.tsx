@@ -13,39 +13,44 @@ const styles = (theme: Theme) =>
   createStyles({
     root: {
       position: 'fixed',
-      display: 'inline-flex',
+      flexDirection: 'column',
+      display: 'flex',
       alignItems: 'center',
-      maxWidth: 500,
+      width: 320,
+      padding: theme.spacing(2),
+      borderRadius: 5,
+      cursor: 'pointer',
       '&$disabled': {
         filter: 'blur(10px)',
         pointerEvents: 'none'
+      },
+      '&:hover': {
+        boxShadow: `inset 0 0 0 2px ${theme.palette.primary.main}`
       }
     },
     tag: {
+      width: '100%',
+      padding: `0 ${theme.spacing(6)}px`,
+      paddingBottom: theme.spacing(4),
+      paddingTop: theme.spacing(4),
       backgroundColor: theme.palette.background.paper,
-      padding: `${theme.spacing(4)}px ${theme.spacing(6)}px`,
-      cursor: 'pointer',
-      transition: `all 0.4s ${theme.transitions.easing.easeInOut}`,
-      borderColor: theme.palette.background.paper,
-      borderStyle: 'solid',
-      borderWidth: 2,
-      borderRadius: theme.shape.borderRadius,
-      '&:hover': {
-        borderColor: theme.palette.primary.main,
-        transform: 'scale(1.1)'
-      }
+      borderRadius: 10
     },
     spinner: {
-      paddingRight: theme.spacing(10),
-      paddingLeft: theme.spacing(10),
+      display: 'flex',
+      justifyContent: 'center',
+      width: '50%',
+      height: 80,
+      clipPath: 'polygon(50% 100%, 0 0, 100% 0)',
+      background: `radial-gradient(circle at center 35%, transparent 20%, ${theme.palette.background.paper} 21%)`,
       '&:after': {
         content: '" "',
         display: 'block',
-        width: 40,
-        height: 40,
+        width: 54,
+        height: 54,
         margin: 1,
         borderRadius: '50%',
-        border: `8px solid ${theme.palette.primary.main}`,
+        border: `4px solid ${theme.palette.primary.main}`,
         borderColor: `${theme.palette.primary.main} transparent ${theme.palette.primary.main} transparent`,
         animation: '$rotate 0.7s linear infinite'
       }
@@ -68,12 +73,11 @@ interface Props extends WithStyles<typeof styles> {
   mission: Mission;
   position: any;
   disabled?: boolean;
-  rtl?: boolean;
   onSelect: () => void;
 }
 
 const MissionTag: React.FC<Props> = props => {
-  const { classes, mission, position, rtl, onSelect, disabled } = props;
+  const { classes, mission, position, onSelect, disabled } = props;
 
   const rootClasses = clsx(classes.root, {
     [classes.disabled]: disabled
@@ -85,7 +89,6 @@ const MissionTag: React.FC<Props> = props => {
       style={{ left: position.x + '%', top: position.y + '%' }}
       onClick={() => onSelect()}
     >
-      {!rtl && <div className={classes.spinner}></div>}
       <div className={classes.tag}>
         <Typography variant="h6" gutterBottom>
           {mission.title}
@@ -98,7 +101,7 @@ const MissionTag: React.FC<Props> = props => {
           {mission.shortDescription}
         </Typography>
       </div>
-      {rtl && <div className={classes.spinner}></div>}
+      <div className={classes.spinner}></div>
     </div>
   );
 };
