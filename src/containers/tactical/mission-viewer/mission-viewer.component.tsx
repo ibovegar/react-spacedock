@@ -77,7 +77,7 @@ const MissionViewer: React.FC<Props> = props => {
             </IconButton>
           }
           title={mission.title}
-          subheader="September 14, 2016"
+          subheader={mission.shortDescription}
         />
         <CardMedia
           className={classes.media}
