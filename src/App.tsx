@@ -21,12 +21,11 @@ class App extends Component<Props> {
 
     return (
       <Layout authenticated credits={credits}>
-        <Route path="/" component={Tactical} />
+        <Redirect from="/" to="/tactical" />
         <Route path="/tactical" component={Tactical} />
         <Route path="/marketplace" component={Marketplace} />
         <Route path="/inventory" component={Inventory} />
         <Route path="/engineering" component={Engineering} />
-        <Redirect from="/" to="/tactical" />
       </Layout>
     );
   }
