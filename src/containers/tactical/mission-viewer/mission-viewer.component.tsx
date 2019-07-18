@@ -10,7 +10,6 @@ import {
   Card,
   CardHeader,
   Avatar,
-  // CardMedia,
   CardContent,
   Typography,
   CardActions,
@@ -19,7 +18,7 @@ import {
   Theme,
   IconButton
 } from '@material-ui/core';
-import { MissionStats } from 'components/ui';
+import { MissionStats, MissionProgress } from 'components/ui';
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -31,7 +30,6 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   card: {
     width: '50%',
-    zIndex: 1000,
     position: 'relative'
   },
   stats: {
@@ -45,7 +43,8 @@ const useStyles = makeStyles((theme: Theme) => ({
   media: {
     height: '440px',
     width: '100%',
-    objectFit: 'cover'
+    objectFit: 'cover',
+    display: 'block'
   },
   avatar: {
     marginLeft: theme.spacing(2),
@@ -55,6 +54,17 @@ const useStyles = makeStyles((theme: Theme) => ({
   actions: {
     display: 'flex',
     justifyContent: 'center'
+  },
+  inProgress: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    position: 'absolute',
+    width: '100%',
+    height: '100%',
+    zIndex: 1000,
+    backgroundColor: theme.palette.background.paper
   }
 }));
 
@@ -70,8 +80,13 @@ type Props = StateProps & RouteComponentProps<MatchParams>;
 
 const MissionViewer: React.FC<Props> = props => {
   const [redirect, setRedirect] = useState(false);
+  const [inProgress, setInProgress] = useState(false);
   const classes = useStyles();
   const { mission } = props;
+
+  const handleOnCompleted = () => {
+    setRedirect(true);
+  };
 
   if (redirect) return <Redirect to="/tactical" />;
   if (!mission) return <div>loading mission...</div>;
@@ -79,6 +94,12 @@ const MissionViewer: React.FC<Props> = props => {
   return (
     <div className={classes.root}>
       <Card className={classes.card}>
+        {inProgress && (
+          <MissionProgress
+            className={classes.inProgress}
+            onCompleted={handleOnCompleted}
+          />
+        )}
         <CardHeader
           avatar={<Avatar className={classes.avatar}>R</Avatar>}
           action={
@@ -92,6 +113,7 @@ const MissionViewer: React.FC<Props> = props => {
         <img
           className={classes.media}
           src={`${process.env.PUBLIC_URL}/images/art/${mission.id}.jpg`}
+          alt=""
         />
         <MissionStats className={classes.stats} mission={mission} />
         <CardContent className={classes.content}>
@@ -100,7 +122,11 @@ const MissionViewer: React.FC<Props> = props => {
           </Typography>
         </CardContent>
         <CardActions className={classes.actions}>
-          <Button variant="contained" color="primary">
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={() => setInProgress(true)}
+          >
             LAUNCH MISSION
           </Button>
         </CardActions>

@@ -20,12 +20,14 @@ const styles = (theme: Theme) =>
       padding: theme.spacing(2),
       borderRadius: 5,
       cursor: 'pointer',
+      transition: 'all 0.2s',
       '&$disabled': {
         filter: 'blur(10px)',
         pointerEvents: 'none'
       },
       '&:hover': {
-        boxShadow: `inset 0 0 0 2px ${theme.palette.primary.main}`
+        transform: 'scale(1.05)',
+        boxShadow: `inset 0 0 30px 2px ${theme.palette.primary.main}`
       }
     },
     tag: {
