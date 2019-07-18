@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-// import { formatCurrency } from 'utils/helpers';
 import { RouteComponentProps, Redirect } from 'react-router-dom';
 import { Mission } from 'models';
 import { AppState } from 'store';
 import { connect } from 'react-redux';
+import { addCredits } from 'store/user';
 import { getMissionById, completeMission } from 'store/missions';
 import CloseIcon from '@material-ui/icons/Close';
 import {
@@ -69,8 +69,9 @@ const useStyles = makeStyles((theme: Theme) => ({
 }));
 
 interface StateProps {
-  mission?: Mission;
-  completeMission: (mission) => void;
+  mission: Mission;
+  completeMission: (mission: Mission) => void;
+  addCredits: (amount: number) => void;
 }
 
 interface MatchParams {
@@ -83,10 +84,11 @@ const MissionViewer: React.FC<Props> = props => {
   const [redirect, setRedirect] = useState(false);
   const [inProgress, setInProgress] = useState(false);
   const classes = useStyles();
-  const { mission, completeMission } = props;
+  const { mission, completeMission, addCredits } = props;
 
   const handleOnCompleted = () => {
     completeMission(mission);
+    addCredits(mission.credits);
     setRedirect(true);
   };
 
@@ -138,7 +140,8 @@ const MissionViewer: React.FC<Props> = props => {
 };
 
 export const mapDispatch = {
-  completeMission
+  completeMission,
+  addCredits
 };
 
 const mapState = (state: AppState, ownProps: Props) => ({
