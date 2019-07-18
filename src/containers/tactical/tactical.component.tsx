@@ -50,6 +50,9 @@ class Tactical extends React.Component<Props> {
   };
 
   render() {
+    const isWatchingMission =
+      this.props.history.location.pathname !== '/tactical';
+
     return (
       <>
         {this.props.missions.map((mission: Mission, index: number) => (
@@ -57,7 +60,7 @@ class Tactical extends React.Component<Props> {
             key={mission.id}
             mission={mission}
             position={tagPositions[index]}
-            disabled={this.props.history.location.pathname !== '/tactical'}
+            disabled={isWatchingMission || mission.completed}
             onSelect={() => this.handleSelectMission(mission.id)}
           />
         ))}

@@ -15,14 +15,14 @@ export function reducer(
   action: ActionTypes
 ): State {
   switch (action.type) {
-    case 'LOAD_ALL_spacecraftS_REQUEST': {
+    case 'LOAD_ALL_SPACECRAFTS_REQUEST': {
       return {
         ...state,
         isLoading: true
       };
     }
 
-    case 'LOAD_ALL_spacecraftS_SUCCESS': {
+    case 'LOAD_ALL_SPACECRAFTS_SUCCESS': {
       return {
         ...state,
         isLoading: false,
@@ -31,7 +31,7 @@ export function reducer(
       };
     }
 
-    case 'LOAD_ALL_spacecraftS_FAILURE': {
+    case 'LOAD_ALL_SPACECRAFTS_FAILURE': {
       return {
         ...state,
         isLoading: false

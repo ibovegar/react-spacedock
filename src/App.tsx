@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Route } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 import Layout from './components/layout/layout.component';
 import { Tactical, Marketplace, Inventory, Engineering } from 'containers';
 import { loadUserStats } from 'store/user';
@@ -21,10 +21,12 @@ class App extends Component<Props> {
 
     return (
       <Layout authenticated credits={credits}>
+        <Route path="/" component={Tactical} />
         <Route path="/tactical" component={Tactical} />
         <Route path="/marketplace" component={Marketplace} />
         <Route path="/inventory" component={Inventory} />
         <Route path="/engineering" component={Engineering} />
+        <Redirect from="/" to="/tactical" />
       </Layout>
     );
   }

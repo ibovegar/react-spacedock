@@ -4,7 +4,7 @@ import { RouteComponentProps, Redirect } from 'react-router-dom';
 import { Mission } from 'models';
 import { AppState } from 'store';
 import { connect } from 'react-redux';
-import { getMissionById } from 'store/missions';
+import { getMissionById, completeMission } from 'store/missions';
 import CloseIcon from '@material-ui/icons/Close';
 import {
   Card,
@@ -70,6 +70,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 interface StateProps {
   mission?: Mission;
+  completeMission: (mission) => void;
 }
 
 interface MatchParams {
@@ -82,9 +83,10 @@ const MissionViewer: React.FC<Props> = props => {
   const [redirect, setRedirect] = useState(false);
   const [inProgress, setInProgress] = useState(false);
   const classes = useStyles();
-  const { mission } = props;
+  const { mission, completeMission } = props;
 
   const handleOnCompleted = () => {
+    completeMission(mission);
     setRedirect(true);
   };
 
@@ -135,8 +137,15 @@ const MissionViewer: React.FC<Props> = props => {
   );
 };
 
+export const mapDispatch = {
+  completeMission
+};
+
 const mapState = (state: AppState, ownProps: Props) => ({
   mission: getMissionById(state, ownProps.match.params.missionId)
 });
 
-export default connect(mapState)(MissionViewer);
+export default connect(
+  mapState,
+  mapDispatch
+)(MissionViewer);
