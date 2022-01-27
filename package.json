@@ -22,7 +22,7 @@
     "redux": "^4.0.4",
     "redux-thunk": "^2.3.0",
     "reselect": "^4.0.0",
-    "three": "^0.105.2",
+    "three": "^0.137.0",
     "three-gltf-loader": "^1.105.0",
     "three-orbitcontrols-ts": "^0.1.2",
     "typescript": "3.5.2"
