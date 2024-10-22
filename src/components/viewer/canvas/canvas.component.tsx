@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 import * as THREE from 'three';
 import { OrbitControls } from 'three-orbitcontrols-ts';
-import GLTFLoader from 'three-gltf-loader';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { Spacecraft, AttachedUpgrades, UpgradeType } from 'models';
 import upgradeMap from './upgrade-map';
 import { getAspectRatio } from 'utils/helpers';
@@ -12,7 +14,7 @@ interface Props {
   onLoaded: () => void;
 }
 
-export default class Canvas extends Component<Props, {}> {
+export default class Canvas extends Component<Props, any> {
   camera: THREE.PerspectiveCamera;
   scene: THREE.Scene;
   renderer: THREE.WebGLRenderer;
@@ -21,7 +23,7 @@ export default class Canvas extends Component<Props, {}> {
   mesh: any = null;
   canvas: any = null;
   frameId: any = null;
-  enableHelpers: boolean = false;
+  enableHelpers = false;
   spacecraftModel: any;
 
   componentDidMount() {
@@ -141,7 +143,7 @@ export default class Canvas extends Component<Props, {}> {
     const loader = new GLTFLoader(manager);
     loader.load(
       `${process.env.PUBLIC_URL}/models/${this.props.spacecraft.spacecraftRegistry}.glb`,
-      gltf => {
+      (gltf) => {
         this.scene.add(gltf.scene);
         this.spacecraftModel = this.scene.children.find(
           (obj: any) => obj.isScene
@@ -149,7 +151,7 @@ export default class Canvas extends Component<Props, {}> {
         this.props.onLoaded();
       },
       () => console.log(''),
-      error => console.error(error)
+      (error) => console.error(error)
     );
 
     this.renderer = new THREE.WebGLRenderer({
@@ -180,7 +182,7 @@ export default class Canvas extends Component<Props, {}> {
       <div
         style={{ width: '100%', height: '100%' }}
         onClick={this.handleClick}
-        ref={canvas => {
+        ref={(canvas) => {
           this.canvas = canvas;
         }}
       />

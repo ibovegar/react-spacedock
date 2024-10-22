@@ -11,7 +11,7 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
   onCompleted: () => void;
 }
 
-const MissionProgress: React.FC<Props> = props => {
+const MissionProgress: React.FC<Props> = (props) => {
   const { onCompleted, className } = props;
   const [progress, setProgress] = useState(0);
   const classes = useStyles();
@@ -19,7 +19,7 @@ const MissionProgress: React.FC<Props> = props => {
 
   React.useEffect(() => {
     const timer = setInterval(() => {
-      setProgress(oldProgress => {
+      setProgress((oldProgress) => {
         if (oldProgress >= 100) {
           clearInterval(timer);
           onCompleted();

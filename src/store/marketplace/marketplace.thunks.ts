@@ -14,21 +14,20 @@ export const loadStore = () => async (dispatch: Dispatch) => {
   }
 };
 
-export const purchase = (cart: (Spacecraft | Upgrade)[]) => async (
-  dispatch: Dispatch
-) => {
-  const totalPrice = cart.reduce((sum, i) => {
-    return sum + i.price;
-  }, 0);
+export const purchase =
+  (cart: (Spacecraft | Upgrade)[]) => async (dispatch: Dispatch) => {
+    const totalPrice = cart.reduce((sum, i) => {
+      return sum + i.price;
+    }, 0);
 
-  dispatch(actions.purchaseRequest());
+    dispatch(actions.purchaseRequest());
 
-  API.purchase(cart)
-    .then(() => {
-      dispatch(actions.purchaseSuccess());
-      dispatch(fromUserStore.subtractCredits(totalPrice));
-    })
-    .catch(error => {
-      dispatch(actions.purchaseFailure(error));
-    });
-};
+    API.purchase(cart)
+      .then(() => {
+        dispatch(actions.purchaseSuccess());
+        dispatch(fromUserStore.subtractCredits(totalPrice));
+      })
+      .catch((error) => {
+        dispatch(actions.purchaseFailure(error));
+      });
+  };

@@ -16,7 +16,7 @@ export const purchase = async (
 ): Promise<any> => {
   const promises: Promise<Spacecraft | Upgrade>[] = [];
 
-  for (let product of cart) {
+  for (const product of cart) {
     if (isSpacecraft(product)) {
       promises.push(spacecraftAPI.post(product));
     }

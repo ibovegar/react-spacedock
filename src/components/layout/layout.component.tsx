@@ -34,7 +34,7 @@ interface Props extends RouteComponentProps {
   children: ReactNode;
 }
 
-const Layout: React.FC<Props> = props => {
+const Layout: React.FC<Props> = (props) => {
   const classes = useStyles();
   const { children, history, credits } = props;
 

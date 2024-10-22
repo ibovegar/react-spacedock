@@ -78,7 +78,7 @@ interface Props extends WithStyles<typeof styles> {
   onSelect: () => void;
 }
 
-const MissionTag: React.FC<Props> = props => {
+const MissionTag: React.FC<Props> = (props) => {
   const { classes, mission, position, onSelect, disabled } = props;
 
   const rootClasses = clsx(classes.root, {

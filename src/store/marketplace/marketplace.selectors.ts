@@ -5,10 +5,5 @@ import { toArray } from 'utils/helpers';
 
 const getStoreEnities = (state: AppState) => state.marketplace.products;
 
-export const getUpgradeList: Selector<
-  AppState,
-  (Upgrade | Spacecraft)[]
-> = createSelector(
-  getStoreEnities,
-  entities => toArray(entities)
-);
+export const getUpgradeList: Selector<AppState, (Upgrade | Spacecraft)[]> =
+  createSelector(getStoreEnities, (entities) => toArray(entities));

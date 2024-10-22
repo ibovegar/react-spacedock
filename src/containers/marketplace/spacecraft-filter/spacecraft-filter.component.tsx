@@ -43,7 +43,7 @@ export default class SpacecraftFilter extends React.Component<Props, State> {
 
   handleFilterClick = (filter: ProductFilter) => {
     this.setState(
-      produce(state => {
+      produce((state) => {
         state[filter.id].value = !state[filter.id].value;
       }),
       () => {

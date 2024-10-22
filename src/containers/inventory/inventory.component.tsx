@@ -15,7 +15,7 @@ const styles = ({ spacing }: Theme) =>
     }
   });
 
-class Inventory extends React.Component<WithStyles<typeof styles>, {}> {
+class Inventory extends React.Component<WithStyles<typeof styles>, any> {
   state = {
     age: '',
     name: 'hai'

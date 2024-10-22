@@ -20,7 +20,7 @@ interface Props extends WithStyles<typeof styles> {
   attachedUpgrades: AttachedUpgrades;
 }
 
-class SpacecraftViewer extends Component<Props, {}> {
+class SpacecraftViewer extends Component<Props, any> {
   state = {
     isLoading: true
   };

@@ -19,9 +19,17 @@
     "noImplicitReturns": false,
     "noImplicitAny": false,
     "baseUrl": "src",
-    "suppressImplicitAnyIndexErrors": true,
     "strictPropertyInitialization": false
   },
   "include": ["src"],
-  "exclude": ["node_modules", "build", "src/setupTests.ts"]
+  "exclude": [
+    "node_modules",
+    "build",
+    "src/setupTests.ts",
+    "./node_modules",
+    "./node_modules/*",
+    "./node_modules/@types/node/index.d.ts",
+    "node_modules/@types/three/*"
+  ],
+  "types": []
 }

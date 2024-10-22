@@ -8,7 +8,7 @@ import * as interfaces from './engineering.interface';
 import { Placeholder } from 'components/ui';
 import { Button } from '@material-ui/core';
 
-class Engineering extends React.Component<interfaces.Props, {}> {
+class Engineering extends React.Component<interfaces.Props, any> {
   componentDidMount() {
     this.props.loadSpacecrafts();
     this.props.loadAllUpgrades();
@@ -20,12 +20,8 @@ class Engineering extends React.Component<interfaces.Props, {}> {
   };
 
   render() {
-    const {
-      match,
-      spacecrafts,
-      isLoadingspacecrafts,
-      isLoadingUpgrades
-    } = this.props;
+    const { match, spacecrafts, isLoadingspacecrafts, isLoadingUpgrades } =
+      this.props;
 
     if (!spacecrafts.length) {
       return (
@@ -61,7 +57,7 @@ class Engineering extends React.Component<interfaces.Props, {}> {
           <Switch>
             <Route
               path={`${match.path}/:spacecraftId`}
-              render={props => (
+              render={(props) => (
                 <SpacecraftBuilder
                   key={props.match.params.spacecraftId}
                   {...props}

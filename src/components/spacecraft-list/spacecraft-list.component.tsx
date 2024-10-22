@@ -37,7 +37,7 @@ interface StateProps {
   onSpacecraftClick?: (event: React.MouseEvent) => void;
 }
 
-const SpacecraftList: React.FC<StateProps> = props => {
+const SpacecraftList: React.FC<StateProps> = (props) => {
   const { spacecrafts, onSpacecraftClick } = props;
   const classes = useStyles();
 

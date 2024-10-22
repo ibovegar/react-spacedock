@@ -33,7 +33,7 @@ interface Props extends WithStyles<typeof styles> {
   onFilterClick: (filter: ProductFilter) => void;
 }
 
-const ProductFilterGroup: React.FC<Props> = props => {
+const ProductFilterGroup: React.FC<Props> = (props) => {
   const { classes, filters, title, onFilterClick, defaultExpanded } = props;
 
   return (

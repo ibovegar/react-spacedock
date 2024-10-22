@@ -15,7 +15,7 @@ interface Props {
   onSelectUpgrade: (oldUpgrade: Upgrade, newUpgrade: Upgrade) => void;
 }
 
-const UpgradeControls: React.FC<Props> = props => {
+const UpgradeControls: React.FC<Props> = (props) => {
   const {
     availableUpgrades: available,
     attachedUpgrades: attached,

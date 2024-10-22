@@ -122,8 +122,5 @@ export const mapDispatchToProps = {
 };
 
 export default withStyles(styles)(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(Marketplace)
+  connect(mapStateToProps, mapDispatchToProps)(Marketplace)
 );

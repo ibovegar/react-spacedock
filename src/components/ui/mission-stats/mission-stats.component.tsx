@@ -28,7 +28,7 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
   mission: Mission;
 }
 
-const MissionTag: React.FC<Props> = props => {
+const MissionTag: React.FC<Props> = (props) => {
   const { mission, className } = props;
   const classes = useStyles();
   const rootClasses = clsx(classes.root, className);

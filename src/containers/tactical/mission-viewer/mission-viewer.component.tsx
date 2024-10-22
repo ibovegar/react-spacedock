@@ -80,7 +80,7 @@ interface MatchParams {
 
 type Props = StateProps & RouteComponentProps<MatchParams>;
 
-const MissionViewer: React.FC<Props> = props => {
+const MissionViewer: React.FC<Props> = (props) => {
   const [redirect, setRedirect] = useState(false);
   const [inProgress, setInProgress] = useState(false);
   const classes = useStyles();
@@ -148,7 +148,4 @@ const mapState = (state: AppState, ownProps: Props) => ({
   mission: getMissionById(state, ownProps.match.params.missionId)
 });
 
-export default connect(
-  mapState,
-  mapDispatch
-)(MissionViewer);
+export default connect(mapState, mapDispatch)(MissionViewer);

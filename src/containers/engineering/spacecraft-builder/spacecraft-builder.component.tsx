@@ -6,7 +6,7 @@ import Box from '@material-ui/core/Box';
 import * as interfaces from './spacecraft-builder.interface';
 import { Upgrade } from 'models';
 
-class SpacecraftBuilder extends React.Component<interfaces.Props, {}> {
+class SpacecraftBuilder extends React.Component<interfaces.Props, any> {
   componentDidMount() {
     this.props.setSelectedSpacecraft(this.props.match.params.spacecraftId);
   }
@@ -39,7 +39,7 @@ class SpacecraftBuilder extends React.Component<interfaces.Props, {}> {
             spacecraft={spacecraft}
             attachedUpgrades={attachedUpgrades}
             availableUpgrades={availableUpgrades}
-            onDeselectUpgrade={upgrade => this.handleDeselectUpgrade(upgrade)}
+            onDeselectUpgrade={(upgrade) => this.handleDeselectUpgrade(upgrade)}
             onSelectUpgrade={(oldUpgrade, newUpgrade) =>
               this.handleSelectUpgrade(oldUpgrade, newUpgrade)
             }

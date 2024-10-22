@@ -15,7 +15,7 @@ interface Props extends WithStyles<typeof styles> {
   onDeselect: () => void;
 }
 
-const UpgradeSelect: React.FC<Props> = props => {
+const UpgradeSelect: React.FC<Props> = (props) => {
   const { classes, value, options, type, onSelect, onDeselect } = props;
   const [anchorEl, setAnchorEl]: [any, any] = React.useState(null);
 

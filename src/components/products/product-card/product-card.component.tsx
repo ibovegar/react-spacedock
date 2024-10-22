@@ -15,7 +15,7 @@ interface Props extends WithStyles<typeof styles> {
   onAddClick: () => void;
 }
 
-const ProductCard: React.FC<Props> = props => {
+const ProductCard: React.FC<Props> = (props) => {
   const { product, classes, onAddClick } = props;
 
   const imgUrl = isSpacecraft(product)

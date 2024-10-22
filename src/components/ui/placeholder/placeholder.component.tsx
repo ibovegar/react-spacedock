@@ -37,7 +37,7 @@ interface Props extends WithStyles<typeof styles> {
   message: string;
 }
 
-const Placeholder: React.FC<Props> = props => {
+const Placeholder: React.FC<Props> = (props) => {
   const { classes, action } = props;
 
   return (

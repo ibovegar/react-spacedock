@@ -41,7 +41,7 @@ export function reducer(
     }
 
     case 'COMPLETE_MISSION_SUCCESS': {
-      let entities: any = { ...state.entities };
+      const entities: any = { ...state.entities };
       entities[action.mission.id] = action.mission;
 
       return {

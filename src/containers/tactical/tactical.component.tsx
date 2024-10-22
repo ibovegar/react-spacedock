@@ -84,7 +84,4 @@ const mapDispatchToProps = {
   loadMissions
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Tactical);
+export default connect(mapStateToProps, mapDispatchToProps)(Tactical);

@@ -20,7 +20,7 @@ interface Props {
   children: ReactNode;
 }
 
-const Widget: React.FC<Props> = props => {
+const Widget: React.FC<Props> = (props) => {
   const classes = useStyles();
   const { children } = props;
 

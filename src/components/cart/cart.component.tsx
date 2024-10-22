@@ -10,7 +10,7 @@ interface Props {
   onPurchase: () => void;
 }
 
-const Cart: React.FC<Props> = props => {
+const Cart: React.FC<Props> = (props) => {
   const { cart, credits, onRemove, onPurchase } = props;
 
   const totalPrice = cart.reduce((sum, i) => {
